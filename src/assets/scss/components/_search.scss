@@ -1,0 +1,6 @@
+@use '../abstracts/colors' as c;
+
+.search{
+  background-color: c.$black;
+  color: c.$white;
+}

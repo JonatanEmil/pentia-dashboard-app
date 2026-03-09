@@ -1,0 +1,6 @@
+@use '../abstracts/colors' as c;
+
+.header{
+  background-color: c.$navy;
+  color: c.$white;
+}
