@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue';
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 interface T { x: number }
 const john: string = 'Cena';
