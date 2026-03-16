@@ -2,3 +2,7 @@
 @use 'globals/margin';
 @use 'globals/padding';
 @use 'abstracts/colors' as c;
+
+.wrapper {
+  background-color: c.$primary;
+}
