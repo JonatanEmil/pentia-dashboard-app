@@ -10,10 +10,11 @@
     "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "lint": "run-s lint:*",
+    "lint": "eslint ./src --ext .vue", 
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "lint:fix": "npx eslint --fix ./src"
+    "lint:fix": "npx eslint --fix ./src",
+    "lint:watch": "nodemon --watch ./src --ext ts,vue,js --exec \"npm run lint\""
   },
   "dependencies": {
     "pinia": "^3.0.4",

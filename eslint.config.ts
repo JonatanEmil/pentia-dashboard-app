@@ -12,7 +12,7 @@ import stylistic from '@stylistic/eslint-plugin';
 
 export default defineConfigWithVueTs(
     {
-        ignores: ['src/router/**'],
+        ignores: ['src/router/**','src/assets/icons/**'],
         name: 'app/files-to-lint',
         files: ['**/*.{vue,ts,mts,tsx}'],
         plugins: { '@stylistic': stylistic },
@@ -44,7 +44,7 @@ export default defineConfigWithVueTs(
                     code: 100,
                     tabWidth: 4,
                     ignoreUrls: true,
-                    ignoreStrings: false,
+                    ignoreStrings: true,
                     ignoreTemplateLiterals: true,
                     ignoreRegExpLiterals: true,
                 },
