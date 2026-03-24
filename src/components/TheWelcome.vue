@@ -41,8 +41,6 @@ import WelcomeItem from './WelcomeItem.vue';
     <br />
 
     More instructions are available in
-    <a href="javascript:void(0)" @click="openReadmeInEditor"><code>README.md</code></a
-    >.
   </WelcomeItem>
 
   <WelcomeItem>
