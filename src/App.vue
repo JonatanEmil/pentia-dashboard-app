@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import '@/assets/scss/main.scss';
 import HelloWorld from './components/HelloWorld.vue';
-import RadioButton from './components/RadioButton.vue';
 </script>
 
 <template>
   <header>
-      <RadioButton class=""></RadioButton>
+
+
     <div class="wrapper">
       <HelloWorld msg="You did it!"/>
         <p class="font--h1">Fundament</p>
