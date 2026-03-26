@@ -9,7 +9,8 @@ import RadioButton from './components/RadioButton.vue';
   <header>
       <RadioButton class=""></RadioButton>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="You did it!"/>
+        <p class="font--h1">Fundament</p>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
