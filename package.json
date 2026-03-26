@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "doc": "typedoc",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
@@ -15,6 +16,7 @@
     "lint:eslint": "eslint . --fix --cache",
     "lint:fix": "npx eslint --fix ./src",
     "lint:watch": "nodemon --watch ./src --ext ts,vue,js --exec \"npm run lint\""
+    
   },
   "dependencies": {
     "pinia": "^3.0.4",
