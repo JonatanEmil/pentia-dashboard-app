@@ -1,0 +1,5 @@
+@use '../abstracts/colors' as c;
+
+.radioButton {
+    background-color: c.$primary;
+}
