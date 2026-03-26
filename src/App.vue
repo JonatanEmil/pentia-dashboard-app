@@ -8,7 +8,8 @@ import HelloWorld from './components/HelloWorld.vue';
 
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="You did it!"/>
+        <p class="font--h1">Fundament</p>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
