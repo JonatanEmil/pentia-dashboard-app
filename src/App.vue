@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
+import NavbarButton from './components/NavbarButton.vue';
 </script>
 
 <template>
   <header>
-
+    <NavbarButton name="Hjem" url="das" svg-file-path="@/assets/icons/ikon_besked.svg"></NavbarButton>
 
     <div class="wrapper">
       <HelloWorld msg="You did it!"/>
-        <p class="font--h1">Fundament</p>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
