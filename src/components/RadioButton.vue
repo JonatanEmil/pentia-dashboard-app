@@ -3,7 +3,9 @@
 </script>
 
 <template>
-    <input class="radioButton"
-        type="radio"
-    placeholder="Hellp">
+    <button
+        class="radioButton"
+    >
+        {{value}}
+    </button>
 </template>
