@@ -1,6 +1,7 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
 @use 'components/inputText';
+@use 'components/radioButton';
 @use 'globals/flex';
 @use 'globals/margin';
 @use 'globals/padding';
@@ -13,4 +14,4 @@ body {
 
 
 
-    
+

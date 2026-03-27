@@ -1,5 +1,16 @@
 @use '../abstracts/colors' as c;
 
 .radioButton {
-    background-color: c.$primary;
+    appearance: none;
+    background-color: c.$secondary;
+    border: none;
+    border-radius: 24px;
+    color: c.$primary;
+    height: 32px;
+    width: 100px;
+
+    &.active {
+        background-color: c.$primary;
+        color: c.$highlight;
+    }
 }
