@@ -1,86 +1,90 @@
 <script setup lang="ts">
-import NavbarButton from '@/components/NavbarButton.vue';
-import homeSvg from '@/assets/icons/ikon_hjem.svg';
-import iconAddSvg from '@/assets/icons/ikon_tilfoj.svg';
-import chatSvg from '@/assets/icons/ikon_besked.svg';
-import profileSvg from '@/assets/icons/ikon_profil.svg';
-import contractSvg from '@/assets/icons/ikon_kontrakt.svg';
-import calendarSvg from '@/assets/icons/ikon_book.svg';
+import NavbarButton from './NavbarButton.vue';
+import { defineAsyncComponent, ref } from 'vue';
 
 const links = {
     manager:[
         {
             name: 'Hjem',
             routeName: 'home',
-            svgFilePath: homeSvg,
+            svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
         },
         {
             name: 'Tilføj',
             routeName: 'createClient',
-            svgFilePath: iconAddSvg,
+            svgComponent: defineAsyncComponent(() => import('@/assets/icons/AddIcon.vue')),
         },
         {
             name: 'Besked',
             routeName: 'chat',
-            svgFilePath: chatSvg,
+            svgComponent: defineAsyncComponent(() => import('@/assets/icons/ChatIcon.vue')),
         },
         {
             name: 'Profil',
             routeName: 'profile',
-            svgFilePath: profileSvg,
+            svgComponent: defineAsyncComponent(() => import('@/assets/icons/ProfileIcon.vue')),
         },
     ],
     client:[
         {
             name: 'Hjem',
             routeName: 'home',
-            svgFilePath: homeSvg,
+            svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
         },
         {
             name: 'Kontrakt',
             routeName: 'contract',
-            svgFilePath: contractSvg,
+            svgComponent: defineAsyncComponent(() => import('@/assets/icons/ContractIcon.vue')),
         },
         {
             name: 'Book',
             routeName: 'calender',
-            svgFilePath: calendarSvg,
+            svgComponent: defineAsyncComponent(() => import('@/assets/icons/CalenderIcon.vue')),
         },
         {
             name: 'Besked',
             routeName: 'chat',
-            svgFilePath: chatSvg,
+            svgComponent: defineAsyncComponent(() => import('@/assets/icons/ChatIcon.vue')),
         },
         {
             name: 'Profil',
             routeName: 'profile',
-            svgFilePath: profileSvg,
+            svgComponent: defineAsyncComponent(() => import('@/assets/icons/ProfileIcon.vue')),
         },
     ] };
 
+const navToggle = ref(true);
+
 </script>
 <template>
-    <!-- show if manager is logged in -->
-    <div v-if="true">
+    <!-- true hvis man er logget ind som manager -->
+    <button v-on:click="navToggle = !navToggle">Change nav view</button>
+    <nav 
+        v-if="navToggle"
+        class="navbarContainer flex flex--row flex--just-around flex--align-center"
+    >
+    <component :is="svgComponent"/>
         <NavbarButton 
             v-for="link in links.manager" 
             :key="link.routeName"
 
             :name="link.name"
             :routeName="link.routeName"
-            :svgFilePath="link.svgFilePath"
+            :svgComponent="link.svgComponent"
         />
-    </div>
+    </nav>
 
-    <!-- show if client is logged in -->
-    <div v-if="true">
-            <NavbarButton 
-                v-for="link in links.client" 
-                :key="link.routeName"
+    <nav 
+        v-else
+        class="navbarContainer flex flex--row flex--just-between flex--align-center"
+    >
+        <NavbarButton
+            v-for="link in links.client" 
+            :key="link.routeName"
 
-                :name="link.name"
-                :routeName="link.routeName"
-                :svgFilePath="link.svgFilePath"
-            />
-    </div>
+            :name="link.name"
+            :routeName="link.routeName"
+            :svgComponent="link.svgComponent"
+        />
+    </nav>
 </template>
