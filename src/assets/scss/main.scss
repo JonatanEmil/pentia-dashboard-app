@@ -1,11 +1,21 @@
+@use 'abstracts/colors' as c;
+@use 'abstracts/fonts' as f;
+
+@use 'components/inputText';
+@use 'components/radioButton';
+@use 'components/formButtonSubmit';
+
 @use 'globals/flex';
 @use 'globals/margin';
 @use 'globals/padding';
-@use 'abstracts/colors' as c;
-@use 'abstracts/fonts' as f;
 
 body {
     font-family: f.$font-main;
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
 }
+
+
+
+
+
