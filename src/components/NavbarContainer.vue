@@ -59,3 +59,28 @@ const links = {
     ] };
 
 </script>
+<template>
+    <!-- show if manager is logged in -->
+    <div v-if="true">
+        <NavbarButton 
+            v-for="link in links.manager" 
+            :key="link.routeName"
+
+            :name="link.name"
+            :routeName="link.routeName"
+            :svgFilePath="link.svgFilePath"
+        />
+    </div>
+
+    <!-- show if client is logged in -->
+    <div v-if="true">
+            <NavbarButton 
+                v-for="link in links.client" 
+                :key="link.routeName"
+
+                :name="link.name"
+                :routeName="link.routeName"
+                :svgFilePath="link.svgFilePath"
+            />
+    </div>
+</template>
