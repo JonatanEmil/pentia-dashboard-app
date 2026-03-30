@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
+import FormButtonSubmit from './components/FormButtonSubmit.vue';
+
 </script>
 
 <template>
   <header>
+
+    <FormButtonSubmit>Submit Here</FormButtonSubmit>
+
+    <FormButtonSubmit>Here</FormButtonSubmit>
 
 
     <div class="wrapper">
