@@ -1,26 +1,14 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from './components/HelloWorld.vue';
-
+import FormButtonSubmit from '@/components/FormButtonSubmit.vue';
+import '@/assets/scss/main.scss';
 
 </script>
 
 <template>
-  <header>
+    <FormButtonSubmit class="formButtonSubmit">Opret</FormButtonSubmit>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!"/>
-        <p class="font--h1">Fundament</p>
+    <FormButtonSubmit class="formButtonSubmit">Login</FormButtonSubmit>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/Nannatestarea">Nanna Test Area</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
 </template>
 
 <style scoped>

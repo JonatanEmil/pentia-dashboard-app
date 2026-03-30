@@ -1,7 +1,10 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
+
 @use 'components/inputText';
 @use 'components/radioButton';
+@use 'components/formButtonSubmit';
+
 @use 'globals/flex';
 @use 'globals/margin';
 @use 'globals/padding';
@@ -11,6 +14,7 @@ body {
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
 }
+
 
 
 
