@@ -1,0 +1,6 @@
+<template>
+    <svg width="96" height="41" viewBox="0 0 96 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line y1="-0.5" x2="60.815" y2="-0.5" transform="matrix(-0.82378 -0.56691 0.647534 -0.762037 95.2432 35.3423)" stroke="#EAE8E7"/>
+    <line y1="-0.5" x2="59.9949" y2="-0.5" transform="matrix(0.74332 -0.668936 0.74332 0.668936 0.743164 40.8018)" stroke="#EAE8E7"/>
+    </svg>
+</template>

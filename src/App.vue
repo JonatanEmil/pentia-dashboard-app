@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
-
-
+import NavbarContainer from '@/components/NavbarContainer.vue';
 </script>
 
 <template>
   <header>
+    <NavbarContainer/>
 
     <div class="wrapper">
       <HelloWorld msg="You did it!"/>
-        <p class="font--h1">Fundament</p>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>

@@ -5,6 +5,8 @@
 @use 'components/radioButton';
 @use 'components/formButtonSubmit';
 @use 'components/loginForm';
+@use 'components/navbarButton';
+@use 'components/navbarContainer';
 
 @use 'globals/flex';
 @use 'globals/margin';
@@ -26,7 +28,6 @@ body {
     @media (min-width: 1024px) {
         margin: 90px;
     }
-
 }
 
 

@@ -1,0 +1,24 @@
+@use '@/assets/scss/abstracts/colors' as c;
+
+.navbarButton{
+    display: block;
+    width: auto;
+    text-align: center;
+    text-decoration: none;
+    color: c.$white;
+
+    svg{
+        height:2.5rem;
+        width: auto;
+    }
+    p{
+        margin: 0;
+    }
+}
+
+nav a.router-link-exact-active {
+  color: c.$highlight;
+}
+.icon{
+    fill: deeppink;
+}
