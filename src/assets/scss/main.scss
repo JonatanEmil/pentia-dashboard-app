@@ -4,6 +4,7 @@
 @use 'components/inputText';
 @use 'components/radioButton';
 @use 'components/formButtonSubmit';
+@use 'components/loginForm';
 
 @use 'globals/flex';
 @use 'globals/margin';
@@ -13,6 +14,7 @@ body {
     font-family: f.$font-main;
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
+    background-color: c.$background;
 }
 
 

@@ -1,0 +1,13 @@
+@use '@/assets/scss/abstracts/colors' as c;
+@use '@/assets/scss/abstracts/fonts' as f;
+
+.loginForm {
+    background-color: c.$white;
+    color: c.$black;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
