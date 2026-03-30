@@ -15,6 +15,17 @@ body {
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
     background-color: c.$background;
+
+    margin: 50px;
+
+    @media (min-width: 768px) {
+        margin: 80px;
+    }
+
+    @media (min-width: 1024px) {
+        margin: 90px;
+    }
+
 }
 
 
