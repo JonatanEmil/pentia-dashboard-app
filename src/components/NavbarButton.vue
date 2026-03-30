@@ -11,7 +11,7 @@ defineProps<{
 </script>
 <template>
     <RouterLink :to="{ name: routeName }" class="navbarButton">
-        <component :is="svgComponent"/>
+        <component :is="svgComponent" class="icon" />
         <p class="font--p">{{ name }}</p>
     </RouterLink>
 </template>
