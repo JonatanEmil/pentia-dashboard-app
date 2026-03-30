@@ -1,15 +1,17 @@
 <script setup lang="ts">
+import type { Component } from 'vue';
+
 defineProps<{
   name: string,
   routeName: string,
-  svgFilePath: string
+  svgComponent: Component
 }>();
 
 
 </script>
 <template>
-    <RouterLink :to="{ name: routeName }">
-        <img :src="svgFilePath" alt="Icon">
+    <RouterLink :to="{ name: routeName }" class="navbarButton">
+        <component :is="svgComponent"/>
         <p class="font--p">{{ name }}</p>
     </RouterLink>
 </template>
