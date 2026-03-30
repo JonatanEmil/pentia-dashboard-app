@@ -1,6 +1,5 @@
 <template>
-    <svg width="126" height="63" viewBox="0 0 126 63" fill="none" xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg width="126" height="63" viewBox="0 0 126 63" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect width="126" height="63" fill="url(#pattern0_4172_70)" />
         <defs>
             <pattern id="pattern0_4172_70" patternContentUnits="objectBoundingBox" width="1" height="1">

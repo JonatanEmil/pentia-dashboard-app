@@ -2,7 +2,7 @@
 import type { Component } from 'vue';
 
 defineProps<{
-  name: string,
+  name?: string,
   routeName: string,
   svgComponent: Component
 }>();
@@ -12,6 +12,6 @@ defineProps<{
 <template>
     <RouterLink :to="{ name: routeName }" class="navbarButton">
         <component :is="svgComponent" class="icon" />
-        <p class="font--p">{{ name }}</p>
+        <p class="font--p" v-if="name" >{{ name }}</p>
     </RouterLink>
 </template>

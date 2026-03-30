@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavbarButton from './NavbarButton.vue';
 import { defineAsyncComponent, ref } from 'vue';
+import Logo from '@/assets/icons/LogoIcon.vue';
 
 const links = {
     manager:[
@@ -63,7 +64,9 @@ const navToggle = ref(true);
         v-if="navToggle"
         class="navbarContainer flex flex--row flex--just-around flex--align-center"
     >
-    <component :is="svgComponent"/>
+        <RouterLink :to="{ name: 'home' }" class="navbarLogo">
+            <component :is="Logo"/>
+        </RouterLink>
         <NavbarButton 
             v-for="link in links.manager" 
             :key="link.routeName"
@@ -77,7 +80,10 @@ const navToggle = ref(true);
     <nav 
         v-else
         class="navbarContainer flex flex--row flex--just-between flex--align-center"
-    >
+    >        
+        <RouterLink :to="{ name: 'home' }" class="navbarLogo">
+            <component :is="Logo"/>
+        </RouterLink>
         <NavbarButton
             v-for="link in links.client" 
             :key="link.routeName"
