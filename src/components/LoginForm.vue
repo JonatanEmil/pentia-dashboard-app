@@ -9,8 +9,8 @@ import InputText from '@/components/InputText.vue';
 <template>
     <form class="flex flex--column flex--align-center flex--gaprow-4">
 
-    <InputText placeholderText="Brugernavn" class="py--3"/>
-    <InputText placeholderText="Password" class="py--3"/>
+    <InputText placeholderText="Brugernavn/Sagsnummer" class="p--3 w--66"/>
+    <InputText placeholderText="Password" class="p--3 w--66"/>
 
     <FormButtonSubmit class="formButtonSubmit">Login</FormButtonSubmit>
     </form>

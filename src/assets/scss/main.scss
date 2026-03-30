@@ -9,6 +9,7 @@
 @use 'globals/flex';
 @use 'globals/margin';
 @use 'globals/padding';
+@use 'globals/dimensions';
 
 body {
     font-family: f.$font-main;
