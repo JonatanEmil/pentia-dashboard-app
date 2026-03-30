@@ -4,7 +4,7 @@
 
 <template>
 
-    <button class="formButtonSubmit">
+    <button type="submit" class="formButtonSubmit">
         <slot></slot>
     </button>
 
