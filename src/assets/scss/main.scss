@@ -4,21 +4,37 @@
 @use 'components/inputText';
 @use 'components/radioButton';
 @use 'components/formButtonSubmit';
+@use 'components/loginForm';
 @use 'components/navbarButton';
 @use 'components/navbarContainer';
 
 @use 'globals/flex';
 @use 'globals/margin';
 @use 'globals/padding';
+@use 'globals/dimensions';
 
 body {
     font-family: f.$font-main;
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
-    margin: 0;
+    background-color: c.$background;
+
 }
 
+.globalmargins {
+    margin: 50px;
+    box-sizing: border-box;
 
 
+    @media (min-width: 768px) {
+        margin: 80px;
+        box-sizing: border-box;
 
+    }
 
+    @media (min-width: 1024px) {
+        margin: 90px;
+        box-sizing: border-box;
+
+    }
+}

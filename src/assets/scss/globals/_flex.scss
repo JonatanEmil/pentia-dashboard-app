@@ -48,13 +48,13 @@
   &--gapcol-4 { column-gap: 1.5rem; }
   &--gapcol-5 { column-gap: 3rem; }
 
-  &__align-start { align-self: flex-start; }
-  &__align-center { align-self: center; }
-  &__align-end { align-self: flex-end; }
-  &__align-stretch { align-self: stretch; }
+  &--align-start { align-self: flex-start; }
+  &--align-center { align-self: center; }
+  &--align-end { align-self: flex-end; }
+  &--align-stretch { align-self: stretch; }
 
-  &__just-start { justify-self: flex-start; }
-  &__just-center { justify-self: center; }
-  &__just-end { justify-self: flex-end; }
-  &__just-stretch { justify-self: stretch; }
+  &--just-start { justify-self: flex-start; }
+  &--just-center { justify-self: center; }
+  &--just-end { justify-self: flex-end; }
+  &--just-stretch { justify-self: stretch; }
 }

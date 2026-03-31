@@ -1,6 +1,8 @@
 @use '../abstracts/colors' as c;
+@use '../abstracts/fonts' as f;
 
 .formButtonSubmit{
+  font-family: f.$font-main;;
   background-color: c.$primary;
   color: c.$highlight;
   border: none;
