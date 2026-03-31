@@ -4,8 +4,7 @@
 
 <template>
     <button
-        class="radioButton"
-    >
-        {{value}}
+        class="radioButton">
+        <slot></slot>
     </button>
 </template>
