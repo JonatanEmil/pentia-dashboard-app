@@ -11,7 +11,7 @@ const props = defineProps<{
     cardAlternate?: string
 }>();
 const imageSource = ref('@/assets/');
-const bgClass = ref('cardBG');
+const bgClass = ref('clientBG');
 
 if (props.cardType === 'client') {
     imageSource.value += 'img/' + props.picture.filename;
@@ -32,7 +32,7 @@ else if (props.cardType === 'schedule') {
 </script>
 
 <template>
-    <div :class="'card card-' + cardType + ' ' + bgClass">
+    <!--<div :class="'card card-' + cardType + ' ' + bgClass">
         <div class="card-img">
             <img :src="imageSource" :alt="'Et billede af ' + picture.name">
         </div>
@@ -53,5 +53,57 @@ else if (props.cardType === 'schedule') {
                 <p>{{ meeting.timeDate }}</p>
             </template>
         </div>
+    </div>-->
+    <div class="card card-client flex flex--just-around flex--align-center">
+        <div class="card-img">
+            <img src="@/assets/img/aksel.png" >
+        </div>
+        <div class="card-content flex flex--column flex--gaprow-3">
+                <p>2025-0013458</p>
+                <p>Kenny Jordstrom</p>
+                <p>Palmegade 3</p>
+                <p>+45 8674 5960</p>
+        </div>
     </div>
+    <!--<br>
+    <div class="card card-client">
+        <div class="card-img">
+            <img src="@/assets/img/aksel.png" >
+        </div>
+        <div class="card-content">
+            <p>2025-0013458</p>
+            <p>Kenny Jordstrom</p>
+            <p>Palmegade 3</p>
+            <p>+45 8674 5960</p>
+        </div>
+    </div>
+    <br>
+    <div class="card card-house">
+        <div class="card-img">
+            <img src="@/assets/img/munkebakken.png" >
+        </div>
+        <div class="card-content">
+                <p class="font--h3 font--medium">Adresse</p>
+                <p>Munkebakken 32, 8370 Hadsten</p>
+        </div>
+    </div>
+    <br>
+    <div class="card card-house">
+        <div class="card-img">
+            <img src="@/assets/img/munkebakken.png" >
+        </div>
+        <div class="card-content">
+            <p>Munkebakken 32, 8370 Hadsten</p>
+        </div>
+    </div>
+    <br>
+    <div class="card card-schedule">
+        <div class="card-img">
+             TODO: change path correctly and style icon
+            <img src="@/assets/icons/ikon_book.svg" >
+        </div>
+        <div class="card-content">
+                <p>08/03-26 kl. 09:00</p>
+        </div>
+    </div>-->
 </template>
