@@ -19,7 +19,7 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
     </div>
   </header>
 
-  <RouterView />
+  
 
   <RouterView class="globalmargins"/>
 </template>
