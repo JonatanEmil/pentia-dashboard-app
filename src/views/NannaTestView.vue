@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // import FormButtonSubmit from '@/components/FormButtonSubmit.vue';
 import '@/assets/scss/main.scss';
-import LoginForm from '@/components/LoginForm.vue';
+// import LoginForm from '@/components/LoginForm.vue';
 
 </script>
 
@@ -10,7 +10,11 @@ import LoginForm from '@/components/LoginForm.vue';
 
     <FormButtonSubmit class="formButtonSubmit">Login</FormButtonSubmit> -->
 
-    <LoginForm />
+<!-- <LoginForm /> -->
+
+<div>
+
+</div>
 
 </template>
 

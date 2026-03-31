@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from './components/HelloWorld.vue';
 import NavbarContainer from '@/components/NavbarContainer.vue';
 </script>
 
@@ -9,7 +8,7 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
     <NavbarContainer/>
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!"/>
+
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -19,7 +18,7 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
     </div>
   </header>
 
-  <RouterView />
+  <RouterView class="globalmargins"/>
 </template>
 
 <style scoped>

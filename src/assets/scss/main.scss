@@ -19,18 +19,22 @@ body {
     line-height: 1.4;
     background-color: c.$background;
 
+}
+
+.globalmargins {
     margin: 50px;
+    box-sizing: border-box;
+
 
     @media (min-width: 768px) {
         margin: 80px;
+        box-sizing: border-box;
+
     }
 
     @media (min-width: 1024px) {
         margin: 90px;
+        box-sizing: border-box;
+
     }
 }
-
-
-
-
-
