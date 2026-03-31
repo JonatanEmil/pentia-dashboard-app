@@ -7,18 +7,20 @@
 @use 'components/loginForm';
 @use 'components/navbarButton';
 @use 'components/navbarContainer';
+@use 'components/itemList';
 
 @use 'globals/flex';
 @use 'globals/margin';
 @use 'globals/padding';
 @use 'globals/dimensions';
+@use 'globals/grid';
 
 body {
     font-family: f.$font-main;
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
     background-color: c.$background;
-
+    margin: 0;
 }
 
 .globalmargins {
