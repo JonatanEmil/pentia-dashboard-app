@@ -14,6 +14,7 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/Nannatestarea">Nanna Test Area</RouterLink>
+        <RouterLink to="/Jonatantestarea">Jonatan Test Area</RouterLink>
       </nav>
     </div>
   </header>
