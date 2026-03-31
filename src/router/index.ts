@@ -55,7 +55,12 @@ const router = createRouter({
         {
             path: '/Jonatantestarea',
             name: 'Jonatantestarea',
-            component: () => import('../views/JonatanTestView.vue'),
+            component: () => import('../views/JonatanTestView.vue')
+        },
+        {
+            path: '/valdemartestarea',
+            name: 'ValdemarTestArea',
+            component: () => import('../views/ValdemarTestView.vue'),
         }
     ],
 })
