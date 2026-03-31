@@ -9,7 +9,7 @@ import ProfileSvg from '@/assets/icons/ProfileIcon.vue';
 <template>
     <div class="loginForm">
 
-        <ProfileSvg class="flex flex--just-center mb--2"/>
+        <ProfileSvg class="flex flex--just-center mb--4"/>
 
         <LoginForm />
     </div>

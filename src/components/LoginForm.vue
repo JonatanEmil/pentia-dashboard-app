@@ -7,7 +7,7 @@ import InputText from '@/components/InputText.vue';
 </script>
 
 <template>
-    <form class="loginform flex flex--column flex--align-center flex--gaprow-4">
+    <form class="loginform flex flex--column flex--align-center flex--gaprow-5">
 
     <InputText placeholderText="Brugernavn/Sagsnummer" class="p--3 w--66"/>
     <InputText placeholderText="Password" class="p--3 w--66"/>
