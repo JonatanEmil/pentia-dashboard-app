@@ -23,9 +23,9 @@
   &--align-base { align-items: baseline; }
 
   /* Wrap */
-  &--flex-nowrap { flex-wrap: nowrap; }
-  &--flex-wrap { flex-wrap: wrap; }
-  &--flex-wrap-rev { flex-wrap: wrap-reverse; }
+  &--nowrap { flex-wrap: nowrap; }
+  &--wrap { flex-wrap: wrap; }
+  &--wrap-rev { flex-wrap: wrap-reverse; }
 
   /* Gap */
   &--gap-1 { gap: 0.25rem; }
