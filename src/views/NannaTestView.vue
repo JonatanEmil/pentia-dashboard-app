@@ -1,7 +1,9 @@
 <script setup lang="ts">
 // import FormButtonSubmit from '@/components/FormButtonSubmit.vue';
 import '@/assets/scss/main.scss';
-import LoginContainer from '@/components/LoginContainer.vue';
+// import LoginContainer from '@/components/LoginContainer.vue';
+// import CreateClient from '@/components/CreateClient.vue';
+import CreateClientForm from '@/components/CreateClientForm.vue';
 
 </script>
 
@@ -10,8 +12,9 @@ import LoginContainer from '@/components/LoginContainer.vue';
 
     <FormButtonSubmit class="formButtonSubmit">Login</FormButtonSubmit> -->
 
- <LoginContainer /> 
+<!-- <LoginContainer /> -->
 
+<CreateClientForm />
 
 
 <div>
