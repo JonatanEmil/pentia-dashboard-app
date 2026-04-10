@@ -6,6 +6,7 @@ import '@/components/RadioButton.vue';
 </script>
 
 <template>
+    <div>
 
-
+    </div>
 </template>

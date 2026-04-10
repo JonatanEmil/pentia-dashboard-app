@@ -3,7 +3,8 @@
 import '@/assets/scss/main.scss';
 // import LoginContainer from '@/components/LoginContainer.vue';
 // import CreateClient from '@/components/CreateClient.vue';
-import CreateClientForm from '@/components/CreateClientForm.vue';
+// import CreateClientForm from '@/components/CreateClientForm.vue';
+import CreateClient from '@/components/CreateClient.vue';
 
 </script>
 
@@ -14,7 +15,9 @@ import CreateClientForm from '@/components/CreateClientForm.vue';
 
 <!-- <LoginContainer /> -->
 
-<CreateClientForm />
+<!-- <CreateClientForm /> -->
+
+<CreateClient />
 
 
 <div>
