@@ -5,6 +5,7 @@ import '@/assets/scss/main.scss';
 // import CreateClient from '@/components/CreateClient.vue';
 // import CreateClientForm from '@/components/CreateClientForm.vue';
 import CreateClient from '@/components/CreateClient.vue';
+import SpeakToText from '@/components/SpeakToText.vue';
 
 </script>
 
@@ -18,6 +19,7 @@ import CreateClient from '@/components/CreateClient.vue';
 <!-- <CreateClientForm /> -->
 
 <CreateClient />
+<SpeakToText language="da-DK" />
 
 
 <div>

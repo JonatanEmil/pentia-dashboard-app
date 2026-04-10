@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, watch, onUnmounted } from 'vue';
+import { ref, watchEffect, onUnmounted, computed } from 'vue';
 import SpeechToText from 'speech-to-text';
-import MicrophoneIcon from '@/components/MicrophoneIcon.vue';
+import MicrophoneSvg from '@/assets/icons/MicrophoneIcon.vue';
 
 const emit = defineEmits<{
     (e: 'update:modelValue', value: string): void;
@@ -14,57 +14,64 @@ const listening = ref(false);
 const error = ref<string | null>(null);
 const listener = ref<InstanceType<typeof SpeechToText> | null>(null);
 
-watch(
-    [listening, listener],
-    (_, __, onCleanup) => {
-        const onAnythingSaid = (text: string) => {
-            interimText.value = '';
-            emit('interimText', text);
-        };
+//dette skal slettes når input chat felt bruges
+const displayText = computed(() => {
+    const finalised = finalisedText.value.join(' ');
+    const interim = interimText.value ? ` ${interimText.value}` : '';
 
-        const onEndEvent = () => {
-            if (listening.value) {
-                listner.value?.startListening();
-            }
-        };
+    return finalised + interim;
+});
 
-        const onFinalised = (text: string) => {
-            finalistedText.value = [...finalisedText.value];
-            interimText.value = '';
-            emit('update:modelValue', text);
-        };
 
-        try {
-            listner.value = new SpeechToText(onAnythingSaid, onEndEvent, onFinalised);
-            error.value = null;
-        } catch (err) {
-            if (err instanceof Error) {
-                error.value = err.message;
-            }
+watchEffect((onCleanup): void => {
+    if (!listening.value) return;
+
+    const onAnythingSaid = (text: string): void => {
+
+        interimText.value = text;
+        emit('interimText', text);
+    };
+
+    const onEndEvent = (): void => {
+        if (listening.value) {
+            listener.value?.startListening();
         }
+    };
 
-        onCleanup(() => {
-            listener.value?.stopListening();
-        });
+    const onFinalised = (text: string): void => {
 
-    },
+        finalisedText.value = [text, ...finalisedText.value];
+        interimText.value = '';
+        emit('update:modelValue', text);
+    };
 
-    { immediate: true },
+    try {
+        listener.value = new SpeechToText(onFinalised, onEndEvent, onAnythingSaid, 'da-DK' );
+        listener.value.startListening();
+        error.value = null;
+    } catch (err) {
+        if (err instanceof Error) {
+            error.value = err.message;
+        }
+    }
 
-);
-
-const toggleListening = () => {
-    if (listening.value) {
+    onCleanup(() => {
         listener.value?.stopListening();
+    });
+
+});
+
+
+const toggleListening = (): void => {
+    if (listening.value) {
         listening.value = false;
         interimText.value = '';
     } else {
-        listener.value?.startListening();
         listening.value = true;
     }
 };
 
-onUnmounted(() => {
+onUnmounted((): void => {
     listener.value?.stopListening();
 });
 
@@ -73,7 +80,21 @@ onUnmounted(() => {
 
 <template>
 
-    <div>
+    <div class="speak-btn-wrapper">
+        <!-- textarea skal slettes når knappen skal bruges til chat-->
+        <textarea class="speech-output" 
+        :value="displayText" placeholder="Tryk på mikrofonen og begynd at tale..."
+        readonly></textarea>
+
+        <button class="speak-btn" :class="{ 'speak-btn--active': listening }"
+            :aria-label="listening ? 'Stop optagelse' : 'Start optagelse'" 
+            :aria-pressed="listening" 
+            :disabled="!!error"
+            @click="toggleListening">
+            <MicrophoneSvg />
+
+        </button>
+        <p v-if="error" class="speech-btn__error">{{ error }}</p>
 
     </div>
 
