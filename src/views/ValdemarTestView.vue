@@ -3,6 +3,7 @@ import ItemList from '@/components/ItemList.vue';
 import NavbarButton from '@/components/NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
 import TitleWithText from '@/components/TitleWithText.vue';
+import CheckboxWithText from '@/components/CheckboxWithText.vue';
 const testList = [
     
     {
@@ -64,6 +65,12 @@ const testList = [
 </script>
 
 <template>
+    <CheckboxWithText 
+        text="Bekræft med en meget lang text for at se hvad der sker når man bare skriver" 
+        checked 
+        id="das" 
+        name="da"
+    />
     <TitleWithText
         title="stevo" 
         text="hello world this is the start of a long text"
