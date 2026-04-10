@@ -16,10 +16,10 @@
     "lint:eslint": "eslint . --fix --cache",
     "lint:fix": "npx eslint --fix ./src",
     "lint:watch": "nodemon --watch ./src --ext ts,vue,js --exec \"npm run lint\""
-    
   },
   "dependencies": {
     "pinia": "^3.0.4",
+    "speech-to-text": "^3.0.2",
     "vue": "^3.5.29",
     "vue-router": "^5.0.3"
   },
