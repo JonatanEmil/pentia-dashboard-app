@@ -53,6 +53,22 @@ watch(
 
 );
 
+const toggleListening = () => {
+    if (listening.value) {
+        listener.value?.stopListening();
+        listening.value = false;
+        interimText.value = '';
+    } else {
+        listener.value?.startListening();
+        listening.value = true;
+    }
+};
+
+onUnmounted(() => {
+    listener.value?.stopListening();
+});
+
+
 </script>
 
 <template>
