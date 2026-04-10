@@ -83,7 +83,7 @@ onUnmounted((): void => {
     <div class="speak-btn-wrapper">
         <!-- textarea skal slettes når knappen skal bruges til chat-->
         <textarea class="speech-output" 
-        :value="displayText" placeholder="Tryk på mikrofonen og begynd at tale..."
+        :value="displayText" placeholder="Tryk på mikrofonen for at starte optagelse..."
         readonly></textarea>
 
         <button class="speak-btn" :class="{ 'speak-btn--active': listening }"
