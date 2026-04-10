@@ -2,7 +2,7 @@
 import ItemList from '@/components/ItemList.vue';
 import NavbarButton from '@/components/NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
-
+import TitleWithText from '@/components/TitleWithText.vue';
 const testList = [
     
     {
@@ -64,6 +64,10 @@ const testList = [
 </script>
 
 <template>
+    <TitleWithText
+        title="stevo" 
+        text="hello world this is the start of a long text"
+    />
     <ItemList :items="testList" v-slot="{ item }" :columns="5" :titel="'fancy titel'">
         <NavbarButton 
         :name="item.name" 
