@@ -1,5 +1,5 @@
 import { collection, addDoc } from 'firebase/firestore';
-import { db } from '@/utils/firebase';
+import { db } from '@/utils/firebase.ts';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const addCase = async () => {
