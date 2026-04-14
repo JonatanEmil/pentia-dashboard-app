@@ -3,6 +3,7 @@ import ItemList from '@/components/ItemList.vue';
 import NavbarButton from '@/components/NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
 import TitleWithText from '@/components/TitleWithText.vue';
+import ProgressCard from '@/components/ProgressCard.vue';
 const testList = [
     
     {
@@ -64,6 +65,10 @@ const testList = [
 </script>
 
 <template>
+    <ProgressCard text="a fancy link" routeName="home" status="done"/>
+    <br>
+    <ProgressCard text="a fancy link" routeName="home" status="planned"/>
+
     <TitleWithText
         title="stevo" 
         text="hello world this is the start of a long text"
