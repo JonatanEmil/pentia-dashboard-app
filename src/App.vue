@@ -2,9 +2,6 @@
 import { RouterLink, RouterView } from 'vue-router';
 import NavbarContainer from '@/components/NavbarContainer.vue';
 
-
-
-
 </script>
 
 <template>
