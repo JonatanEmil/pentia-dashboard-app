@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 import NavbarContainer from '@/components/NavbarContainer.vue';
+import firestore from '@/utils/firestore.js';
+firestore.createDoc();
 </script>
 
 <template>
@@ -14,6 +16,7 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
         <RouterLink to="/Nannatestarea">Nanna Test Area</RouterLink>
         <RouterLink to="/Jonatantestarea">Jonatan Test Area</RouterLink>
         <RouterLink to="/valdemartestarea"> Valdemar Test Area </RouterLink>
+
       </nav>
     </div>
   </header>
