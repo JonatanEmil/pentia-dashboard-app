@@ -2,7 +2,7 @@ import { collection, writeBatch, doc } from 'firebase/firestore';
 import { db } from '@/utils/firebase.ts';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const cases = [
+const users = [
     {
         userId: 1,
         firstName: 'Jakob',
@@ -105,14 +105,14 @@ const cases = [
 ];
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const addCases = async () => {
+const addUsers = async () => {
     try {
         const batch = writeBatch(db);
 
-        for (const c of cases) {
-            const ref = doc(collection(db, 'cases'));
+        for (const user of users) {
+            const ref = doc(collection(db, 'users'));
 
-            batch.set(ref, c);
+            batch.set(ref, user);
         }
 
         await batch.commit();
@@ -121,4 +121,4 @@ const addCases = async () => {
     }
 };
 
-addCases();
+addUsers();
