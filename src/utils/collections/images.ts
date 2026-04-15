@@ -1,6 +1,7 @@
 import { collection, writeBatch, doc } from 'firebase/firestore';
 import { db } from '@/utils/firebase.ts';
 
+
 const profileImg = '@/assets/img/users/';
 const folderImg = '@/assets/img/';
 const houseImg = '@/assets/img/houses/';
