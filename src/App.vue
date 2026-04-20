@@ -8,8 +8,6 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
     <NavbarContainer/>
 
     <div class="wrapper">
-
-
       <nav>
         <RouterLink to="/Nannatestarea">Nanna Test Area</RouterLink>
         <RouterLink to="/Jonatantestarea">Jonatan Test Area</RouterLink>
@@ -20,7 +18,7 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
 
   
 
-  <RouterView class="globalmargins"/>
+  <RouterView class="globalpaddings mainContent"/>
 </template>
 
 <style scoped>

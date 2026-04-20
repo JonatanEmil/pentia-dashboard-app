@@ -65,20 +65,22 @@ const testList = [
 </script>
 
 <template>
-    <ProgressCard text="a fancy link" routeName="home" status="done"/>
-    <br>
-    <ProgressCard text="a fancy link" routeName="home" status="planned"/>
+    <main>
+        <ProgressCard text="a fancy link" routeName="home" status="done"/>
+        <br>
+        <ProgressCard text="a fancy link" routeName="home" status="planned"/>
 
-    <TitleWithText
-        title="stevo" 
-        text="hello world this is the start of a long text"
-    />
-    <ItemList :items="testList" v-slot="{ item }" :columns="5" :titel="'fancy titel'">
-        <NavbarButton 
-        :name="item.name" 
-        :route-name="item.routeName" 
-        :svg-component="item.svgComponent" 
+        <TitleWithText
+            title="stevo" 
+            text="hello world this is the start of a long text"
         />
-    </ItemList>
+        <ItemList :items="testList" v-slot="{ item }" :columns="5" :titel="'fancy titel'">
+            <NavbarButton 
+            :name="item.name" 
+            :route-name="item.routeName" 
+            :svg-component="item.svgComponent" 
+            />
+        </ItemList>
+    </main>
 </template>
 

@@ -24,19 +24,48 @@ body {
     margin: 0;
 }
 
-.globalmargins {
-    margin: 50px;
+#app{
+    
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 89vh auto;
+    grid-template-areas:
+        'mainContent'
+        'header';
+    
+    .mainContent{
+        grid-area: mainContent;
+        overflow: scroll;
+
+    }
+    header{
+        grid-area: header;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+    grid-template-rows: auto 91vh;
+    grid-template-areas:
+        'header'
+        'mainContent';
+    }
+}
+
+
+.globalpaddings {
+    padding: 50px;
     box-sizing: border-box;
 
 
     @media (min-width: 768px) {
-        margin: 80px;
+        padding: 80px;
         box-sizing: border-box;
 
     }
 
     @media (min-width: 1024px) {
-        margin: 90px;
+        padding: 90px;
         box-sizing: border-box;
 
     }
