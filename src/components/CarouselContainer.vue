@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<{
     startIndex: 0,
 });
 
-const carousel = ref<HTMLElement | null>(null);
+const carousel = ref<HTMLElement>();
 
 onMounted(() => {
     if (!carousel.value) return;
