@@ -4,8 +4,11 @@ import '@/assets/scss/main.scss';
 // import LoginContainer from '@/components/LoginContainer.vue';
 // import CreateClient from '@/components/CreateClient.vue';
 // import CreateClientForm from '@/components/CreateClientForm.vue';
-import CreateClient from '@/components/CreateClient.vue';
-import SpeakToText from '@/components/SpeakToText.vue';
+//import CreateClient from '@/components/CreateClient.vue';
+//import SpeakToText from '@/components/SpeakToText.vue';
+
+import ChatForm from '@/components/ChatForm.vue';
+
 
 </script>
 
@@ -18,9 +21,10 @@ import SpeakToText from '@/components/SpeakToText.vue';
 
 <!-- <CreateClientForm /> -->
 
-<CreateClient />
-<SpeakToText language="da-DK" />
+<!-- <CreateClient /> -->
+<!--<SpeakToText language="da-DK" /> -->
 
+<ChatForm />
 
 <div>
 

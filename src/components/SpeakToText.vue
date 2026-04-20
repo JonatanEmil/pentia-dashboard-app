@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, watchEffect, onUnmounted, computed } from 'vue';
+import { ref, watchEffect, onUnmounted } from 'vue';
 import SpeechToText from 'speech-to-text';
 import MicrophoneSvg from '@/assets/icons/MicrophoneIcon.vue';
+import '@/assets/scss/components/_speakToText.scss';
 
 const emit = defineEmits<{
     (e: 'update:modelValue', value: string): void;
@@ -14,13 +15,6 @@ const listening = ref(false);
 const error = ref<string | null>(null);
 const listener = ref<InstanceType<typeof SpeechToText> | null>(null);
 
-//dette skal slettes når input chat felt bruges
-const displayText = computed(() => {
-    const finalised = finalisedText.value.join(' ');
-    const interim = interimText.value ? ` ${interimText.value}` : '';
-
-    return finalised + interim;
-});
 
 
 watchEffect((onCleanup): void => {
@@ -80,13 +74,9 @@ onUnmounted((): void => {
 
 <template>
 
-    <div class="speak-btn-wrapper">
-        <!-- textarea skal slettes når knappen skal bruges til chat-->
-        <textarea class="speech-output" 
-        :value="displayText" placeholder="Tryk på mikrofonen for at starte optagelse..."
-        readonly></textarea>
+    <div class="speakToText flex flex--column flex--align-center">
 
-        <button class="speak-btn" :class="{ 'speak-btn--active': listening }"
+        <button class="speakToText__button" :class="{ 'speak-btn--active': listening }"
             :aria-label="listening ? 'Stop optagelse' : 'Start optagelse'" 
             :aria-pressed="listening" 
             :disabled="!!error"
