@@ -1,6 +1,7 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
 
+
 @use 'components/dropDown';
 @use 'components/formButtonSubmit';
 @use 'components/inputText';
@@ -9,6 +10,7 @@
 @use 'components/navbarButton';
 @use 'components/navbarContainer';
 @use 'components/radioButton';
+@use 'components/progressCard';
 
 @use 'globals/dimensions';
 @use 'globals/flex';
@@ -69,4 +71,7 @@ body {
         box-sizing: border-box;
 
     }
+}
+.hidden{
+    display: none;
 }
