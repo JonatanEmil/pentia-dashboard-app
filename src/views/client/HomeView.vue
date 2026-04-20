@@ -58,7 +58,7 @@ const progressCardInformation: ProgressCardData[] = [
 ];
 </script>
 <template>
-    <main style="padding: 0!important;">
+    <main>
         <h1 class="font--h1 font--center">Velkommen!</h1>
         <CarouselContainer :gap="4" :startIndex="1" class="mb--5">
             <InfoCard 
