@@ -53,6 +53,11 @@ const router = createRouter({
             component: () => import('../views/client/HomeView.vue'),
         },
         {
+            path:'/',
+            name: 'clientBuildingStep',
+            component: () => import('../views/client/BuildingStepView.vue'),
+        },
+        {
             path: '/Nannatestarea',
             name: 'Nannatestarea',
             component: () => import('../views/NannaTestView.vue'),

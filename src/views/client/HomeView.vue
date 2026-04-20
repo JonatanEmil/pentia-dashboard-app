@@ -32,27 +32,27 @@ const infoCardInformation: InfoCardData[] = [
 const progressCardInformation: ProgressCardData[] = [
     {
         text:'Byggetilladelse',
-        routeName:'',
+        routeName:'clientBuildingStep',
         status:'done',
     },
     {
         text:'Opstartsmøde',
-        routeName:'',
+        routeName:'clientBuildingStep',
         status:'planned',
     },
     {
         text:'Byggetilladelse',
-        routeName:'',
+        routeName:'clientBuildingStep',
         status:'planned',
     },
     {
         text:'Materialevalg',
-        routeName:'',
+        routeName:'clientBuildingStep',
         status:'planned',
     },
     {
         text:'Fundament',
-        routeName:'',
+        routeName:'clientBuildingStep',
         status:'planned',
     },
 ];
