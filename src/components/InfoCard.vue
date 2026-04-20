@@ -12,4 +12,3 @@ title?: string,
         <p class="font--p m--0" v-if="text">{{ text }}</p>
     </div>
 </template>
-
