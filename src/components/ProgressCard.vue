@@ -13,12 +13,12 @@ status: 'done' | 'planned',
 </script>
 <template>
     <div 
-        class="progressCard"
+        class="progressCard me--5"
         :class="{done: status == 'done'}"
         >
         <RouterLink 
             :to="{ name: routeName }" 
-            class="grid h--100 me--4 ms--3" 
+            class="grid h--100 me--4 ms--3 py--2" 
         >
             <h2 class="font-h2" v-if="text">{{ text }}</h2>
             <h2 class="font-h2" v-else><slot/></h2>

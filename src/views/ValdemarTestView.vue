@@ -68,11 +68,6 @@ const testList = [
 
 <template>
     <main>
-        <ProgressCard text="a fancy link" routeName="home" status="done"/>
-        <br>
-        <ProgressCard text="a fancy link" routeName="home" status="planned"/>
-
-        
     <CarouselContainer :gap="5" :startIndex="1">
         <InfoCard
             text="a extremely fancy body text with loads of texttically wraps to the next line"
@@ -100,13 +95,7 @@ const testList = [
         :route-name="item.routeName" 
         :svg-component="item.svgComponent" 
         />
-        <ItemList :items="testList" v-slot="{ item }" :columns="5" :titel="'fancy titel'">
-            <NavbarButton 
-            :name="item.name" 
-            :route-name="item.routeName" 
-            :svg-component="item.svgComponent" 
-            />
-        </ItemList>
+    </ItemList>
     </main>
 </template>
 
