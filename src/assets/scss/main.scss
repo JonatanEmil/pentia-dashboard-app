@@ -2,6 +2,8 @@
 @use 'abstracts/fonts' as f;
 
 
+@use 'components/carouselContainer';
+@use 'components/infoCard';
 @use 'components/dropDown';
 @use 'components/formButtonSubmit';
 @use 'components/inputText';
