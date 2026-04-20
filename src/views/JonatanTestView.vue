@@ -18,21 +18,4 @@ const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
     >
         {{ option }}
     </RadioButton>
-    <DropDown>
-        <template v-slot:button>
-            Aftalegrundlag
-        </template>
-        <template v-slot:content>
-            § 1 Anvendelse
-
-            Almindelige betingelser er udarbejdet med henblik på aftaler om arbejder
-            og leverancer i bygge- og anlægsvirksomhed, hvor bygherren ikke er forbruger.
-            Betingelserne finder anvendelse, når de er vedtaget af aftalens parter.
-
-            Stk. 2.
-            Fravigelse af betingelserne gælder kun, når det tydeligt
-            og udtrykkeligt angives i aftalen, på hvilke punkter fravigelse skal ske
-
-        </template>
-    </DropDown>
 </template>
