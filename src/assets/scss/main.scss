@@ -1,6 +1,7 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
 
+@use 'components/infoCard';
 @use 'components/inputText';
 @use 'components/radioButton';
 @use 'components/formButtonSubmit';
