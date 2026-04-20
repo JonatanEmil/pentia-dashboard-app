@@ -48,6 +48,11 @@ const router = createRouter({
             component: () => import('../views/AboutView.vue'),
         },
         {
+            path:'/',
+            name: 'clientHome',
+            component: () => import('../views/client/HomeView.vue'),
+        },
+        {
             path: '/Nannatestarea',
             name: 'Nannatestarea',
             component: () => import('../views/NannaTestView.vue'),

@@ -29,7 +29,7 @@ const links = {
     client:[
         {
             name: 'Hjem',
-            routeName: 'home',
+            routeName: 'clientHome',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
         },
         {
