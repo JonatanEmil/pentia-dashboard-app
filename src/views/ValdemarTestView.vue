@@ -6,6 +6,7 @@ import TitleWithText from '@/components/TitleWithText.vue';
 import ProgressCard from '@/components/ProgressCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import CarouselContainer from '@/components/CarouselContainer.vue';
+import ReturnButton from '@/components/ReturnButton.vue';
 const testList = [
     
     {
@@ -68,6 +69,7 @@ const testList = [
 
 <template>
     <main>
+    <ReturnButton returnOverwrite="clientHome" />
     <CarouselContainer :gap="5" :startIndex="1">
         <InfoCard
             text="a extremely fancy body text with loads of texttically wraps to the next line"
