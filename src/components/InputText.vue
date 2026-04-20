@@ -1,18 +1,22 @@
 <script setup lang="ts">
 
-import { ref } from 'vue';
-
 defineProps<{
   placeholderText: string
+  modelValue?: string
 }>();
 
-const inputValue = ref('');
-
+const emit = defineEmits<{
+  (e: 'update:modelValue' , value: string ): void;
+}>();
 
 </script>
 
-
 <template>
-    <input type="text" v-model="inputValue" :placeholder="placeholderText" class="inputText"/>
+    <input 
+    type="text" 
+    :value="modelValue"
+    @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" 
+    :placeholder="placeholderText" 
+    class="inputText"/>
 
 </template>
