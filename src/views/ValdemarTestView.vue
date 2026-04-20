@@ -5,6 +5,7 @@ import { defineAsyncComponent } from 'vue';
 import TitleWithText from '@/components/TitleWithText.vue';
 import ProgressCard from '@/components/ProgressCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
+import CarouselContainer from '@/components/CarouselContainer.vue';
 const testList = [
     
     {
@@ -66,11 +67,19 @@ const testList = [
 </script>
 
 <template>
-    <InfoCard 
-    :text="'a extremely fancy body text with loads of text that automatically wraps to the next li'"
-    :title="'a very fancy title with lots of text'"
+    <CarouselContainer :gap="5" :startIndex="1">
+    <InfoCard
+    text="a extremely fancy body text with loads of text that automatically wraps to the next line"
+    title="a very fancy title with lots of text"
     />
-
+<InfoCard 
+    text="a extremely fancy body text with loads of text that automatically wraps to the next line"
+    title="a very fancy title with lots of text"
+    /><InfoCard 
+    text="a extremely fancy body text with loads of text that automatically wraps to the next line"
+    title="a very fancy title with lots of text"
+    />
+    </CarouselContainer>
 
     <ProgressCard text="a fancy link" routeName="home" status="done"/>
     <br>
