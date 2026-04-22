@@ -26,8 +26,7 @@ const files = [
 
 ];
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const addFiles = async () => {
+const addFiles = async (): Promise<void> => {
     try {
         const batch = writeBatch(db);
 

@@ -11,8 +11,7 @@ const bookings = [
     { caseId: doc(db, 'cases', '2025-0013458'), startTime: new Date(2026, 8, 9, 9, 0 ), endTime: new Date(2026, 8, 9, 10, 0 ) },
 ];
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const addBookings = async () => {
+const addBookings = async (): Promise<void> => {
     try {
         const batch = writeBatch(db);
 
