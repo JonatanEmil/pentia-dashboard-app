@@ -1,11 +1,11 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
 
-
+@use 'components/CheckboxWithText';
 @use 'components/carouselContainer';
-@use 'components/infoCard';
 @use 'components/dropDown';
 @use 'components/formButtonSubmit';
+@use 'components/infoCard';
 @use 'components/inputText';
 @use 'components/itemList';
 @use 'components/loginForm';

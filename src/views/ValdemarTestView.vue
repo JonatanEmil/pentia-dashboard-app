@@ -3,6 +3,7 @@ import ItemList from '@/components/ItemList.vue';
 import NavbarButton from '@/components/NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
 import TitleWithText from '@/components/TitleWithText.vue';
+import CheckboxWithText from '@/components/CheckboxWithText.vue';
 import ProgressCard from '@/components/ProgressCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import CarouselContainer from '@/components/CarouselContainer.vue';
