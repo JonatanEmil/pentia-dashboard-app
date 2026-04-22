@@ -8,18 +8,21 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
     <header>
         <NavbarContainer />
 
-        <div class="wrapper">
-
-
-            <nav>
-                <RouterLink to="/Nannatestarea">Nanna Test Area</RouterLink>
-                <RouterLink to="/Jonatantestarea">Jonatan Test Area</RouterLink>
-                <RouterLink to="/valdemartestarea"> Valdemar Test Area </RouterLink>
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/Nannatestarea">Nanna Test Area</RouterLink>
+        <RouterLink to="/Jonatantestarea">Jonatan Test Area</RouterLink>
+        <RouterLink to="/valdemartestarea"> Valdemar Test Area </RouterLink>
+      </nav>
+    </div>
+  </header>
 
             </nav>
         </div>
     </header>
 
+  <RouterView class="globalpaddings mainContent"/>
+</template>
 
 
     <RouterView class="globalmargins" />
