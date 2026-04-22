@@ -3,11 +3,13 @@ import ItemList from '@/components/ItemList.vue';
 import NavbarButton from '@/components/NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
 import TitleWithText from '@/components/TitleWithText.vue';
-import CheckboxWithText from '@/components/CheckboxWithText.vue';
+import CheckboxWithText from '@/components/checkboxWithText.vue';
 import ProgressCard from '@/components/ProgressCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import CarouselContainer from '@/components/CarouselContainer.vue';
 import ReturnButton from '@/components/ReturnButton.vue';
+import { useUserStore } from '@/stores/userStore';
+
 const testList = [
     
     {
@@ -66,10 +68,22 @@ const testList = [
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/AddIcon.vue')),
     },
 ];
+
+const userStore = useUserStore();
+
+function getUsers(): void {
+    userStore.getUserList();
+}
+
+
 </script>
 
 <template>
     <main>
+        <button @click="getUsers">Update User</button>
+        <p v-for="(user, index) in userStore.userList" :key="index">
+            User ID: {{ user.firstName }}
+        </p>
     <ReturnButton returnOverwrite="clientHome" />
     <CarouselContainer :gap="5" :startIndex="1">
         <InfoCard
