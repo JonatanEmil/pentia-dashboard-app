@@ -6,8 +6,20 @@ const path = '@/assets/files/';
 
 const files = [
     {
-        caseId: '2025-0078234',
-        buildingStepId: 1,
+        caseId: doc(db, 'cases', '2025-0078234'),
+        priority: 1,
+        title: 'Byggetilladelse',
+        path: path + 'byggetilladelser.png',
+    },
+    {
+        caseId: doc(db, 'cases', '2026-0078357'),
+        priority: 1,
+        title: 'Byggetilladelse',
+        path: path + 'byggetilladelser.png',
+    },
+    {
+        caseId: doc(db, 'cases', '2025-0013458'),
+        priority: 1,
         title: 'Byggetilladelse',
         path: path + 'byggetilladelser.png',
     },

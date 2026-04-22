@@ -1,10 +1,8 @@
 import { collection, writeBatch, doc } from 'firebase/firestore';
 import { db } from '@/utils/firebase.ts';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const users = [
     {
-        userId: 1,
         firstName: 'Jakob',
         lastName: 'Ørntoft',
         phoneNumber: '+4571123456',
@@ -12,9 +10,7 @@ const users = [
         role: 'manager',
         password: 'manager1',
     },
-
     {
-        userId: 2,
         firstName: 'Rikke',
         lastName: 'Sandberg Møller',
         phoneNumber: '+4553234567',
@@ -22,9 +18,7 @@ const users = [
         role: 'manager',
         password: 'manager2',
     },
-
     {
-        userId: 3,
         firstName: 'Kenny',
         lastName: 'Jordstrom',
         phoneNumber: '+4542789023',
@@ -32,9 +26,7 @@ const users = [
         role: 'client',
         password: 'client1',
     },
-
     {
-        userId: 4,
         firstName: 'Hanne',
         lastName: 'Brandt Sørensen',
         phoneNumber: '+4561678901',
@@ -42,9 +34,7 @@ const users = [
         role: 'client',
         password: 'client2',
     },
-
     {
-        userId: 5,
         firstName: 'Thomas',
         lastName: 'Dalgaard',
         phoneNumber: '+4529567890',
@@ -52,9 +42,7 @@ const users = [
         role: 'client',
         password: 'client3',
     },
-
     {
-        userId: 6,
         firstName: 'Camilla',
         lastName: 'Friis Nielsen',
         phoneNumber: '+4551345678',
@@ -62,9 +50,7 @@ const users = [
         role: 'client',
         password: 'client4',
     },
-
     {
-        userId: 7,
         firstName: 'Peter',
         lastName: 'Vestergaard',
         phoneNumber: '+4540234567',
@@ -72,9 +58,7 @@ const users = [
         role: 'client',
         password: 'client5',
     },
-
     {
-        userId: 8,
         firstName: 'Lise',
         lastName: 'Holm Christensen',
         phoneNumber: '+4526789012',
@@ -82,9 +66,7 @@ const users = [
         role: 'client',
         password: 'client6',
     },
-
     {
-        userId: 9,
         firstName: 'Søren',
         lastName: 'Bak Andersen',
         phoneNumber: '+4531456789',
@@ -92,9 +74,7 @@ const users = [
         role: 'client',
         password: 'client7',
     },
-
     {
-        userId: 10,
         firstName: 'Mette',
         lastName: 'Kjærgaard',
         phoneNumber: '+4522345678',
@@ -104,18 +84,18 @@ const users = [
     },
 ];
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const addUsers = async () => {
+const addUsers = async (): Promise<void> => {
     try {
         const batch = writeBatch(db);
-
+        
         for (const user of users) {
-            const ref = doc(collection(db, 'users'));
-
+            // Use userId as Firestore document ID
+            const ref = doc(db, 'users', String(users.indexOf(user) + 1));
+            
             batch.set(ref, user);
         }
-
         await batch.commit();
+        console.log('Users added successfully');
     } catch (e) {
         console.error(e);
     }
