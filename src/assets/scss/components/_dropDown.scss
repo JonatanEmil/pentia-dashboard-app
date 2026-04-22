@@ -1,0 +1,19 @@
+@use '../abstracts/colors' as c;
+
+.dropdown-button {
+    background-color: c.$primary;
+    color: c.$white;
+    height: 35px;
+}
+
+.dropdown-content {
+    background-color: c.$secondary;
+}
+
+.dropdown-icon { //vil ikke virke kun på "html" element
+    transition: transform 0.2s ease;
+}
+
+.dropdown-flip {
+    transform: scaleY(-1);
+}
