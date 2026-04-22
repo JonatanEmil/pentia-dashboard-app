@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 import NavbarContainer from '@/components/NavbarContainer.vue';
+
 </script>
 
 <template>
-  <header>
-    <NavbarContainer/>
+    <header>
+        <NavbarContainer />
 
     <div class="wrapper">
       <nav>
@@ -16,11 +17,15 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
     </div>
   </header>
 
-  
+            </nav>
+        </div>
+    </header>
 
   <RouterView class="globalpaddings mainContent"/>
 </template>
 
-<style scoped>
 
-</style>
+    <RouterView class="globalmargins" />
+</template>
+
+<style scoped></style>
