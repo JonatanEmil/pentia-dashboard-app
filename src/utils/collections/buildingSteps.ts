@@ -133,8 +133,7 @@ const steps = [
     },
 ];
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const addSteps = async () => {
+const addSteps = async (): Promise<void> => {
     try {
         const batch = writeBatch(db);
 

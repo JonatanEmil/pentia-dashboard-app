@@ -41,8 +41,7 @@ const images = [
     { path: houseImg + 'house4.png', type: 'house', caseId: doc(db, 'cases', '2026-00976012') },
 ];
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const addImages = async () => {
+const addImages = async (): Promise<void> => {
     try {
         const batch = writeBatch(db);
 
