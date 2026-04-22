@@ -1,0 +1,22 @@
+@use '../abstracts/colors' as c;
+
+.checkboxWithText{
+    align-items: center;
+    grid-template-columns: auto 2rem;
+}
+
+.checkboxWithText input{
+    margin-left: auto;
+    appearance: none;
+    aspect-ratio: 1/1;
+    height: 2rem;
+    border-radius: 12%;
+    background-color: c.$primary;
+
+    &:checked {
+        background-image: url('@/assets/icons/CheckmarkIcon.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 80% 80%;
+    }
+}

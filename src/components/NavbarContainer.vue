@@ -29,7 +29,7 @@ const links = {
     client:[
         {
             name: 'Hjem',
-            routeName: 'home',
+            routeName: 'clientHome',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
         },
         {
@@ -59,7 +59,10 @@ const navToggle = ref(true);
 </script>
 <template>
     <!-- true hvis man er logget ind som manager -->
-    <button v-on:click="navToggle = !navToggle">Change nav view</button>
+    <button v-on:click="navToggle = !navToggle" style="position: absolute; top: 0; right: 0;">
+        Change nav view
+    </button>
+    
     <nav 
         v-if="navToggle"
         class="navbarContainer flex flex--row flex--just-around flex--align-center"
