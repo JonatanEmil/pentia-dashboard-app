@@ -3,6 +3,7 @@
 defineProps<{
   placeholderText: string
   modelValue?: string
+  variant?: 'default' | 'chat';
 }>();
 
 const emit = defineEmits<{

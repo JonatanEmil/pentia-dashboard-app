@@ -1,6 +1,9 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
 
+@use 'components/chatForm';
+@use 'components/chatMessage'; 
+@use 'components/createClientForm';
 @use 'components/dropDown';
 @use 'components/formButtonSubmit';
 @use 'components/inputText';
@@ -9,6 +12,7 @@
 @use 'components/navbarButton';
 @use 'components/navbarContainer';
 @use 'components/radioButton';
+@use 'components/speakToText';
 
 @use 'globals/dimensions';
 @use 'globals/flex';

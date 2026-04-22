@@ -1,0 +1,25 @@
+@use '@/assets/scss/abstracts/colors' as c;
+@use '@/assets/scss/abstracts/fonts' as f;
+
+.chat-message {
+    font-family: f.$font-main;
+    color: c.$black;
+    border-radius: 20px;
+    padding: 10px 15px;
+    max-width: 70%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+
+    &.self {
+        justify-self: end;
+        background-color: c.$primary;
+        color: c.$white;
+    }
+
+    &.other {
+        justify-self: start;
+        background-color: c.$secondary;
+        color: c.$white;
+    }
+}
