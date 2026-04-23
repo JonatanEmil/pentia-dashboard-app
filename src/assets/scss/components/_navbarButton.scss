@@ -1,0 +1,29 @@
+@use '@/assets/scss/abstracts/colors' as c;
+@use '@/assets/scss/abstracts/fonts' as f;
+
+.navbarButton {
+    display: block;
+    width: auto;
+    text-align: center;
+    text-decoration: none;
+    color: c.$white;
+
+    .icon {
+        height: 2.5rem;
+        width: auto;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    @media(min-width: 1024px) {
+        .icon {
+            display: none;
+        }
+    }
+}
+
+nav a.router-link-exact-active {
+    color: c.$highlight;
+}
