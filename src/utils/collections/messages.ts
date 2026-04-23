@@ -17,8 +17,7 @@ const messages = [
     { message: 'Tjek din spam-mappe, ellers opretter jeg en sag', caseId: '2025-0013458', senderId: doc(db, 'users', '1'), recieverId: doc(db, 'users', '4'), timestamp: new Date() },
 ];
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const addMessages = async () => {
+const addMessages = async (): Promise<void> => {
     try {
         const batch = writeBatch(db);
 

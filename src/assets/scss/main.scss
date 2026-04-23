@@ -1,8 +1,24 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
+
+@use 'components/checkboxWithText';
+@use 'components/carouselContainer';
+@use 'components/dropDown';
+@use 'components/formButtonSubmit';
+@use 'components/infoCard';
 @use 'components/inputText';
+@use 'components/itemList';
+@use 'components/loginForm';
+@use 'components/navbarButton';
+@use 'components/navbarContainer';
+@use 'components/profilePictureWithName';
 @use 'components/radioButton';
+@use 'components/returnButton';
+@use 'components/progressCard';
+
+@use 'globals/dimensions';
 @use 'globals/flex';
+@use 'globals/grid';
 @use 'globals/margin';
 @use 'globals/padding';
 
@@ -10,8 +26,56 @@ body {
     font-family: f.$font-main;
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
+    background-color: c.$background;
+    margin: 0;
+}
+
+#app{
+
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 89vh auto;
+    grid-template-areas:
+        'mainContent'
+        'header';
+
+    .mainContent{
+        grid-area: mainContent;
+        overflow: scroll;
+
+    }
+    header{
+        grid-area: header;
+        height: 100%;
+        /*overflow: hidden;*/
+    }
+
+    @media (min-width: 768px) {
+    grid-template-rows: auto 91vh;
+    grid-template-areas:
+        'header'
+        'mainContent';
+    }
 }
 
 
+.globalpaddings {
+    padding: 50px;
+    box-sizing: border-box;
 
 
+    @media (min-width: 768px) {
+        padding: 80px;
+        box-sizing: border-box;
+
+    }
+
+    @media (min-width: 1024px) {
+        padding: 90px;
+        box-sizing: border-box;
+
+    }
+}
+.hidden{
+    display: none;
+}

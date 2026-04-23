@@ -78,8 +78,7 @@ const cases = [
     },
 ];
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const addCases = async () => {
+const addCases = async (): Promise<void> => {
     try {
         const batch = writeBatch(db);
 
