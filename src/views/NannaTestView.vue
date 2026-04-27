@@ -6,10 +6,15 @@ import '@/assets/scss/main.scss';
 // import CreateClientForm from '@/components/CreateClientForm.vue';
 import CreateClient from '@/components/CreateClient.vue';
 import { useBookingStore } from '@/stores/bookingStore.ts';
+import { useBuildingStepStore } from '@/stores/buildingStepStore.ts';
 
 const bookingStore = useBookingStore();
 
 bookingStore.getBookingList();
+
+const buildingStepStore = useBuildingStepStore();
+
+buildingStepStore.getBuildingStepList();
 
 </script>
 
@@ -29,7 +34,11 @@ bookingStore.getBookingList();
 
 </p>
 
+<p v-for="(buildingStep, index) in buildingStepStore.buildingStepList" :key="index">
+    {{ buildingStep.caseId }} - {{ buildingStep.priority }} - 
+    {{ buildingStep.richText }} - {{ buildingStep.status }} - {{ buildingStep.title }}
 
+</p>
 
 <div>
 

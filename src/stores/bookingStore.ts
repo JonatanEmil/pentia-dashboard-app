@@ -5,7 +5,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { toDanishTime } from '@/scripts/toDanishTime';
 
 interface Booking {
-    caseId: String
+    caseId: string
     startTime: Date
     endTime: Date
 }
