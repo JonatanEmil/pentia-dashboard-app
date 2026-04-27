@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { db } from '@/utils/firebase.ts';
 import { collection, getDocs } from 'firebase/firestore';
+import { toDanishTime } from '@/scripts/toDanishTime';
 
 interface Booking {
     caseId: String
@@ -15,6 +16,13 @@ export const useBookingStore = defineStore('booking', () => {
     const bookingList = ref<Booking[]>([]);
 
     // Getters
+    const formattedBookings = computed(() =>
+        bookingList.value.map(booking => ({
+            ...booking,
+            startTimeFormatted: toDanishTime(booking.startTime),
+            endTimeFormatted: toDanishTime(booking.endTime),
+        })),
+    );
 
     // Actions
     async function getBookingList(): Promise<void> {
@@ -34,6 +42,7 @@ export const useBookingStore = defineStore('booking', () => {
     // Returns the state, getters and actions
     return {
         bookingList,
+        formattedBookings,
         getBookingList,
     };
 });

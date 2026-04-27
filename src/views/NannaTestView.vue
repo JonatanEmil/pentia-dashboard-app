@@ -24,8 +24,8 @@ bookingStore.getBookingList();
 
 <CreateClient />
 
-<p v-for="(booking, index) in bookingStore.bookingList" :key="index">
-    {{ booking.caseId }} - {{ booking.startTime }} - {{ booking.endTime }}
+<p v-for="(booking, index) in bookingStore.formattedBookings" :key="index">
+    {{ booking.caseId }} - {{ booking.startTimeFormatted }} - {{ booking.endTimeFormatted }}
 
 </p>
 
