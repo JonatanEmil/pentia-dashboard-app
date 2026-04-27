@@ -3,7 +3,7 @@
 defineProps<{
   placeholderText: string
   modelValue?: string
-  variant?: 'default' | 'chat';
+  variant?: 'default' | 'chat'; // Tilføj 'chat' variant for at anvende chat-styling
 }>();
 
 const emit = defineEmits<{

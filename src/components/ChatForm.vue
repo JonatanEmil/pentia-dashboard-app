@@ -18,7 +18,7 @@ const inputValue = ref('');
     <div class="chat-form flex flex--row p--3">
         <SpeakToText v-model="inputValue" language="da-DK" />
         <InputText 
-        class="chat-input p--3" 
+        class="p--3" 
         placeholder-text="Skriv dit spørgsmål her..." 
         v-model="inputValue" 
         variant="chat"
