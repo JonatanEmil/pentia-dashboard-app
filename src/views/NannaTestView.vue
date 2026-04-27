@@ -5,6 +5,11 @@ import '@/assets/scss/main.scss';
 // import CreateClient from '@/components/CreateClient.vue';
 // import CreateClientForm from '@/components/CreateClientForm.vue';
 import CreateClient from '@/components/CreateClient.vue';
+import { useBookingStore } from '@/stores/bookingStore.ts';
+
+const bookingStore = useBookingStore();
+
+bookingStore.getBookingList();
 
 </script>
 
@@ -18,6 +23,12 @@ import CreateClient from '@/components/CreateClient.vue';
 <!-- <CreateClientForm /> -->
 
 <CreateClient />
+
+<p v-for="(booking, index) in bookingStore.bookingList" :key="index">
+    {{ booking.caseId }} - {{ booking.startTime }} - {{ booking.endTime }}
+
+</p>
+
 
 
 <div>
