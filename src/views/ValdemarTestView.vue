@@ -19,7 +19,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -29,7 +29,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -39,7 +39,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -49,7 +49,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -59,7 +59,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -97,9 +97,9 @@ function getUsers(): void {
         title="a very fancy title with lots of text"/>
     </CarouselContainer>
 
-    <ProgressCard text="a fancy link" routeName="home" status="done"/>
+    <ProgressCard text="a fancy link" routeName="login" status="done"/>
     <br>
-    <ProgressCard text="a fancy link" routeName="home" status="planned"/>
+    <ProgressCard text="a fancy link" routeName="login" status="planned"/>
 
 
     <TitleWithText

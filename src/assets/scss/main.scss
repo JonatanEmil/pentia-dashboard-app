@@ -34,7 +34,7 @@ body {
     
     display: grid;
     height: 100vh;
-    grid-template-rows: 89vh auto;
+    grid-template-rows: auto 12vh;
     grid-template-areas:
         'mainContent'
         'header';
@@ -51,7 +51,7 @@ body {
     }
 
     @media (min-width: 768px) {
-    grid-template-rows: auto 91vh;
+    grid-template-rows: 12vh auto;
     grid-template-areas:
         'header'
         'mainContent';
