@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import LoginForm from '@/components/LoginForm.vue'; 
+import LoginContainer from '@/components/login/LoginContainer.vue';
 
 </script>
 
 <template>
 
-    <LoginForm />
+    <LoginContainer />
 
 </template>
 
