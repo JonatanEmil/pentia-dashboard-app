@@ -6,6 +6,7 @@ import '@/assets/scss/main.scss';
 // import CreateClientForm from '@/components/CreateClientForm.vue';
 import CreateClient from '@/components/CreateClient.vue';
 import { useBookingStore } from '@/stores/bookingStore.ts';
+import { useMessageStore } from '@/stores/messageStore.ts';
 import { useBuildingStepStore } from '@/stores/buildingStepStore.ts';
 import { useImageStore } from '@/stores/imagesStore';
 
@@ -13,6 +14,9 @@ const bookingStore = useBookingStore();
 
 bookingStore.getBookingList();
 
+const messageStore = useMessageStore();
+
+messageStore.getMessageList();
 const buildingStepStore = useBuildingStepStore();
 
 buildingStepStore.getBuildingStepList();
@@ -31,11 +35,17 @@ imageStore.getImageList();
 <!-- <LoginContainer /> -->
 
 <!-- <CreateClientForm /> -->
-
+<main>
 <CreateClient />
 
 <p v-for="(booking, index) in bookingStore.formattedBookings" :key="index">
     {{ booking.caseId }} - {{ booking.startTimeFormatted }} - {{ booking.endTimeFormatted }}
+
+</p>
+
+<p v-for="(message, index) in messageStore.formattedMessages" :key="index">
+    {{ message.message }} - {{ message.caseId }} - {{ message.senderId }} 
+    - {{ message.recieverId }} - {{ message.timestampFormatted }}
 
 </p>
 
@@ -49,6 +59,7 @@ imageStore.getImageList();
 <div>
 
 </div>
+</main>
 
 </main>
 </template>
