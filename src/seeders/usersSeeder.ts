@@ -9,6 +9,7 @@ const users = [
         email: 'jakob.orntoft@byggmester.dk',
         role: 'manager',
         password: 'manager1',
+        uid: 'wnMmzXmxQZaLQsT1AcUQyLSBGnl1',
     },
     {
         firstName: 'Rikke',
@@ -17,6 +18,7 @@ const users = [
         email: 'rikke.sandberg@byggmester.dk',
         role: 'manager',
         password: 'manager2',
+        uid: 'BrbzAZ9jJRbOD3RZzzapklTwIr13',
     },
     {
         firstName: 'Kenny',
@@ -25,6 +27,7 @@ const users = [
         email: 'kenny.jordstrom@gmail.com',
         role: 'client',
         password: 'client1',
+        uid: '6AlZ7tnyWpPPTyB2pNMTcUYz6wE3',
     },
     {
         firstName: 'Hanne',
@@ -33,6 +36,7 @@ const users = [
         email: 'hanne.brandt@yahoo.dk',
         role: 'client',
         password: 'client2',
+        uid: 'rfctKVmnxUOIKFfGffJo5garJo33',
     },
     {
         firstName: 'Thomas',
@@ -41,6 +45,7 @@ const users = [
         email: 'thomas.dalgaard@gmail.com',
         role: 'client',
         password: 'client3',
+        uid: 'mBfT4M44FTOpW9KAGQZ6XRQ4A373',
     },
     {
         firstName: 'Camilla',
@@ -49,6 +54,7 @@ const users = [
         email: 'camilla.n@yahoo.dk',
         role: 'client',
         password: 'client4',
+        uid: 'dJvR6l3AyoSQZcIrPsNJNzqdxM33',
     },
     {
         firstName: 'Peter',
@@ -57,6 +63,7 @@ const users = [
         email: 'peter.vestergaard@outlook.com',
         role: 'client',
         password: 'client5',
+        uid: 'XLdl2SneAnbBNHNm1RBlMo6BWfP2',
     },
     {
         firstName: 'Lise',
@@ -65,6 +72,7 @@ const users = [
         email: 'lise.holm@gmail.com',
         role: 'client',
         password: 'client6',
+        uid: 'Pe1RyUIWJYPJLi2girlb29ohIMJ2',
     },
     {
         firstName: 'Søren',
@@ -73,6 +81,7 @@ const users = [
         email: 'soren.bak@hotmail.com',
         role: 'client',
         password: 'client7',
+        uid: 'OytRe6tGrhPmIFU9f7nsjpDOMVB2',
     },
     {
         firstName: 'Mette',
@@ -81,6 +90,7 @@ const users = [
         email: 'mette.kjaergaard@gmail.com',
         role: 'client',
         password: 'client8',
+        uid: '9q1EZc3SYcVyDIIEmagrP6gialu1',
     },
 ];
 
@@ -90,9 +100,10 @@ const addUsers = async (): Promise<void> => {
         
         for (const user of users) {
             // Use userId as Firestore document ID
-            const ref = doc(db, 'users', String(users.indexOf(user) + 1));
-            
-            batch.set(ref, user);
+            const ref = doc(db, 'users', String(user.uid));
+            const { uid,email,password, ...rest } = user;
+
+            batch.set(ref, rest);
         }
         await batch.commit();
         console.log('Users added successfully');
