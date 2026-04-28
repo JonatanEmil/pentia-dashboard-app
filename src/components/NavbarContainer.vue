@@ -7,7 +7,7 @@ const links = {
     manager:[
         {
             name: 'Hjem',
-            routeName: 'home',
+            routeName: 'createClient',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
         },
         {
@@ -67,7 +67,7 @@ const navToggle = ref(true);
         v-if="navToggle"
         class="navbarContainer flex flex--row flex--just-around flex--align-center"
     >
-        <RouterLink :to="{ name: 'home' }" class="navbarLogo">
+        <RouterLink :to="{ name: 'createClient' }" class="navbarLogo">
             <component :is="Logo"/>
         </RouterLink>
         <NavbarButton 
@@ -84,7 +84,7 @@ const navToggle = ref(true);
         v-else
         class="navbarContainer flex flex--row flex--just-between flex--align-center"
     >        
-        <RouterLink :to="{ name: 'home' }" class="navbarLogo">
+        <RouterLink :to="{ name: 'createClient' }" class="navbarLogo">
             <component :is="Logo"/>
         </RouterLink>
         <NavbarButton
