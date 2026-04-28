@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useFileStore } from "@/stores/fileStore.ts";
 import { useCaseStore } from '@/stores/caseStore.ts';
 
 import '@/assets/scss/main.scss';
@@ -14,6 +15,9 @@ const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 const testList = [{userId: 1, firstName: 'Jens', lastName: 'Jensen',}, {userId: 2, firstName: 'Jane', lastName: 'Jensen',}, {userId: 3, firstName: 'Jens', lastName: 'Hansen',}, {userId: 4, firstName: 'Hans', lastName: 'Pedersen',},];
 const fetchOptions = ['userId', 'firstName', 'lastName'];
 const searchResults = ref(testList);
+const fileStore = useFileStore();
+
+fileStore.getFileList();
 const caseStore = useCaseStore();
 
 caseStore.getCaseList();
@@ -38,6 +42,11 @@ async function onSearchFetch(query: string): Promise<void> {
 
 <template>
     <main>
+        <p v-for="(file, index) in fileStore.fileList" :key="index">
+            {{file.caseId}} - {{file.priority}} - {{file.title}} - {{file.path}}
+            <img :src="file.path" :alt="file.title">
+
+        </p>
         <p v-for="(caseItem, index) in caseStore.caseList" :key="index">
             {{ caseItem.roadName }} {{caseItem.roadNumber}} -- {{caseItem.managerId}} {{caseItem.clientId}}
 
