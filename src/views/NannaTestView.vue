@@ -7,6 +7,7 @@ import '@/assets/scss/main.scss';
 import CreateClient from '@/components/CreateClient.vue';
 import { useBookingStore } from '@/stores/bookingStore.ts';
 import { useBuildingStepStore } from '@/stores/buildingStepStore.ts';
+import { useImageStore } from '@/stores/imagesStore';
 
 const bookingStore = useBookingStore();
 
@@ -15,10 +16,14 @@ bookingStore.getBookingList();
 const buildingStepStore = useBuildingStepStore();
 
 buildingStepStore.getBuildingStepList();
+const imageStore = useImageStore();
+
+imageStore.getImageList();
 
 </script>
 
 <template>
+<main>
     <!-- <FormButtonSubmit class="formButtonSubmit">Opret</FormButtonSubmit> 
 
     <FormButtonSubmit class="formButtonSubmit">Login</FormButtonSubmit> -->
@@ -37,6 +42,7 @@ buildingStepStore.getBuildingStepList();
 <p v-for="(buildingStep, index) in buildingStepStore.buildingStepList" :key="index">
     {{ buildingStep.caseId }} - {{ buildingStep.priority }} - 
     {{ buildingStep.richText }} - {{ buildingStep.status }} - {{ buildingStep.title }}
+<!--<img v-for="(image, index) in imageStore.imageList" :key="index" :src="image.path" /> -->
 
 </p>
 
@@ -44,6 +50,7 @@ buildingStepStore.getBuildingStepList();
 
 </div>
 
+</main>
 </template>
 
 <style scoped>
