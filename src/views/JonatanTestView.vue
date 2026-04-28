@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useFileStore } from "@/stores/fileStore.ts";
+import { useCaseStore } from '@/stores/caseStore.ts';
 
 import '@/assets/scss/main.scss';
 import DropDown from '@/components/DropDown.vue';
@@ -17,6 +18,9 @@ const searchResults = ref(testList);
 const fileStore = useFileStore();
 
 fileStore.getFileList();
+const caseStore = useCaseStore();
+
+caseStore.getCaseList();
 
 /*async function onSearchFetch(query: string): Promise<void> {
     if (!query) return;
@@ -43,6 +47,11 @@ async function onSearchFetch(query: string): Promise<void> {
             <img :src="file.path" :alt="file.title">
 
         </p>
+        <p v-for="(caseItem, index) in caseStore.caseList" :key="index">
+            {{ caseItem.roadName }} {{caseItem.roadNumber}} -- {{caseItem.managerId}} {{caseItem.clientId}}
+
+        </p>
+
         <Search @searchFetch="onSearchFetch"></Search>
         <List :items="searchResults" v-slot="{ item }" :columns="2" :titel="'searchTest'">
             <p>{{ item.userId }}</p>
