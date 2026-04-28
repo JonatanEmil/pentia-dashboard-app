@@ -4,12 +4,12 @@ import { db } from '@/utils/firebase.ts';
 import { collection, getDocs } from 'firebase/firestore';
  
 interface User {
-    email: String
-    firstName: String
-    lastName: String
-    password: String
-    phoneNumber: String
-    role: String
+    email: string
+    firstName: string
+    lastName: string
+    password: string
+    phoneNumber: string
+    role: string
 }
 
 
