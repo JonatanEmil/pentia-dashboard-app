@@ -8,7 +8,7 @@ import CreateClient from '@/components/CreateClient.vue';
 import { useBookingStore } from '@/stores/bookingStore.ts';
 import { useMessageStore } from '@/stores/messageStore.ts';
 import { useBuildingStepStore } from '@/stores/buildingStepStore.ts';
-import { useImageStore } from '@/stores/imagesStore';
+import { useImageStore } from '@/stores/imageStore.ts';
 
 const bookingStore = useBookingStore();
 
@@ -28,7 +28,7 @@ imageStore.getImageList();
 
 <template>
 <main>
-    <!-- <FormButtonSubmit class="formButtonSubmit">Opret</FormButtonSubmit> 
+    <!-- <FormButtonSubmit class="formButtonSubmit">Opret</FormButtonSubmit>
 
     <FormButtonSubmit class="formButtonSubmit">Login</FormButtonSubmit> -->
 
@@ -44,13 +44,13 @@ imageStore.getImageList();
 </p>
 
 <p v-for="(message, index) in messageStore.formattedMessages" :key="index">
-    {{ message.message }} - {{ message.caseId }} - {{ message.senderId }} 
+    {{ message.message }} - {{ message.caseId }} - {{ message.senderId }}
     - {{ message.recieverId }} - {{ message.timestampFormatted }}
 
 </p>
 
 <p v-for="(buildingStep, index) in buildingStepStore.buildingStepList" :key="index">
-    {{ buildingStep.caseId }} - {{ buildingStep.priority }} - 
+    {{ buildingStep.caseId }} - {{ buildingStep.priority }} -
     {{ buildingStep.richText }} - {{ buildingStep.status }} - {{ buildingStep.title }}
 <!--<img v-for="(image, index) in imageStore.imageList" :key="index" :src="image.path" /> -->
 
