@@ -1,5 +1,5 @@
 import { collection, writeBatch, doc } from 'firebase/firestore';
-import { db } from '@/utils/firebase.ts';
+import { db } from '@/config/firebase';
 
 const messages = [
     { message: 'Hej jeg har et spørsgmål', caseId: doc(db, 'cases', '2025-0078234'), senderId: doc(db, 'users', '3'), recieverId: doc(db, 'users', '1'), timestamp: new Date() },

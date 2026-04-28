@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import { db } from '@/utils/firebase.ts';
+import { db } from '@/config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
-import { toDanishTime } from '@/scripts/toDanishTime';
+import { toDanishTime } from '@/utils/toDanishTime';
 
 interface Message {
     message: string

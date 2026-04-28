@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import { db } from '@/utils/firebase.ts';
+import { db } from '@/config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
 interface File {
