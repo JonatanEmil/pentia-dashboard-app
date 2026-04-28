@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useCaseStore } from '@/stores/caseStore.ts';
 
 import '@/assets/scss/main.scss';
 import DropDown from '@/components/DropDown.vue';
@@ -13,6 +14,9 @@ const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 const testList = [{userId: 1, firstName: 'Jens', lastName: 'Jensen',}, {userId: 2, firstName: 'Jane', lastName: 'Jensen',}, {userId: 3, firstName: 'Jens', lastName: 'Hansen',}, {userId: 4, firstName: 'Hans', lastName: 'Pedersen',},];
 const fetchOptions = ['userId', 'firstName', 'lastName'];
 const searchResults = ref(testList);
+const caseStore = useCaseStore();
+
+caseStore.getCaseList();
 
 /*async function onSearchFetch(query: string): Promise<void> {
     if (!query) return;
@@ -34,6 +38,11 @@ async function onSearchFetch(query: string): Promise<void> {
 
 <template>
     <main>
+        <p v-for="(caseItem, index) in caseStore.caseList" :key="index">
+            {{ caseItem.roadName }} {{caseItem.roadNumber}} -- {{caseItem.managerId}} {{caseItem.clientId}}
+
+        </p>
+
         <Search @searchFetch="onSearchFetch"></Search>
         <List :items="searchResults" v-slot="{ item }" :columns="2" :titel="'searchTest'">
             <p>{{ item.userId }}</p>
