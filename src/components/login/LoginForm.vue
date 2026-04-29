@@ -21,7 +21,7 @@ async function handleLogin(): Promise<void> {
 
     <InputText v-model="email" type="email" placeholderText="Brugernavn/Sagsnummer" 
     class="p--3 w--100"/>
-    <InputText v-model="password" type="" placeholderText="Password" class="p--3 w--100"/>
+    <InputText v-model="password" type="password" placeholderText="Password" class="p--3 w--100"/>
 
     <FormButtonSubmit @click.prevent="handleLogin" class="formButtonSubmit">Login</FormButtonSubmit>
     </form>
