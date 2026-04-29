@@ -10,6 +10,7 @@ import { useMessageStore } from '@/stores/messageStore.ts';
 import { useBuildingStepStore } from '@/stores/buildingStepStore.ts';
 import { useImageStore } from '@/stores/imagesStore';
 
+
 const bookingStore = useBookingStore();
 
 bookingStore.getBookingList();

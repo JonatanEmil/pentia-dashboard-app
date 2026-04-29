@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import LoginForm from '@/components/LoginForm.vue'; 
+import LoginContainer from '@/components/login/LoginContainer.vue';
 
 </script>
 
 <template>
+    <main class="flex flex--align-center flex--just-center pb pb--5 loginBackground">
 
-    <LoginForm />
-
+        <LoginContainer  />
+        
+    </main>
 </template>
 
-<style scoped> 
-
-</style>
+<style scoped></style>

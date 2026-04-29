@@ -30,10 +30,10 @@
     &--7 { width: 16rem }
   }
 
-  &-auto { width: auto }
-  &-fit  { width: fit-content }
-  &-min  { width: min-content }
-  &-max  { width: max-content }
+  &--auto { width: auto }
+  &--fit  { width: fit-content }
+  &--min  { width: min-content }
+  &--max  { width: max-content }
 }
 
 .min-w {
@@ -92,10 +92,10 @@
     &--7 { height: 16rem }
   }
 
-  &-auto { height: auto }
-  &-fit  { height: fit-content }
-  &-min  { height: min-content }
-  &-max  { height: max-content }
+  &--auto { height: auto }
+  &--fit  { height: fit-content }
+  &--min  { height: min-content }
+  &--max  { height: max-content }
 }
 
 .min-h {
