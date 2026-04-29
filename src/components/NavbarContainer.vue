@@ -7,7 +7,7 @@ const links = {
     manager:[
         {
             name: 'Hjem',
-            routeName: 'createClient',
+            routeName: 'managerHome',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
         },
         {
@@ -22,7 +22,7 @@ const links = {
         },
         {
             name: 'Profil',
-            routeName: 'profile',
+            routeName: 'managerProfile',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/ProfileIcon.vue')),
         },
     ],
@@ -34,12 +34,12 @@ const links = {
         },
         {
             name: 'Kontrakt',
-            routeName: 'contract',
+            routeName: 'clientContract',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/ContractIcon.vue')),
         },
         {
             name: 'Book',
-            routeName: 'calender',
+            routeName: 'clientCalender',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/CalenderIcon.vue')),
         },
         {
@@ -49,7 +49,7 @@ const links = {
         },
         {
             name: 'Profil',
-            routeName: 'profile',
+            routeName: 'clientProfile',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/ProfileIcon.vue')),
         },
     ] };
