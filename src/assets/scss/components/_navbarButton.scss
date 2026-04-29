@@ -2,7 +2,8 @@
 @use '@/assets/scss/abstracts/fonts' as f;
 
 .navbarButton {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: auto;
     text-align: center;
     text-decoration: none;

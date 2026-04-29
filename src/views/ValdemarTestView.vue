@@ -3,12 +3,12 @@ import ItemList from '@/components/ItemList.vue';
 import NavbarButton from '@/components/NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
 import TitleWithText from '@/components/TitleWithText.vue';
-import CheckboxWithText from '@/components/checkboxWithText.vue';
 import ProgressCard from '@/components/ProgressCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import CarouselContainer from '@/components/CarouselContainer.vue';
 import ReturnButton from '@/components/ReturnButton.vue';
 import { useUserStore } from '@/stores/userStore';
+import LinkButton from '@/components/LinkButton.vue';
 
 const testList = [
     
@@ -80,6 +80,8 @@ function getUsers(): void {
 
 <template>
     <main>
+        <LinkButton  routeName="login" title="Byggetilladelse" variant=""/>
+
         <button @click="getUsers">Update User</button>
         <p v-for="(user, index) in userStore.userList" :key="index">
             User ID: {{ user.firstName }}
