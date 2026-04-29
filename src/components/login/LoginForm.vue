@@ -10,7 +10,6 @@ const email = ref('');
 const password = ref('');
 
 async function handleLogin(): Promise<void> {
-    console.log('Login attempt with email:', email.value, 'and password:', password.value);
     await authStore.login(email.value, password.value);
 } 
 
@@ -20,7 +19,8 @@ async function handleLogin(): Promise<void> {
 <template>
     <form class="loginform flex flex--column flex--align-center flex--gaprow-4 w--100">
 
-    <InputText v-model="email" type="email" placeholderText="Brugernavn/Sagsnummer" class="p--3 w--100"/>
+    <InputText v-model="email" type="email" placeholderText="Brugernavn/Sagsnummer" 
+    class="p--3 w--100"/>
     <InputText v-model="password" type="" placeholderText="Password" class="p--3 w--100"/>
 
     <FormButtonSubmit @click.prevent="handleLogin" class="formButtonSubmit">Login</FormButtonSubmit>
