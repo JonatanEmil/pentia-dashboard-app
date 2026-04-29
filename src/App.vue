@@ -5,24 +5,19 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
 </script>
 
 <template>
-    <header>
-        <NavbarContainer />
+  <header>
+    <NavbarContainer />
 
-        <div class="wrapper">
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/Nannatestarea">Nanna Test Area</RouterLink>
+        <RouterLink to="/Jonatantestarea">Jonatan Test Area</RouterLink>
+        <RouterLink to="/valdemartestarea"> Valdemar Test Area </RouterLink>
+      </nav>
+    </div>
+  </header>
 
-
-            <nav>
-                <RouterLink to="/Nannatestarea">Nanna Test Area</RouterLink>
-                <RouterLink to="/Jonatantestarea">Jonatan Test Area</RouterLink>
-                <RouterLink to="/valdemartestarea"> Valdemar Test Area </RouterLink>
-
-            </nav>
-        </div>
-    </header>
-
-
-
-    <RouterView class="globalmargins" />
+  <RouterView class="mainContent" />
 </template>
 
 <style scoped></style>

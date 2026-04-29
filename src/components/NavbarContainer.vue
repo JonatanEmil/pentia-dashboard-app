@@ -7,7 +7,7 @@ const links = {
     manager:[
         {
             name: 'Hjem',
-            routeName: 'home',
+            routeName: 'managerHome',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
         },
         {
@@ -22,24 +22,24 @@ const links = {
         },
         {
             name: 'Profil',
-            routeName: 'profile',
+            routeName: 'managerProfile',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/ProfileIcon.vue')),
         },
     ],
     client:[
         {
             name: 'Hjem',
-            routeName: 'home',
+            routeName: 'clientHome',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
         },
         {
             name: 'Kontrakt',
-            routeName: 'contract',
+            routeName: 'clientContract',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/ContractIcon.vue')),
         },
         {
             name: 'Book',
-            routeName: 'calender',
+            routeName: 'clientCalender',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/CalenderIcon.vue')),
         },
         {
@@ -49,7 +49,7 @@ const links = {
         },
         {
             name: 'Profil',
-            routeName: 'profile',
+            routeName: 'clientProfile',
             svgComponent: defineAsyncComponent(() => import('@/assets/icons/ProfileIcon.vue')),
         },
     ] };
@@ -59,12 +59,15 @@ const navToggle = ref(true);
 </script>
 <template>
     <!-- true hvis man er logget ind som manager -->
-    <button v-on:click="navToggle = !navToggle">Change nav view</button>
+    <button v-on:click="navToggle = !navToggle" style="position: absolute; top: 0; right: 0;">
+        Change nav view
+    </button>
+    
     <nav 
         v-if="navToggle"
         class="navbarContainer flex flex--row flex--just-around flex--align-center"
     >
-        <RouterLink :to="{ name: 'home' }" class="navbarLogo">
+        <RouterLink :to="{ name: 'createClient' }" class="navbarLogo">
             <component :is="Logo"/>
         </RouterLink>
         <NavbarButton 
@@ -81,7 +84,7 @@ const navToggle = ref(true);
         v-else
         class="navbarContainer flex flex--row flex--just-between flex--align-center"
     >        
-        <RouterLink :to="{ name: 'home' }" class="navbarLogo">
+        <RouterLink :to="{ name: 'createClient' }" class="navbarLogo">
             <component :is="Logo"/>
         </RouterLink>
         <NavbarButton
