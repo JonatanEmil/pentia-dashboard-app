@@ -1,7 +1,7 @@
 import { collection, writeBatch, doc } from 'firebase/firestore';
 import { db } from '@/config/firebase';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+
 const cases = [
 
     {
@@ -91,7 +91,7 @@ const addCases = async (): Promise<void> => {
 
         await batch.commit();
     } catch (e) {
-        console.error(e);
+        
     }
 };
 
