@@ -3,6 +3,7 @@ import { ref } from 'vue';
 
 import '@/assets/scss/main.scss';
 import DropDown from '@/components/DropDown.vue';
+import GeneralCard from '@/components/GeneralCard.vue';
 import List from '@/components/ItemList.vue';
 import RadioButton from '@/components/RadioButton.vue';
 import Search from '@/components/SearchBar.vue';
@@ -10,8 +11,7 @@ import Search from '@/components/SearchBar.vue';
 
 const selected = ref(null);
 const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
-const testList = [{userId: 1, firstName: 'Jens', lastName: 'Jensen',}, {userId: 2, firstName: 'Jane', lastName: 'Jensen',}, {userId: 3, firstName: 'Jens', lastName: 'Hansen',}, {userId: 4, firstName: 'Hans', lastName: 'Pedersen',},];
-const fetchOptions = ['userId', 'firstName', 'lastName'];
+const testList = ref([{userId: 1, firstName: 'Jens', lastName: 'Jensen',}, {userId: 2, firstName: 'Jane', lastName: 'Jensen',}, {userId: 3, firstName: 'Jens', lastName: 'Hansen',}, {userId: 4, firstName: 'Hans', lastName: 'Pedersen' } ]);
 const searchResults = ref(testList);
 
 /*async function onSearchFetch(query: string): Promise<void> {
@@ -22,7 +22,7 @@ const searchResults = ref(testList);
     searchResults.value = await res.json();
 }*/
 async function onSearchFetch(query: string): Promise<void> {
-    searchResults.value = testList.filter(u =>
+    searchResults.value = testList.value.filter(u =>
         Object.values(u).some(v =>
             String(v).toLowerCase().includes(query.toLowerCase()),
         ),
@@ -34,6 +34,14 @@ async function onSearchFetch(query: string): Promise<void> {
 
 <template>
     <main>
+        <GeneralCard
+            card-type="client"
+            :profile="false"
+            :name="testList[0].firstName"
+            :filename="'src/assets/img/users/jakob.png'">
+            <p>{{testList[0].userId}}</p>
+            <p>{{testList[0].firstName}} {{testList[0].lastName}}</p>
+        </GeneralCard>
         <Search @searchFetch="onSearchFetch"></Search>
         <List :items="searchResults" v-slot="{ item }" :columns="2" :titel="'searchTest'">
             <p>{{ item.userId }}</p>
