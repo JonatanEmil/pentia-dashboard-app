@@ -22,6 +22,8 @@
 @use 'globals/margin';
 @use 'globals/padding';
 
+@use 'views/loginView';
+
 body {
     font-family: f.$font-main;
     font-weight: f.$font-weight-regular;
