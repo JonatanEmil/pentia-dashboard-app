@@ -18,10 +18,10 @@ async function handleLogin(): Promise<void> {
 </script>
 
 <template>
-    <form class="loginform flex flex--column flex--align-center flex--gaprow-5">
+    <form class="loginform flex flex--column flex--align-center flex--gaprow-4 w--50">
 
-    <InputText v-model="email" type="email" placeholderText="Brugernavn/Sagsnummer" class="p--3 w--66"/>
-    <InputText v-model="password" type="" placeholderText="Password" class="p--3 w--66"/>
+    <InputText v-model="email" type="email" placeholderText="Brugernavn/Sagsnummer" class="p--3 w--100"/>
+    <InputText v-model="password" type="" placeholderText="Password" class="p--3 w--100"/>
 
     <FormButtonSubmit @click.prevent="handleLogin" class="formButtonSubmit">Login</FormButtonSubmit>
     </form>

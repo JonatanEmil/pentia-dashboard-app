@@ -5,7 +5,7 @@ import LoginContainer from '@/components/login/LoginContainer.vue';
 
 <template>
 
-    <LoginContainer />
+    <LoginContainer class=""/>
 
 </template>
 
