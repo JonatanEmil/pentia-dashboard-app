@@ -31,7 +31,7 @@ export const useAuthStore = defineStore('auth', () => {
             role: userData?.role,
         };
 
-        if (userData?.role === 'manager') {
+        if (currentUser.value.role === 'manager') {
             router.push('/manager');
         } else {
             router.push('/client');
