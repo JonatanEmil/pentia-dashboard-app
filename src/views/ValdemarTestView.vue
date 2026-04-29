@@ -70,11 +70,11 @@ const testList = [
 ];
 
 
-//const userStore = useUserStore();
+const userStore = useUserStore();
 
-// function getUsers(): void {
-//    userStore.getUserList();
-//}
+function getUsers(): void {
+    userStore.getUserList();
+}
 
 
 </script>

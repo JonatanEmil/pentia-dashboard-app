@@ -10,8 +10,6 @@ const cases = [
         roadNumber: '20',
         city: 'Odense',
         zipcode: 5000,
-        clientId: doc(db, 'users', '6AlZ7tnyWpPPTyB2pNMTcUYz6wE3'),
-        managerId: doc(db, 'users', 'wnMmzXmxQZaLQsT1AcUQyLSBGnl1'),
     },
     {
         caseId: '2025-0013458',
@@ -19,17 +17,13 @@ const cases = [
         roadNumber: '118A',
         city: 'Slagelse',
         zipcode: 4200,
-        clientId: doc(db, 'users', 'rfctKVmnxUOIKFfGffJo5garJo33'),
-        managerId: doc(db, 'users', 'wnMmzXmxQZaLQsT1AcUQyLSBGnl1'),
     },
     {
         caseId: '2026-0024257',
         roadName: 'Kirke Allé',
-        roadNumber: 'wnMmzXmxQZaLQsT1AcUQyLSBGnl1',
+        roadNumber: '23',
         city: 'Rødby',
         zipcode: 4970,
-        clientId: doc(db, 'users', 'mBfT4M44FTOpW9KAGQZ6XRQ4A373'),
-        managerId: doc(db, 'users', 'wnMmzXmxQZaLQsT1AcUQyLSBGnl1'),
     },
     {
         caseId: '2026-0039758',
@@ -37,8 +31,6 @@ const cases = [
         roadNumber: '13',
         city: 'Maribo',
         zipcode: 4930,
-        clientId: doc(db, 'users', 'dJvR6l3AyoSQZcIrPsNJNzqdxM33'),
-        managerId: doc(db, 'users', 'wnMmzXmxQZaLQsT1AcUQyLSBGnl1'),
     },
     {
         caseId: '2026-0078357',
@@ -46,8 +38,6 @@ const cases = [
         roadNumber: '142',
         city: 'Herning',
         zipcode: 7400,
-        clientId: doc(db, 'users', 'XLdl2SneAnbBNHNm1RBlMo6BWfP2'),
-        managerId: doc(db, 'users', 'BrbzAZ9jJRbOD3RZzzapklTwIr13'),
     },
     {
         caseId: '2026-0023648',
@@ -55,8 +45,6 @@ const cases = [
         roadNumber: '32',
         city: 'Stenlille',
         zipcode: 4295,
-        clientId: doc(db, 'users', 'Pe1RyUIWJYPJLi2girlb29ohIMJ2'),
-        managerId: doc(db, 'users', 'BrbzAZ9jJRbOD3RZzzapklTwIr13'),
     },
     {
         caseId: '2026-0090643',
@@ -64,8 +52,6 @@ const cases = [
         roadNumber: '67',
         city: 'Holbæk',
         zipcode: 4300,
-        clientId: doc(db, 'users', 'OytRe6tGrhPmIFU9f7nsjpDOMVB2'),
-        managerId: doc(db, 'users', 'BrbzAZ9jJRbOD3RZzzapklTwIr13'),
     },
     {
         caseId: '2026-0096012',
@@ -73,8 +59,6 @@ const cases = [
         roadNumber: '7',
         city: 'Birkerød',
         zipcode: 3460,
-        clientId: doc(db, 'users', '9q1EZc3SYcVyDIIEmagrP6gialu1'),
-        managerId: doc(db, 'users', 'BrbzAZ9jJRbOD3RZzzapklTwIr13'),
     },
 ];
 

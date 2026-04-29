@@ -10,6 +10,7 @@ const users = [
         role: 'manager',
         password: 'manager1',
         uid: 'wnMmzXmxQZaLQsT1AcUQyLSBGnl1',
+        caseId:['2025-0078234','2025-0013458','2026-0024257','2026-0039758'],
     },
     {
         firstName: 'Rikke',
@@ -19,6 +20,7 @@ const users = [
         role: 'manager',
         password: 'manager2',
         uid: 'BrbzAZ9jJRbOD3RZzzapklTwIr13',
+        caseId:['2026-0078357','2026-0023648','2026-0090643','2026-0096012'],
     },
     {
         firstName: 'Kenny',
@@ -28,6 +30,7 @@ const users = [
         role: 'client',
         password: 'client1',
         uid: '6AlZ7tnyWpPPTyB2pNMTcUYz6wE3',
+        caseId:['2025-0078234'],
     },
     {
         firstName: 'Hanne',
@@ -37,6 +40,7 @@ const users = [
         role: 'client',
         password: 'client2',
         uid: 'rfctKVmnxUOIKFfGffJo5garJo33',
+        caseId:['2025-0013458'],
     },
     {
         firstName: 'Thomas',
@@ -46,6 +50,7 @@ const users = [
         role: 'client',
         password: 'client3',
         uid: 'mBfT4M44FTOpW9KAGQZ6XRQ4A373',
+        caseId:['2026-0024257'],
     },
     {
         firstName: 'Camilla',
@@ -55,6 +60,7 @@ const users = [
         role: 'client',
         password: 'client4',
         uid: 'dJvR6l3AyoSQZcIrPsNJNzqdxM33',
+        caseId:['2026-0039758'],
     },
     {
         firstName: 'Peter',
@@ -64,6 +70,7 @@ const users = [
         role: 'client',
         password: 'client5',
         uid: 'XLdl2SneAnbBNHNm1RBlMo6BWfP2',
+        caseId:['2026-0078357'],
     },
     {
         firstName: 'Lise',
@@ -73,6 +80,7 @@ const users = [
         role: 'client',
         password: 'client6',
         uid: 'Pe1RyUIWJYPJLi2girlb29ohIMJ2',
+        caseId:['2026-0023648'],
     },
     {
         firstName: 'Søren',
@@ -82,6 +90,7 @@ const users = [
         role: 'client',
         password: 'client7',
         uid: 'OytRe6tGrhPmIFU9f7nsjpDOMVB2',
+        caseId:['2026-0090643'],
     },
     {
         firstName: 'Mette',
@@ -91,6 +100,7 @@ const users = [
         role: 'client',
         password: 'client8',
         uid: '9q1EZc3SYcVyDIIEmagrP6gialu1',
+        caseId:['2026-0096012'],
     },
 ];
 
