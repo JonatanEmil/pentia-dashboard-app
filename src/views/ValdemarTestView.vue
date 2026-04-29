@@ -69,11 +69,12 @@ const testList = [
     },
 ];
 
-const userStore = useUserStore();
 
-function getUsers(): void {
-    userStore.getUserList();
-}
+//const userStore = useUserStore();
+
+// function getUsers(): void {
+//    userStore.getUserList();
+//}
 
 
 </script>

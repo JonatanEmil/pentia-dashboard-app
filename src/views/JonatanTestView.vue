@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useFileStore } from "@/stores/fileStore.ts";
+//import { useFileStore } from "@/stores/fileStore.ts";
 import { useCaseStore } from '@/stores/caseStore.ts';
 
 import '@/assets/scss/main.scss';
@@ -12,12 +12,15 @@ import Search from '@/components/SearchBar.vue';
 
 const selected = ref(null);
 const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
-const testList = [{userId: 1, firstName: 'Jens', lastName: 'Jensen',}, {userId: 2, firstName: 'Jane', lastName: 'Jensen',}, {userId: 3, firstName: 'Jens', lastName: 'Hansen',}, {userId: 4, firstName: 'Hans', lastName: 'Pedersen',},];
-const fetchOptions = ['userId', 'firstName', 'lastName'];
+const testList = [{ userId: 1, firstName: 'Jens', lastName: 'Jensen' },
+    { userId: 2, firstName: 'Jane', lastName: 'Jensen' },
+    { userId: 3, firstName: 'Jens', lastName: 'Hansen' },
+    { userId: 4, firstName: 'Hans', lastName: 'Pedersen' }];
+// const fetchOptions = ['userId', 'firstName', 'lastName'];
 const searchResults = ref(testList);
-const fileStore = useFileStore();
+//const fileStore = useFileStore();
 
-fileStore.getFileList();
+//fileStore.getFileList();
 const caseStore = useCaseStore();
 
 caseStore.getCaseList();
@@ -42,13 +45,14 @@ async function onSearchFetch(query: string): Promise<void> {
 
 <template>
     <main>
-        <p v-for="(file, index) in fileStore.fileList" :key="index">
-            {{file.caseId}} - {{file.priority}} - {{file.title}} - {{file.path}}
+        <!-- <p v-for="(file, index) in fileStore.fileList" :key="index">
+            {{ file.caseId }} - {{ file.priority }} - {{ file.title }} - {{ file.path }}
             <img :src="file.path" :alt="file.title">
 
-        </p>
+        </p>-->
         <p v-for="(caseItem, index) in caseStore.caseList" :key="index">
-            {{ caseItem.roadName }} {{caseItem.roadNumber}} -- {{caseItem.managerId}} {{caseItem.clientId}}
+            {{ caseItem.roadName }} 
+            {{ caseItem.roadNumber }} -- {{ caseItem.managerId }} {{ caseItem.clientId }}
 
         </p>
 
@@ -58,12 +62,7 @@ async function onSearchFetch(query: string): Promise<void> {
             <p>{{ item.firstName }} {{ item.lastName }}</p>
 
         </List>
-        <RadioButton
-            v-for="option in options"
-            :key="option"
-            v-model="selected"
-            :value="option"
-        >
+        <RadioButton v-for="option in options" :key="option" v-model="selected" :value="option">
             {{ option }}
         </RadioButton>
         <DropDown>

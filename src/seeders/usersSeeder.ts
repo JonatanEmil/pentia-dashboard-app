@@ -106,9 +106,9 @@ const addUsers = async (): Promise<void> => {
             batch.set(ref, rest);
         }
         await batch.commit();
-        console.log('Users added successfully');
+        
     } catch (e) {
-        console.error(e);
+      
     }
 };
 
