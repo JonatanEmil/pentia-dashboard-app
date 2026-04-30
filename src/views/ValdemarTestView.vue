@@ -6,7 +6,7 @@ import TitleWithText from '@/components/TitleWithText.vue';
 import ProgressCard from '@/components/ProgressCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import CarouselContainer from '@/components/CarouselContainer.vue';
-import ReturnButton from '@/components/ReturnButton.vue';
+import ReturnButton from '@/components/common/ReturnButton.vue';
 import { useUserStore } from '@/stores/userStore';
 import LinkButton from '@/components/LinkButton.vue';
 
