@@ -1,0 +1,12 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/fonts' as f;
+
+.speakToText {
+
+&__button
+{
+    background-color: transparent;
+    border: none;
+}
+   
+}

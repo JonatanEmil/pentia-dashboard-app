@@ -7,4 +7,10 @@
   color: c.$black;
   border: none;
   border-radius: 0;
+
+     &.chat {
+        border-radius: 30px;
+        flex: 1;
+        min-width: 0;
+    }
 }

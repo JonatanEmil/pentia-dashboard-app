@@ -1,13 +1,15 @@
 import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { db } from '@/config/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, type DocumentReference } from 'firebase/firestore';
 import { useRouter } from 'vue-router';
 import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useCaseStore } from './caseStore';
 
 interface AuthUser {
     id: string
     role: string
+    caseIds: DocumentReference[]
 }
 
 export const useAuthStore = defineStore('auth', () => {
@@ -29,12 +31,19 @@ export const useAuthStore = defineStore('auth', () => {
         currentUser.value = {
             id: firebaseUser.uid,
             role: userData?.role,
-        };
+            caseIds: userData?.caseId,
+        } as AuthUser;
+
+        
+        const caseStore = useCaseStore();
+        
+        await caseStore.setCurrentCase(currentUser.value?.caseIds[0] as DocumentReference | string);
+
 
         if (currentUser.value.role === 'manager') {
-            router.push('/manager');
+            router.push({ name: 'managerHome' });
         } else {
-            router.push('/client');
+            router.push({ name: 'clientHome' });
         }
     }
 
@@ -43,7 +52,7 @@ export const useAuthStore = defineStore('auth', () => {
 
         await signOut(auth);
         currentUser.value = null;
-        router.push('/login');
+        router.push({ name: 'login' });
     }
 
     return {

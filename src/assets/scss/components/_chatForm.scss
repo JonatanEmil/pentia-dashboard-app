@@ -1,0 +1,44 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/fonts' as f;
+
+.chat-form {
+    background-color: c.$primary;
+    border-radius: 0;
+    align-items: center;
+    gap: 0.5rem;
+
+    .speak-btn-wrapper {
+        .speak-btn {
+            background: none;
+            border: none;
+        }
+    }
+
+    .speak-btn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--active {
+            opacity: 0.7;
+        }
+    }
+
+    .inputText {
+        flex: 1;
+        min-width: 0;
+        border-radius: 30px;
+        
+    }
+
+    .chatButtonSubmit {
+        width: auto;
+        padding: 0.5rem 0.75rem;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+}
