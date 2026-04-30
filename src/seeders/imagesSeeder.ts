@@ -17,7 +17,7 @@ const images = [
     { path: profileImg + 'hanne.png', type: 'users' },
     { path: profileImg + 'peter.png', type: 'users' },
     { path: profileImg + 'rikke.png', type: 'users' },
-    { path: profileImg + 'camilla.png', type: 'users' },
+    { path: profileImg + 'Kamilla.png', type: 'users' },
     { path: profileImg + 'mette.png', type: 'users' },
     { path: profileImg + 'lise.png', type: 'users' },
     { path: folderImg + 'stuegulv.png', type: 'stue', caseId: doc(db, 'cases', '2025-0078234'), expirationDate: expirationDate },
