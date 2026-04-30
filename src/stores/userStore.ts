@@ -36,7 +36,7 @@ export const useUserStore = defineStore('user', () => {
         const q = query(
             collection(db, 'users'),
             where('role', '==', 'manager'),
-            where('caseId', 'array-contains', doc(db, 'cases', caseId))
+            where('caseId', 'array-contains', doc(db, 'cases', caseId)),
         );
 
         const snapshot = await getDocs(q);

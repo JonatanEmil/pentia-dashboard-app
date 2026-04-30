@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { db } from '@/config/firebase';
-import { collection, getDocs, doc, getDoc, query, where } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, query, where, type DocumentReference } from 'firebase/firestore';
 import { useAuthStore } from './authStore.ts';
 
 interface Case {
@@ -16,6 +16,7 @@ interface Case {
 export const useCaseStore = defineStore('case', () => {
     // State
     const caseList = ref<Case[]>([]);
+    const currentCase = ref<Case>();
 
     // Getters
 
@@ -42,11 +43,22 @@ export const useCaseStore = defineStore('case', () => {
             }
         };
     }
+    
+    async function setCurrentCase(caseId: string | DocumentReference): Promise<void> {
+        caseId = typeof caseId === 'string' ? doc(db, 'cases', caseId) : caseId;
+        
+        const snapshot = await getDoc(caseId);
+        
+        currentCase.value = { caseId: snapshot.id, ...snapshot.data() } as Case;
+        
+    }
 
 
     // Returns the state, getters and actions
     return {
         caseList,
+        currentCase,
+        setCurrentCase,
         getCaseList,
     };
 });
