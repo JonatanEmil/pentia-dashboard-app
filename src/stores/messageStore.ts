@@ -50,14 +50,23 @@ export const useMessageStore = defineStore('message', () => {
     }
 
     async function sendMessage(message: string, caseId: string, receiver: string): Promise<void> {
-        
+        const authStore = useAuthStore();
+
+        await addDoc(collection(db, 'messages'), {
+            message: message,
+            caseId: caseId,
+            senderId: authStore.currentUser?.uid,
+            recieverId: recieverId,
+            timestamp: serverTimestamp(),
+        });
     }
 
     // Returns the state, getters and actions
     return {
         messageList,
         formattedMessages,
-        getMessageList,
+        subscribeToMessages,
+        sendMessage,
     };
 });
 
