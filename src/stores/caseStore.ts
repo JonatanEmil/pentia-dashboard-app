@@ -15,7 +15,6 @@ interface Case {
 export const useCaseStore = defineStore('case', () => {
     // State
     const caseList = ref<Case[]>([]);
-    const currentCase = ref<Case>();
 
     // Actions
     async function getCaseList(): Promise<void> {
@@ -40,15 +39,6 @@ export const useCaseStore = defineStore('case', () => {
             }
         }
     }
-    
-    async function setCurrentCase(caseId: string | DocumentReference): Promise<void> {
-        caseId = typeof caseId === 'string' ? doc(db, 'cases', caseId) : caseId;
-        
-        const snapshot = await getDoc(caseId);
-        
-        currentCase.value = { caseId: snapshot.id, ...snapshot.data() } as Case;
-        
-    }
 
     async function getManagerForCase(caseId: string): Promise<string> {
         const q = query(
@@ -64,8 +54,6 @@ export const useCaseStore = defineStore('case', () => {
 
     return {
         caseList,
-        currentCase,
-        setCurrentCase,
         getCaseList,
         getManagerForCase,
     };

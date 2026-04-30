@@ -8,7 +8,6 @@
 @use 'components/carouselContainer';
 @use 'components/dropDown';
 @use 'components/formButtonSubmit';
-@use 'components/generalCard';
 @use 'components/infoCard';
 @use 'components/inputText';
 @use 'components/itemList';
@@ -20,7 +19,6 @@
 @use 'components/radioButton';
 @use 'components/returnButton';
 @use 'components/progressCard';
-@use 'components/search';
 
 @use 'globals/dimensions';
 @use 'globals/flex';
@@ -38,14 +36,14 @@ body {
 }
 
 #app{
-
+    
     display: grid;
     grid-template-rows: 1fr 12vh;
     grid-template-areas:
         'mainContent'
         'header';
     box-sizing: border-box;
-
+    
     .mainContent{
         grid-area: mainContent;
         overflow: scroll;

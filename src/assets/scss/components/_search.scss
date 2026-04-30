@@ -1,20 +1,6 @@
 @use '../abstracts/colors' as c;
 
 .search{
-
-    button {
-        border: none;
-        background-color: transparent;
-    }
-
-    input {
-        background-color: transparent;
-        border: none;
-        outline: none;
-        border-bottom: 1px solid black;
-
-        &::placeholder {
-            color: c.$black;
-        }
-    }
+  background-color: c.$primary;
+  color: c.$secondary;
 }

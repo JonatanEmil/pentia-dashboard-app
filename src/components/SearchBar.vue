@@ -12,8 +12,9 @@ async function handleSearch(): Promise<void> {
 </script>
 
 <template>
-    <div class="search">
+    <div>
+        <form action=""></form>
         <button @click="handleSearch"><SearchIcon></SearchIcon></button>
-        <input type="text" v-model="fetchContent" @keyup.enter="handleSearch" placeholder="Søg">
+        <input type="text" v-model="fetchContent" @keyup.enter="handleSearch">
     </div>
 </template>

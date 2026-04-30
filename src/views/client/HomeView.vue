@@ -2,26 +2,17 @@
 import InfoCard from '@/components/InfoCard.vue';
 import CarouselContainer from '@/components/CarouselContainer.vue';
 import ProgressCard from '@/components/ProgressCard.vue';
-import { useBuildingStepStore } from '@/stores/buildingStepStore';
-import { useCaseStore } from '@/stores/caseStore';
 
 
 interface InfoCardData {
     title: string;
     text: string;
 };
-
-const buildingStepStore = useBuildingStepStore();
-const casesStore = useCaseStore();
-
-
-
-//casesStore.currentCase is expected to be populated at the time of this running
-if(casesStore.currentCase && casesStore.currentCase.caseId){
-    buildingStepStore.getBuildingStepListForCase(casesStore.currentCase.caseId);
-}else{
-    alert('something went wrong, no case have been selected');
-}
+interface ProgressCardData {
+    text: string;
+    routeName: string;
+    status: 'done' | 'planned';
+};
 
 const infoCardInformation: InfoCardData[] = [
     { 
@@ -38,11 +29,38 @@ const infoCardInformation: InfoCardData[] = [
     },
 ];
 
+const progressCardInformation: ProgressCardData[] = [
+    {
+        text:'Byggetilladelse',
+        routeName:'',
+        status:'done',
+    },
+    {
+        text:'Opstartsmøde',
+        routeName:'',
+        status:'planned',
+    },
+    {
+        text:'Byggetilladelse',
+        routeName:'',
+        status:'planned',
+    },
+    {
+        text:'Materialevalg',
+        routeName:'',
+        status:'planned',
+    },
+    {
+        text:'Fundament',
+        routeName:'',
+        status:'planned',
+    },
+];
 </script>
 <template>
     <main>
         <h1 class="font--h1 font--center">Velkommen!</h1>
-        <CarouselContainer :gap="4" :startIndex="1" class="mb--4">
+        <CarouselContainer :gap="4" :startIndex="1" class="mb--5">
             <InfoCard 
                 v-for="(data, index) in infoCardInformation" 
                 :key="index"
@@ -52,11 +70,10 @@ const infoCardInformation: InfoCardData[] = [
         </CarouselContainer>
         
         <ProgressCard class="mt--2"
-            v-for="(data, index) in buildingStepStore.currentBuildingSteps" 
+            v-for="(data, index) in progressCardInformation" 
             :key="index"
-            :title="data.title"
-            :routeName="'clientBuildingSteps'"
-            :params="{priority: data.priority}"
+            :text="data.text"
+            :routeName="data.routeName"
             :status="data.status"
         />
     

@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { type RouteParamsRaw } from 'vue-router';
-
 
 import ClockIcon from '@/assets/icons/ClockIcon.vue';
 import CheckmarkIcon from '@/assets/icons/CheckmarkIcon.vue';
 
 defineProps<{
-title: string,
+text: string,
 routeName: string,
-params: RouteParamsRaw,
-status: boolean,
+status: 'done' | 'planned',
 }>();
 
 
@@ -17,20 +14,20 @@ status: boolean,
 <template>
     <div 
         class="progressCard me--5"
-        :class="{done: status}"
+        :class="{done: status == 'done'}"
         >
         <RouterLink 
-            :to="{ name: routeName, params: params}"
+            :to="{ name: routeName }" 
             class="grid h--100 me--4 ms--3 py--2" 
         >
-            <h2 class="font-h2" v-if="title">{{ title }}</h2>
+            <h2 class="font-h2" v-if="text">{{ text }}</h2>
             <h2 class="font-h2" v-else><slot/></h2>
             <CheckmarkIcon 
-                :class="{hidden: !status}" 
+                :class="{hidden: status != 'done'}" 
                 class="h-fixed--4"
             />
             <ClockIcon
-                :class="{hidden: status}" 
+                :class="{hidden: status != 'planned'}" 
                 class="h-fixed--4"
             />
         </RouterLink>
