@@ -6,6 +6,9 @@
         height: 90px;
         width: 320px;
 
+        &.card-bg{
+            background-color: c.$primary;
+        }
 
         .card-img {
             img {
@@ -67,12 +70,10 @@
     &-schedule {
         color: c.$black;
         height: 74px;
-        width: 323px;
+        width: 320px;
 
-        .card-img {
-            img {
-                object-fit: contain;
-            }
+        &.card-bg {
+            background-color: c.$highlight;
         }
     }
 }
