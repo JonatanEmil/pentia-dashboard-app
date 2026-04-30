@@ -70,7 +70,7 @@ const router = createRouter({
                     component: () => import('@/views/client/ProfileView.vue')
                 },
                 {
-                    path: '/buildingSteps',
+                    path: '/buildingSteps/:priority',
                     name: 'clientBuildingSteps',
                     component: () => import('@/views/client/BuildingStepView.vue')
                 },
