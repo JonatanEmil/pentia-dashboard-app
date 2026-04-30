@@ -81,7 +81,7 @@ function getUsers(): void {
 
 <template>
     <main>
-        <LinkButton  routeName="login" title="Byggetilladelse" variant=""/>
+        <LinkButton  routeName="login" title="Byggetilladelse" variant="" color="dark"/>
 
         <button @click="getUsers">Update User</button>
         <p v-for="(user, index) in userStore.userList" :key="index">

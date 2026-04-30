@@ -2,8 +2,6 @@
 @use '@/assets/scss/abstracts/fonts' as f;
 @layer {
     .linkButton {
-        color: c.$highlight;
-        background-color: c.$primary;
         border-radius: 30px;
         text-decoration: none;
         padding: 0.75rem 0.5rem;
@@ -25,8 +23,14 @@
         }
         &.download{
             text-decoration: underline;
+        }
+        &.light{
             background-color: c.$secondary;
             color: c.$black
+        }
+        &.dark{
+            color: c.$highlight;
+            background-color: c.$primary;
         }
     }
 }

@@ -6,18 +6,21 @@ withDefaults(defineProps<{
     routePath?: string,
     title: string,
     variant?: 'download' | 'dense' | '',
+    color?: 'dark' | 'light',
 }>(), {
     variant: '',
+    color: 'light',
 });
 
 </script>
 
 <template>
     <a 
-    v-if="variant == 'download'"
+        v-if="variant == 'download'"
+        download
         :href="routePath"
         class="linkButton font--p"
-        :class="variant"
+        :class="[variant,color]"
     >
         <DownloadIcon class="pe--1" />
         {{title}}
@@ -25,7 +28,7 @@ withDefaults(defineProps<{
     <RouterLink v-else
         :to="{ name: routeName, path: routePath}"
         class="linkButton font--p"
-        :class="variant"
+        :class="[variant,color]"
     >{{title}}
     </RouterLink>
 </template>
