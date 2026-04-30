@@ -15,16 +15,16 @@ withDefaults(defineProps<{
 
 <template>
     <div :class="['card-' + cardType,  { 'card-bg': cardBackground }]"
-         class="grid grid--cols-3">
+         class="flex flex--just-around flex--align-center">
         <div v-if="filename"
-             :class="[profile ? 'prof-img' : 'card-img', 'w--33']">
+             :class="[profile  && cardType === 'client' ? 'prof-img' : 'card-img']">
             <img :src="filename" :alt="name" class="w--100" >
         </div>
-        <div v-if="!filename">
-            <CalenderIcon />
+        <div v-else class="h--100 flex">
+            <CalenderIcon class="h--75 w-auto my--auto" />
         </div>
-        <div class="card-content flex flex--column flex--gaprow-3 w--66">
-            <p v-if="profile" class="font--h3">Adresse</p>
+        <div class="card-content flex flex--column flex--gaprow-1">
+            <p v-if="profile && cardType === 'case'" class="font--h3">Adresse</p>
                <slot></slot>
         </div>
     </div>

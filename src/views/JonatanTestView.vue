@@ -38,9 +38,44 @@ async function onSearchFetch(query: string): Promise<void> {
             card-type="client"
             :profile="false"
             :name="testList[0].firstName"
-            :filename="'src/assets/img/users/jakob.png'">
+            :filename="'src/assets/img/users/jakob.png'"
+        >
             <p>{{testList[0].userId}}</p>
             <p>{{testList[0].firstName}} {{testList[0].lastName}}</p>
+        </GeneralCard>
+        <GeneralCard
+            card-type="client"
+            :profile="true"
+            :name="testList[0].firstName"
+            :filename="'src/assets/img/users/jakob.png'"
+            :card-background="false"
+        >
+            <p>{{testList[1].userId}}</p>
+            <p>{{testList[1].firstName}} {{testList[1].lastName}}</p>
+            <p>{{testList[1].firstName}} {{testList[1].lastName}}</p>
+            <p>{{testList[1].firstName}} {{testList[1].lastName}}</p>
+        </GeneralCard>
+        <GeneralCard
+            card-type="case"
+            :profile="false"
+            :filename="'src/assets/img/houses/house1.png'"
+        >
+            <p>{{testList[1].userId}}</p>
+            <p>{{testList[1].firstName}} {{testList[1].lastName}}</p>
+        </GeneralCard>
+        <GeneralCard
+            card-type="case"
+            :profile="true"
+            :filename="'src/assets/img/houses/house1.png'"
+        >
+            <p>{{testList[1].userId}}</p>
+            <p>{{testList[1].firstName}} {{testList[1].lastName}}</p>
+        </GeneralCard>
+        <GeneralCard
+            card-type="schedule"
+            :profile="true"
+        >
+            <p>{{testList[1].firstName}} {{testList[1].lastName}}</p>
         </GeneralCard>
         <Search @searchFetch="onSearchFetch"></Search>
         <List :items="searchResults" v-slot="{ item }" :columns="2" :titel="'searchTest'">
