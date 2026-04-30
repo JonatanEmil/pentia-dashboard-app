@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // import FormButtonSubmit from '@/components/FormButtonSubmit.vue';
-import '@/assets/scss/main.scss';
-import LoginContainer from '@/components/LoginContainer.vue';
+
+
 // import CreateClient from '@/components/CreateClient.vue';
 // import CreateClientForm from '@/components/CreateClientForm.vue';
 import CreateClient from '@/components/CreateClient.vue';
@@ -38,7 +38,7 @@ imageStore.getImageList();
 <!-- <CreateClientForm /> -->
 <main>
 <CreateClient />
-
+<!--
 <p v-for="(booking, index) in bookingStore.formattedBookings" :key="index">
     {{ booking.caseId }} - {{ booking.startTimeFormatted }} - {{ booking.endTimeFormatted }}
 
@@ -53,10 +53,10 @@ imageStore.getImageList();
 <p v-for="(buildingStep, index) in buildingStepStore.buildingStepList" :key="index">
     {{ buildingStep.caseId }} - {{ buildingStep.priority }} - 
     {{ buildingStep.richText }} - {{ buildingStep.status }} - {{ buildingStep.title }}
-<!--<img v-for="(image, index) in imageStore.imageList" :key="index" :src="image.path" /> -->
+<img v-for="(image, index) in imageStore.imageList" :key="index" :src="image.path" /> 
 
 </p>
-
+-->
 <div>
 
 </div>

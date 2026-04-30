@@ -1,14 +1,15 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { db } from '@/config/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp, where } from 'firebase/firestore';
 import { toDanishTime } from '@/utils/toDanishTime';
+import { useAuthStore } from './authStore.ts';
 
 interface Message {
     message: string
     caseId: string
-    senderId: number
-    recieverId: number
+    senderId: string
+    recieverId: string
     timestamp: Date
 }
 
@@ -27,20 +28,29 @@ export const useMessageStore = defineStore('message', () => {
     );
 
     // Actions
-    async function getMessageList(): Promise<void> {
-        const snapshot = await getDocs(collection(db, 'messages'));
+    function subscribeToMessages(caseId: string): void {
+        const q = query(
+            collection(db, 'messages'),
+            where('caseId', '==', caseId),
+            orderBy('timestamp'),
+        );
 
-        snapshot.forEach((doc) => {
-            const data = doc.data();
+        onSnapshot(q, (snapshot) => {
+            messageList.value = snapshot.docs.map(doc => ({
+                id: doc.id,
+                message: doc.data().message,
+                caseId: doc.data().caseId,
+                senderId: doc.data().senderId,
+                recieverId: doc.data().recieverId,
+                timestamp: doc.data().timestamp.toDate(),
 
-            messageList.value.push({
-                message: data.message,
-                caseId: data.caseId.id,
-                senderId: data.senderId.id,
-                recieverId: data.recieverId.id,
-                timestamp: data.timestamp.toDate(),
-            });
+            }));
         });
+
+    }
+
+    async function sendMessage(message: string, caseId: string, receiver: string): Promise<void> {
+        
     }
 
     // Returns the state, getters and actions
