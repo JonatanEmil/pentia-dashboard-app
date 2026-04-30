@@ -5,6 +5,7 @@
 @use 'components/carouselContainer';
 @use 'components/dropDown';
 @use 'components/formButtonSubmit';
+@use 'components/generalCard';
 @use 'components/infoCard';
 @use 'components/inputText';
 @use 'components/itemList';
@@ -33,7 +34,7 @@ body {
 }
 
 #app{
-    
+
     display: grid;
     grid-template-rows: 1fr 12vh;
     grid-template-areas:
