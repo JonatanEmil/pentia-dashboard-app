@@ -17,6 +17,7 @@
 @use 'components/radioButton';
 @use 'components/returnButton';
 @use 'components/progressCard';
+@use 'components/search';
 
 @use 'globals/dimensions';
 @use 'globals/flex';
@@ -41,7 +42,7 @@ body {
         'mainContent'
         'header';
     box-sizing: border-box;
-    
+
     .mainContent{
         grid-area: mainContent;
         overflow: scroll;
