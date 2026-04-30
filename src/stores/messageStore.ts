@@ -6,6 +6,7 @@ import { toDanishTime } from '@/utils/toDanishTime';
 import { useAuthStore } from './authStore.ts';
 
 interface Message {
+    id: string
     message: string
     caseId: string
     senderId: string
@@ -49,13 +50,13 @@ export const useMessageStore = defineStore('message', () => {
 
     }
 
-    async function sendMessage(message: string, caseId: string, receiver: string): Promise<void> {
+    async function sendMessage(message: string, caseId: string, recieverId: string): Promise<void> {
         const authStore = useAuthStore();
 
         await addDoc(collection(db, 'messages'), {
             message: message,
             caseId: caseId,
-            senderId: authStore.currentUser?.uid,
+            senderId: authStore.currentUser?.id,
             recieverId: recieverId,
             timestamp: serverTimestamp(),
         });

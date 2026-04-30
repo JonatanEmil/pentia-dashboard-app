@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { db } from '@/config/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { useRouter } from 'vue-router';
@@ -32,9 +32,9 @@ export const useAuthStore = defineStore('auth', () => {
         };
 
         if (currentUser.value.role === 'manager') {
-            router.push('/manager');
+            router.push({ name: 'managerHome' });
         } else {
-            router.push('/client');
+            router.push({ name: 'clientHome' });
         }
     }
 
@@ -43,7 +43,7 @@ export const useAuthStore = defineStore('auth', () => {
 
         await signOut(auth);
         currentUser.value = null;
-        router.push('/login');
+        router.push({ name: 'login' });
     }
 
     return {
