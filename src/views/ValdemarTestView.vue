@@ -3,12 +3,12 @@ import ItemList from '@/components/ItemList.vue';
 import NavbarButton from '@/components/NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
 import TitleWithText from '@/components/TitleWithText.vue';
-import CheckboxWithText from '@/components/checkboxWithText.vue';
 import ProgressCard from '@/components/ProgressCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import CarouselContainer from '@/components/CarouselContainer.vue';
 import ReturnButton from '@/components/ReturnButton.vue';
 import { useUserStore } from '@/stores/userStore';
+import LinkButton from '@/components/LinkButton.vue';
 
 const testList = [
     
@@ -19,7 +19,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -29,7 +29,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -39,7 +39,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -49,7 +49,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -59,7 +59,7 @@ const testList = [
     },
     {
         name: 'Hjem',
-        routeName: 'home',
+        routeName: 'login',
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/HomeIcon.vue')),
     },
     {
@@ -68,6 +68,7 @@ const testList = [
         svgComponent: defineAsyncComponent(() => import('@/assets/icons/AddIcon.vue')),
     },
 ];
+
 
 const userStore = useUserStore();
 
@@ -80,6 +81,8 @@ function getUsers(): void {
 
 <template>
     <main>
+        <LinkButton  routeName="login" title="Byggetilladelse" variant="" color="dark"/>
+
         <button @click="getUsers">Update User</button>
         <p v-for="(user, index) in userStore.userList" :key="index">
             User ID: {{ user.firstName }}
@@ -97,9 +100,9 @@ function getUsers(): void {
         title="a very fancy title with lots of text"/>
     </CarouselContainer>
 
-    <ProgressCard text="a fancy link" routeName="home" status="done"/>
+    <ProgressCard text="a fancy link" routeName="login" status="done"/>
     <br>
-    <ProgressCard text="a fancy link" routeName="home" status="planned"/>
+    <ProgressCard text="a fancy link" routeName="login" status="planned"/>
 
 
     <TitleWithText

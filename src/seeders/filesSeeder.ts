@@ -1,8 +1,8 @@
 import { collection, writeBatch, doc } from 'firebase/firestore';
-import { db } from '@/utils/firebase.ts';
+import { db } from '@/config/firebase';
 
 
-const path = '@/assets/files/';
+const path = 'src/assets/files/';
 
 const files = [
     {
@@ -38,7 +38,7 @@ const addFiles = async (): Promise<void> => {
 
         await batch.commit();
     } catch (e) {
-        console.error(e);
+        
     }
 };
 

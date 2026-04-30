@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+//import { useFileStore } from "@/stores/fileStore.ts";
+import { useCaseStore } from '@/stores/caseStore.ts';
 
 import '@/assets/scss/main.scss';
 import DropDown from '@/components/DropDown.vue';
@@ -13,6 +15,12 @@ const selected = ref(null);
 const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 const testList = ref([{userId: 1, firstName: 'Jens', lastName: 'Jensen',}, {userId: 2, firstName: 'Jane', lastName: 'Jensen',}, {userId: 3, firstName: 'Jens', lastName: 'Hansen',}, {userId: 4, firstName: 'Hans', lastName: 'Pedersen' } ]);
 const searchResults = ref(testList);
+//const fileStore = useFileStore();
+
+//fileStore.getFileList();
+const caseStore = useCaseStore();
+
+caseStore.getCaseList();
 
 /*async function onSearchFetch(query: string): Promise<void> {
     if (!query) return;
@@ -83,12 +91,7 @@ async function onSearchFetch(query: string): Promise<void> {
             <p>{{ item.firstName }} {{ item.lastName }}</p>
 
         </List>
-        <RadioButton
-            v-for="option in options"
-            :key="option"
-            v-model="selected"
-            :value="option"
-        >
+        <RadioButton v-for="option in options" :key="option" v-model="selected" :value="option">
             {{ option }}
         </RadioButton>
         <DropDown>

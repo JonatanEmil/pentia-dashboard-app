@@ -1,5 +1,5 @@
 import { collection, writeBatch, doc } from 'firebase/firestore';
-import { db } from '@/utils/firebase.ts';
+import { db } from '@/config/firebase';
 
 
 const path = '@/assets/files/';
@@ -145,7 +145,7 @@ const addSteps = async (): Promise<void> => {
 
         await batch.commit();
     } catch (e) {
-        console.error(e);
+        
     }
 };
 

@@ -5,7 +5,7 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
 </script>
 
 <template>
-  <header>
+  <header class="h--100">
     <NavbarContainer />
 
     <div class="wrapper">
@@ -17,7 +17,7 @@ import NavbarContainer from '@/components/NavbarContainer.vue';
     </div>
   </header>
 
-  <RouterView class="mainContent" />
+  <RouterView class="mainContent p--0 m--0" />
 </template>
 
 <style scoped></style>

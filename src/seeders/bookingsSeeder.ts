@@ -1,5 +1,5 @@
 import { collection, writeBatch, doc } from 'firebase/firestore';
-import { db } from '@/utils/firebase.ts';
+import { db } from '@/config/firebase';
 
 
 const bookings = [
@@ -23,7 +23,7 @@ const addBookings = async (): Promise<void> => {
 
         await batch.commit();
     } catch (e) {
-        console.error(e);
+        
     }
 };
 

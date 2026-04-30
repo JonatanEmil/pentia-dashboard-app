@@ -1,7 +1,7 @@
 import { collection, writeBatch, doc } from 'firebase/firestore';
-import { db } from '@/utils/firebase.ts';
+import { db } from '@/config/firebase';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+
 const cases = [
 
     {
@@ -10,8 +10,6 @@ const cases = [
         roadNumber: '20',
         city: 'Odense',
         zipcode: 5000,
-        clientId: doc(db, 'users', '3'),
-        managerId: doc(db, 'users', '1'),
     },
     {
         caseId: '2025-0013458',
@@ -19,17 +17,13 @@ const cases = [
         roadNumber: '118A',
         city: 'Slagelse',
         zipcode: 4200,
-        clientId: doc(db, 'users', '4'),
-        managerId: doc(db, 'users', '1'),
     },
     {
         caseId: '2026-0024257',
         roadName: 'Kirke Allé',
-        roadNumber: '1',
+        roadNumber: '23',
         city: 'Rødby',
         zipcode: 4970,
-        clientId: doc(db, 'users', '5'),
-        managerId: doc(db, 'users', '1'),
     },
     {
         caseId: '2026-0039758',
@@ -37,8 +31,6 @@ const cases = [
         roadNumber: '13',
         city: 'Maribo',
         zipcode: 4930,
-        clientId: doc(db, 'users', '6'),
-        managerId: doc(db, 'users', '1'),
     },
     {
         caseId: '2026-0078357',
@@ -46,8 +38,6 @@ const cases = [
         roadNumber: '142',
         city: 'Herning',
         zipcode: 7400,
-        clientId: doc(db, 'users', '7'),
-        managerId: doc(db, 'users', '2'),
     },
     {
         caseId: '2026-0023648',
@@ -55,8 +45,6 @@ const cases = [
         roadNumber: '32',
         city: 'Stenlille',
         zipcode: 4295,
-        clientId: doc(db, 'users', '8'),
-        managerId: doc(db, 'users', '2'),
     },
     {
         caseId: '2026-0090643',
@@ -64,8 +52,6 @@ const cases = [
         roadNumber: '67',
         city: 'Holbæk',
         zipcode: 4300,
-        clientId: doc(db, 'users', '9'),
-        managerId: doc(db, 'users', '2'),
     },
     {
         caseId: '2026-0096012',
@@ -73,8 +59,6 @@ const cases = [
         roadNumber: '7',
         city: 'Birkerød',
         zipcode: 3460,
-        clientId: doc(db, 'users', '10'),
-        managerId: doc(db, 'users', '2'),
     },
 ];
 
@@ -91,7 +75,7 @@ const addCases = async (): Promise<void> => {
 
         await batch.commit();
     } catch (e) {
-        console.error(e);
+        
     }
 };
 

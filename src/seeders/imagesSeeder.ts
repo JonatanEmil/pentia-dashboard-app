@@ -1,10 +1,10 @@
 import { collection, writeBatch, doc } from 'firebase/firestore';
-import { db } from '@/utils/firebase.ts';
+import { db } from '@/config/firebase';
 
 
-const profileImg = '@/assets/img/users/';
-const folderImg = '@/assets/img/';
-const houseImg = '@/assets/img/houses/';
+const profileImg = 'src/assets/img/users/';
+const folderImg = 'src/assets/img/';
+const houseImg = 'src/assets/img/houses/';
 const expirationDate = new Date();
 
 expirationDate.setFullYear(expirationDate.getFullYear() + 2);
@@ -53,7 +53,7 @@ const addImages = async (): Promise<void> => {
 
         await batch.commit();
     } catch (e) {
-        console.error(e);
+        
     }
 };
 
