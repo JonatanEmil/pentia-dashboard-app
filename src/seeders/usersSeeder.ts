@@ -9,7 +9,10 @@ const users = [
         email: 'jakob.orntoft@byggmester.dk',
         role: 'manager',
         password: 'manager1',
+        imageId: doc(db, 'images', '2'),
         uid: 'wnMmzXmxQZaLQsT1AcUQyLSBGnl1',
+        caseId:[doc(db, 'cases', '2025-0078234'),doc(db, 'cases', '2025-0013458'),doc(db, 'cases', '2026-0024257'),doc(db, 'cases', '2026-0039758')],
+        
     },
     {
         firstName: 'Rikke',
@@ -18,7 +21,9 @@ const users = [
         email: 'rikke.sandberg@byggmester.dk',
         role: 'manager',
         password: 'manager2',
+        imageId: doc(db, 'images', '7'),
         uid: 'BrbzAZ9jJRbOD3RZzzapklTwIr13',
+        caseId:[doc(db, 'cases', '2026-0078357'),doc(db, 'cases', '2026-0023648'),doc(db, 'cases', '2026-0090643'),doc(db, 'cases', '2026-0096012')],
     },
     {
         firstName: 'Kenny',
@@ -27,7 +32,9 @@ const users = [
         email: 'kenny.jordstrom@gmail.com',
         role: 'client',
         password: 'client1',
+        imageId: doc(db, 'images', '3'),
         uid: '6AlZ7tnyWpPPTyB2pNMTcUYz6wE3',
+        caseId:[doc(db, 'cases', '2025-0078234')],
     },
     {
         firstName: 'Hanne',
@@ -36,7 +43,9 @@ const users = [
         email: 'hanne.brandt@yahoo.dk',
         role: 'client',
         password: 'client2',
+        imageId: doc(db, 'images', '5'),
         uid: 'rfctKVmnxUOIKFfGffJo5garJo33',
+        caseId:[doc(db, 'cases', '2025-0013458')],
     },
     {
         firstName: 'Thomas',
@@ -45,7 +54,9 @@ const users = [
         email: 'thomas.dalgaard@gmail.com',
         role: 'client',
         password: 'client3',
+        imageId: doc(db, 'images', '1'),
         uid: 'mBfT4M44FTOpW9KAGQZ6XRQ4A373',
+        caseId:[doc(db, 'cases', '2026-0024257')],
     },
     {
         firstName: 'Camilla',
@@ -54,7 +65,9 @@ const users = [
         email: 'camilla.n@yahoo.dk',
         role: 'client',
         password: 'client4',
+        imageId: doc(db, 'images', '8'),
         uid: 'dJvR6l3AyoSQZcIrPsNJNzqdxM33',
+        caseId:[doc(db, 'cases', '2026-0039758')],
     },
     {
         firstName: 'Peter',
@@ -63,7 +76,9 @@ const users = [
         email: 'peter.vestergaard@outlook.com',
         role: 'client',
         password: 'client5',
+        imageId: doc(db, 'images', '6'),
         uid: 'XLdl2SneAnbBNHNm1RBlMo6BWfP2',
+        caseId:[doc(db, 'cases', '2026-0078357')],
     },
     {
         firstName: 'Lise',
@@ -72,7 +87,9 @@ const users = [
         email: 'lise.holm@gmail.com',
         role: 'client',
         password: 'client6',
+        imageId: doc(db, 'images', '10'),
         uid: 'Pe1RyUIWJYPJLi2girlb29ohIMJ2',
+        caseId:[doc(db, 'cases', '2026-0023648')],
     },
     {
         firstName: 'Søren',
@@ -81,7 +98,9 @@ const users = [
         email: 'soren.bak@hotmail.com',
         role: 'client',
         password: 'client7',
+        imageId: doc(db, 'images', '4'),
         uid: 'OytRe6tGrhPmIFU9f7nsjpDOMVB2',
+        caseId:[doc(db, 'cases', '2026-0090643')],
     },
     {
         firstName: 'Mette',
@@ -90,14 +109,16 @@ const users = [
         email: 'mette.kjaergaard@gmail.com',
         role: 'client',
         password: 'client8',
+        imageId: doc(db, 'images', '9'),
         uid: '9q1EZc3SYcVyDIIEmagrP6gialu1',
+        caseId:[doc(db, 'cases', '2026-0096012')],
     },
 ];
 
 const addUsers = async (): Promise<void> => {
     try {
         const batch = writeBatch(db);
-        
+
         for (const user of users) {
             // Use userId as Firestore document ID
             const ref = doc(db, 'users', String(user.uid));

@@ -1,0 +1,36 @@
+@use '@/assets/scss/abstracts/colors' as c;
+@use '@/assets/scss/abstracts/fonts' as f;
+@layer {
+    .linkButton {
+        border-radius: 30px;
+        text-decoration: none;
+        padding: 0.75rem 0.5rem;
+        box-sizing: border-box;
+        display: block;
+        text-align: center;
+        width: fit-content;
+
+        svg{
+            height: 1rem;
+            width: auto;
+            margin: auto;
+            vertical-align:middle;
+        }
+
+        &.dense{
+            border-radius: 10px;
+            padding: 1rem 0.5rem;
+        }
+        &.download{
+            text-decoration: underline;
+        }
+        &.light{
+            background-color: c.$secondary;
+            color: c.$black
+        }
+        &.dark{
+            color: c.$highlight;
+            background-color: c.$primary;
+        }
+    }
+}

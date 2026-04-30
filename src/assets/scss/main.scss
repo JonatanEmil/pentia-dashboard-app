@@ -11,6 +11,7 @@
 @use 'components/infoCard';
 @use 'components/inputText';
 @use 'components/itemList';
+@use 'components/linkButton';
 @use 'components/loginForm';
 @use 'components/navbarButton';
 @use 'components/navbarContainer';
@@ -32,31 +33,30 @@ body {
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
     background-color: c.$background;
-    margin: 0;
 }
 
 #app{
     
     display: grid;
-    height: 100vh;
-    grid-template-rows: 89vh auto;
+    grid-template-rows: 1fr 12vh;
     grid-template-areas:
         'mainContent'
         'header';
+    box-sizing: border-box;
     
     .mainContent{
         grid-area: mainContent;
         overflow: scroll;
-
+        box-sizing: border-box;
+        border: 0;
     }
     header{
         grid-area: header;
-        height: 100%;
         /*overflow: hidden;*/
     }
 
     @media (min-width: 768px) {
-    grid-template-rows: auto 91vh;
+    grid-template-rows: 12vh 1fr;
     grid-template-areas:
         'header'
         'mainContent';
