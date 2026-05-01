@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import NavbarButton from './NavbarButton.vue';
-import { defineAsyncComponent, ref } from 'vue';
+import { defineAsyncComponent } from 'vue';
 import Logo from '@/assets/icons/LogoIcon.vue';
+import { useAuthStore } from '@/stores/authStore';
+import { useRoute } from 'vue-router';
 
 const links = {
     manager:[
@@ -54,17 +56,13 @@ const links = {
         },
     ] };
 
-const navToggle = ref(true);
+const authStore = useAuthStore();
+const route = useRoute();
 
 </script>
-<template>
-    <!-- true hvis man er logget ind som manager -->
-    <button v-on:click="navToggle = !navToggle" style="position: absolute; top: 0; right: 0;">
-        Change nav view
-    </button>
-    
+<template>    
     <nav 
-        v-if="navToggle"
+        v-if="authStore.currentUser?.role == 'manager' && route.name != 'login'"
         class="navbarContainer flex flex--row flex--just-around flex--align-center"
     >
         <RouterLink :to="{ name: 'createClient' }" class="navbarLogo">
@@ -81,7 +79,7 @@ const navToggle = ref(true);
     </nav>
 
     <nav 
-        v-else
+        v-else-if="authStore.currentUser?.role == 'client' && route.name != 'login'"
         class="navbarContainer flex flex--row flex--just-between flex--align-center"
     >        
         <RouterLink :to="{ name: 'createClient' }" class="navbarLogo">

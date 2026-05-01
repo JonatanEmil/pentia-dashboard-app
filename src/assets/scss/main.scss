@@ -63,7 +63,19 @@ body {
         'header'
         'mainContent';
     }
+
+    &:not(:has(> header > nav)) {
+    grid-template-rows: 100vh ;
+    grid-template-areas:
+        'mainContent';
+    overflow: hidden;
+
+    header{
+        display: none;
+    }
+    }
 }
+    
 
 
 .globalpaddings {
