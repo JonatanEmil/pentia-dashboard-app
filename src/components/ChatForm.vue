@@ -5,6 +5,7 @@ import FormButtonSubmit from './FormButtonSubmit.vue';
 import SendIcon from '@/assets/icons/SendIcon.vue';
 import { ref } from 'vue';
 
+
 const emit = defineEmits<{
     send: [message: string]
 }>();
@@ -17,6 +18,8 @@ function handleSend(): void {
         inputValue.value = '';
     }
 }
+
+
 </script>
 
 <template>
