@@ -18,6 +18,7 @@ interface Message {
 export const useMessageStore = defineStore('message', () => {
     // State
     const messageList = ref<Message[]>([]);
+    const contactName = ref<string>('');
 
     // Getters
     const formattedMessages = computed(() =>
@@ -58,7 +59,7 @@ export const useMessageStore = defineStore('message', () => {
         const senderRef = typeof authStore.currentUser?.id === 'string' ? doc(db, 'users', authStore.currentUser?.id) : authStore.currentUser?.id;
         const recieverRef = typeof recieverId === 'string' ? doc(db, 'users', recieverId) : recieverId;
 
-        const newEntry = await addDoc(collection(db, 'messages'), {
+        await addDoc(collection(db, 'messages'), {
             message: message,
             caseId: caseId,
             senderId: senderRef,
@@ -75,6 +76,7 @@ export const useMessageStore = defineStore('message', () => {
         formattedMessages,
         subscribeToMessages,
         sendMessage,
+        contactName,
     };
 });
 

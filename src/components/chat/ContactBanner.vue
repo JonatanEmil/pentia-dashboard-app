@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useUserStore } from '@/stores/userStore';
 
 defineProps<{
     name: string;
@@ -9,9 +8,9 @@ defineProps<{
 </script>
 
 <template>
-<div>
 
-
+<div class="contactBanner">
+    <span>{{ name }}</span>
 </div>
 
 </template>

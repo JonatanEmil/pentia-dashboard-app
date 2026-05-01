@@ -27,7 +27,6 @@ export function useChatView(): ChatView {
     const selectedRecieverId = ref<string>('');
     const messagesContainer = ref<HTMLElement | null>(null);
 
-
     const isManager = computed(() => authStore.currentUser?.role === 'manager');
 
     onMounted(async () => {
@@ -35,13 +34,16 @@ export function useChatView(): ChatView {
 
         if (isManager.value) {
             await userStore.getClientsForManager();
-
         } else {
             const myCaseId = caseStore.caseList[0]?.caseId ?? '';
             const managerId = await userStore.getManagerForCase(myCaseId);
 
             selectedCaseId.value = myCaseId;
             selectedRecieverId.value = managerId;
+
+            const manager = await userStore.getUser(managerId);
+
+            messageStore.contactName = `${manager.firstName} ${manager.lastName}`;
 
             if (selectedCaseId.value) {
                 messageStore.subscribeToMessages(selectedCaseId.value);
@@ -50,6 +52,9 @@ export function useChatView(): ChatView {
     });
 
     function selectClient(caseId: string, clientId: string): void {
+        const client = userStore.clientList.find(c => c.id.id === clientId);
+        
+        messageStore.contactName = client ? `${client.firstName} ${client.lastName}` : '';
         selectedCaseId.value = caseId;
         selectedRecieverId.value = clientId;
         showModal.value = false;
@@ -82,5 +87,4 @@ export function useChatView(): ChatView {
         selectClient,
         handleSend,
     };
-
-};
+}
