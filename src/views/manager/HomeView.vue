@@ -10,6 +10,8 @@ import { useUserStore } from '@/stores/userStore.ts';
 const authStore = useAuthStore();
 const imageStore = useImageStore();
 const userStore = useUserStore();
+
+userStore.getUserList();
 </script>
 
 <template>
@@ -19,7 +21,7 @@ const userStore = useUserStore();
           :picture-path="imageStore.getUserImage(authStore.currentUser.imageId)"
           :picture-name="authStore.currentUser.firstName"
       />
-      <ItemList :items="userStore.getUserList()" v-slot="{item}">
+      <ItemList :items="userStore.userList" v-slot="{item}">
           <GeneralCard
               card-type="client"
               :profile="false"
