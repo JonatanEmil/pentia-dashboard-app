@@ -29,6 +29,8 @@ export const useUserStore = defineStore('user', () => {
         });
     }
 
+    //Kig efter denne function for at se om det bedst den kun er i case eller user
+
     async function getManagerForCase(caseId: string): Promise<string> {
         const q = query(
             collection(db, 'users'),
