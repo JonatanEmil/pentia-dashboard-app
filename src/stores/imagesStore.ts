@@ -1,13 +1,14 @@
-import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
-import { db } from '@/config/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import {defineStore} from 'pinia';
+import {ref, computed, type ComputedRef} from 'vue';
+import {db} from '@/config/firebase';
+import {collection, getDocs, DocumentReference} from 'firebase/firestore';
 
 interface Image {
+    id: string
     path: string
     type: string
     expirationDate: Date | null
-    caseId: string | null 
+    caseId: string | null
 }
 
 
@@ -17,6 +18,11 @@ export const useImageStore = defineStore('image', () => {
 
 
     // Getters
+    const getUserImage: ComputedRef<(imageRef: DocumentReference) => string> = computed(() => (imageRef: DocumentReference): string => {
+        const image = imageList.value.find(img => img.id === imageRef?.id);
+
+        return image?.path ?? '';
+    });
 
     // Actions
     async function getImageList(): Promise<void> {
@@ -26,11 +32,11 @@ export const useImageStore = defineStore('image', () => {
             const data = doc.data();
 
             imageList.value.push({
+                id: doc.id,
                 path: data.path,
                 type: data.type,
                 caseId: data.caseId ? data.caseId.id : null,
                 expirationDate: data.expirationDate ? data.expirationDate.toDate() : null,
-
             });
         });
     }
@@ -38,6 +44,7 @@ export const useImageStore = defineStore('image', () => {
     // Returns the state, getters and actions
     return {
         imageList,
+        getUserImage,
         getImageList,
     };
 });
