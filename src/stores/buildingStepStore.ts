@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { db } from '@/config/firebase';
-import { collection, getDocs, query, where, doc, type DocumentReference } from 'firebase/firestore';
+import { collection, getDocs, query, where, doc, type DocumentReference, limit } from 'firebase/firestore';
 
-interface BuildingStep {
+export interface BuildingStep {
     caseId: DocumentReference
     priority: number
     richText: string
@@ -18,6 +18,26 @@ export const useBuildingStepStore = defineStore('buildingStep', () => {
     const currentBuildingSteps = ref<BuildingStep[]>([]);
 
     // Getters
+    async function getBuildingStep(
+        caseId: string | DocumentReference, 
+        priority: number | string): 
+        Promise<BuildingStep> 
+    {
+        caseId = typeof caseId === 'string' ? doc(db, 'cases', caseId) : caseId;
+        priority = typeof priority === 'string' ? Number(priority) : priority;
+        
+        const snapshot = await getDocs(query(collection(db, 'buildingSteps'), where('caseId', '==', caseId), where('priority','==',priority),limit(1)));
+        
+        const data = snapshot.docs[0]?.data() as BuildingStep;
+
+        return {
+            caseId: data.caseId,
+            priority: data.priority,
+            richText: data.richText,
+            status: data.status,
+            title: data.title,
+        };
+    }
 
     // Actions
     async function getBuildingStepList(): Promise<void> {
@@ -60,6 +80,7 @@ export const useBuildingStepStore = defineStore('buildingStep', () => {
     return {
         buildingStepList,
         currentBuildingSteps,
+        getBuildingStep,
         getBuildingStepList,
         getBuildingStepListForCase,
     };

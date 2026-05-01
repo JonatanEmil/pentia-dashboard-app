@@ -9,6 +9,7 @@ import CarouselContainer from '@/components/CarouselContainer.vue';
 import ReturnButton from '@/components/common/ReturnButton.vue';
 import { useUserStore } from '@/stores/userStore';
 import LinkButton from '@/components/LinkButton.vue';
+import BuildingStepContent from '@/components/BuildingStepContent.vue';
 
 const testList = [
     
@@ -70,6 +71,8 @@ const testList = [
 ];
 
 
+
+
 const userStore = useUserStore();
 
 function getUsers(): void {
@@ -81,6 +84,7 @@ function getUsers(): void {
 
 <template>
     <main>
+        <BuildingStepContent></BuildingStepContent>
         <LinkButton  routeName="login" title="Byggetilladelse" variant="" color="dark"/>
 
         <button @click="getUsers">Update User</button>
