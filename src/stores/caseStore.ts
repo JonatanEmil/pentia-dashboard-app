@@ -12,25 +12,22 @@ interface Case {
     zipcode: number
 }
 
-
 export const useCaseStore = defineStore('case', () => {
     // State
     const caseList = ref<Case[]>([]);
     const currentCase = ref<Case>();
 
-    // Getters
-
     // Actions
     async function getCaseList(): Promise<void> {
         const authStore = useAuthStore();
 
-        const userDoc = await getDoc(doc(db, 'users', authStore.currentUser!.id ));
-        const caseIds: string[] = userDoc.data()?.caseId ?? [];
+        const userDoc = await getDoc(doc(db, 'users', authStore.currentUser!.id));
+        const caseRefs: DocumentReference[] = userDoc.data()?.caseId ?? [];
 
         caseList.value = [];
 
-        for (const caseId of caseIds) {
-            const caseDoc = await getDoc(doc(db, 'cases', caseId));
+        for (const caseRef of caseRefs) {
+            const caseDoc = await getDoc(caseRef);
 
             if (caseDoc.exists()) {
                 caseList.value.push({
@@ -41,7 +38,7 @@ export const useCaseStore = defineStore('case', () => {
                     zipcode: caseDoc.data().zipcode,
                 });
             }
-        };
+        }
     }
     
     async function setCurrentCase(caseId: string | DocumentReference): Promise<void> {
@@ -53,13 +50,23 @@ export const useCaseStore = defineStore('case', () => {
         
     }
 
+    async function getManagerForCase(caseId: string): Promise<string> {
+        const q = query(
+            collection(db, 'users'),
+            where('role', '==', 'manager'),
+            where('caseId', 'array-contains', doc(db, 'cases', caseId)),
+        );
 
-    // Returns the state, getters and actions
+        const snapshot = await getDocs(q);
+        
+        return snapshot.docs[0]?.id ?? '';
+    }
+
     return {
         caseList,
         currentCase,
         setCurrentCase,
         getCaseList,
+        getManagerForCase,
     };
 });
-
