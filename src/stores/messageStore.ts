@@ -32,15 +32,7 @@ export const useMessageStore = defineStore('message', () => {
 
         const caseRef = typeof caseId === 'string' ? doc(db, 'cases', caseId) : caseId;
 
-        const q = query(
-            collection(db, 'messages'),
-            where('caseId', '==', caseRef),
-            orderBy('timestamp'),
-        );
-
         const snapshot = await getDocs(query(collection(db, 'messages'), where('caseId', '==', caseRef)));
-
-        console.log(snapshot);
 
         messageList.value = snapshot.docs.map(doc => ({
             id: doc.id,
@@ -73,7 +65,7 @@ export const useMessageStore = defineStore('message', () => {
             recieverId: recieverRef,
             timestamp: serverTimestamp(),
         });
-        
+
         await subscribeToMessages(caseId);
     }
 

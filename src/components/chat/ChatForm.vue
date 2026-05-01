@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import SpeakToText from './SpeakToText.vue';
-import InputText from './InputText.vue';
-import FormButtonSubmit from './FormButtonSubmit.vue';
+import SpeakToText from '@/components/SpeakToText.vue';
+import InputText from '@/components/InputText.vue';
+import FormButtonSubmit from '@/components/FormButtonSubmit.vue';
 import SendIcon from '@/assets/icons/SendIcon.vue';
 import { ref } from 'vue';
+
 
 
 const emit = defineEmits<{
@@ -33,6 +34,7 @@ function handleSend(): void {
         />
         <FormButtonSubmit variant="icon" class="chatButtonSubmit" @click="handleSend">
             <SendIcon />
+
         </FormButtonSubmit>
     </div>
 </template>
