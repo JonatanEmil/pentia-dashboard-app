@@ -1,15 +1,15 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import { db } from '@/config/firebase';
-import { collection, getDocs, query, where, doc, type DocumentReference } from 'firebase/firestore';
+import { collection, getDocs, query, where, doc, type DocumentReference, getDoc } from 'firebase/firestore';
 
 export interface User {
-    email: string
+    id: DocumentReference
     firstName: string
     lastName: string
-    password: string
     phoneNumber: string
     role: string
+    imageId: DocumentReference
     caseId: DocumentReference[]
 }
 
@@ -44,10 +44,28 @@ export const useUserStore = defineStore('user', () => {
         return snapshot.docs[0]?.id ?? '';
     }
 
+    async function getUser(uid: string | DocumentReference): Promise<User> {
+        uid = typeof uid === 'string' ? doc(db, 'users', uid) : uid;
+        const snapshot = await getDoc(uid);
+
+        const data = snapshot.data() as User;
+
+        return {
+            id: uid,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            phoneNumber: data.phoneNumber,
+            role: data.role,
+            imageId: data.imageId,
+            caseId: data.caseId,
+        };
+    }
+
     // Returns the state, getters and actions
     return {
         userList,
         currentUser,
+        getUser,
         getUserList,
         getManagerForCase,
     };
