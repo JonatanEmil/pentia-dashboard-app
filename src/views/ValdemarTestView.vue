@@ -84,7 +84,6 @@ function getUsers(): void {
 
 <template>
     <main>
-        <BuildingStepContent></BuildingStepContent>
         <LinkButton  routeName="login" title="Byggetilladelse" variant="" color="dark"/>
 
         <button @click="getUsers">Update User</button>
