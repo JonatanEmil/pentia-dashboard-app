@@ -11,9 +11,7 @@ const buildingStepForm = reactive({
     text: '',
 });
 
-function sendBuildingStepForm(): void{
 
-}
 
 </script>
 
@@ -22,10 +20,9 @@ function sendBuildingStepForm(): void{
     <pre>{{ currentBuildingStep?.richText }}</pre>
 </div>
 <div v-else-if="authStore.currentUser?.role == 'manager'">
-    <form @submit.prevent="sendBuildingStepForm">
+    <!-- Connect below with richText field -->
         <textarea v-model="buildingStepForm.text" />
+        <!-- Sørg for at uploade filer er i samme format som i files feldet (forbind det med ref)-->
         <button type="button">Upload files</button>
-        <button type="submit">Send</button>
-    </form>
 </div>
 </template>

@@ -3,13 +3,11 @@ import ItemList from '@/components/ItemList.vue';
 import NavbarButton from '@/components/NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
 import TitleWithText from '@/components/TitleWithText.vue';
-import ProgressCard from '@/components/ProgressCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import CarouselContainer from '@/components/CarouselContainer.vue';
 import ReturnButton from '@/components/common/ReturnButton.vue';
 import { useUserStore } from '@/stores/userStore';
 import LinkButton from '@/components/LinkButton.vue';
-import BuildingStepContent from '@/components/BuildingStepContent.vue';
 
 const testList = [
     
@@ -103,10 +101,7 @@ function getUsers(): void {
         title="a very fancy title with lots of text"/>
     </CarouselContainer>
 
-    <ProgressCard text="a fancy link" routeName="login" status="done"/>
-    <br>
-    <ProgressCard text="a fancy link" routeName="login" status="planned"/>
-
+  
 
     <TitleWithText
         title="stevo" 
