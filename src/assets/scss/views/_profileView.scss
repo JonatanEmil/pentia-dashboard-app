@@ -1,3 +1,31 @@
 @use '../abstracts/colors' as c;
 @use '../abstracts/fonts' as f;
 
+.profileHero {
+    position: relative;
+    background-image: url('@/assets/img/houses/house4.png');
+    background-size: 150%;
+    background-position: center;
+    padding: 2rem 0.5rem;
+    color: c.$white;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(c.$secondary, 0.6);
+        z-index: 0;
+    }
+
+    & > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    p {
+        color: c.$white;
+        font-size: 1rem;
+        margin: 0.5rem 0;
+    }
+    
+}
