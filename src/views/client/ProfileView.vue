@@ -17,12 +17,16 @@ const authUser = ref<AuthUser | null>(null);
 const currentUser = ref();
 const profileImage = ref();
 const caseImage = ref<string>('');
+const manager = ref();
 
 onMounted(async () => {
     user.value = await userStore.getUser(authStore.currentUser?.id ?? '');
     authUser.value = authStore.currentUser;
     currentUser.value = await userStore.getUser(authStore.currentUser?.id ?? '');
     profileImage.value = await imageStore.getUserImage(currentUser.value.imageId);
+    const managerId = await userStore.getManagerForCase(caseStore.currentCase?.caseId ?? '');
+    
+    manager.value = await userStore.getUser(managerId);
 
     await imageStore.getImageList();
     const caseId = caseStore.currentCase?.caseId;
@@ -62,13 +66,17 @@ onMounted(async () => {
         </div>
 
         <TitleWithText title="Informationer på dit nye hus" class="profileCaseInfo">
-            <ul>
+            <ul class="font--light">
                 <li>Forskudt længehus</li>
                 <li>Sadeltag uden udhæng</li>
                 <li>Boligareal: 186 kvm</li>
                 <li>Grund: 890 kvm</li>
                 <li>Garage: 58 kvm</li>
             </ul>
+        </TitleWithText>
+
+        <TitleWithText title="Tilknyttet byggeleder" class="profileManagerInfo font--h4 py--1">
+            <p>{{ manager?.firstName }} {{ manager?.lastName }}</p>
         </TitleWithText>
 
     </main>
