@@ -8,6 +8,10 @@ import CarouselContainer from '@/components/CarouselContainer.vue';
 import ReturnButton from '@/components/common/ReturnButton.vue';
 import { useUserStore } from '@/stores/userStore';
 import LinkButton from '@/components/LinkButton.vue';
+import BuildingStepForm from '@/components/BuildingStepForm.vue';
+import { useBuildingStep } from '@/composables/useBuildingStep';
+import { useCaseStore } from '@/stores/caseStore';
+import { useRoute } from 'vue-router';
 
 const testList = [
     
@@ -69,19 +73,26 @@ const testList = [
 ];
 
 
-
+const { updateCurrentBuildingStep } = useBuildingStep();
+const caseStore = useCaseStore();
 
 const userStore = useUserStore();
 
 function getUsers(): void {
     userStore.getUserList();
 }
+updateCurrentBuildingStep(caseStore.currentCase?.caseId as string, 1);
 
 
 </script>
 
 <template>
     <main>
+        <BuildingStepForm/>
+
+
+
+
         <LinkButton  routeName="login" title="Byggetilladelse" variant="" color="dark"/>
 
         <button @click="getUsers">Update User</button>

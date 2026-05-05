@@ -11,6 +11,7 @@ export interface BuildingStepWithFiles extends BuildingStep {
 }
 
 const currentBuildingStep = ref<BuildingStepWithFiles>();
+const selectedFiles = ref<globalThis.File[]>([]);
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function useBuildingStep() {
@@ -19,15 +20,16 @@ export function useBuildingStep() {
         caseId: string | DocumentReference, 
         priority: number): 
         Promise<void> {
-        const buildingStepData: BuildingStep = 
-            await buildingStepStore.getBuildingStep(caseId, priority);
-        const filesData: File[] = await fileStore.getBuildingStepFiles(caseId, priority);
 
-        currentBuildingStep.value = { ...buildingStepData, Files: filesData };
+        currentBuildingStep.value = { 
+            ...await buildingStepStore.getBuildingStep(caseId, priority), 
+            Files: await fileStore.getBuildingStepFiles(caseId, priority),
+        };
     }
 
     return { 
         currentBuildingStep, 
+        selectedFiles,
         uploadFiles: fileStore.uploadFiles,
         updateCurrentBuildingStep };
 }

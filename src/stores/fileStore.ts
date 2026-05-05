@@ -51,7 +51,7 @@ export const useFileStore = defineStore('file', () => {
         });
     }
     async function uploadFiles(
-        files: FileList, 
+        files: globalThis.File[], 
         caseId: DocumentReference | string, 
         priority: number): 
         Promise<void> {
@@ -60,13 +60,13 @@ export const useFileStore = defineStore('file', () => {
         const batch = writeBatch(db);
 
         for (const file of Array.from(files)) {
-            await uploadBytes(storageRef(storage, `files/${file.name}`), file);
+            await uploadBytes(storageRef(storage, `files/${caseId.id}/${file.name}`), file);
 
             batch.set(doc(collection(db, 'files')), {
                 caseId: caseId,
                 priority: priority,
                 title: file.name,
-                path: `files/${file.name}`,
+                path: `files/${caseId.id}/${file.name}`,
             });
         }
 
