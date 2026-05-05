@@ -5,7 +5,6 @@
 @use 'components/chatContainer';
 @use 'components/chatForm';
 @use 'components/chatMessage'; 
-@use 'components/createClientForm';
 @use 'components/checkboxWithText';
 @use 'components/carouselContainer';
 @use 'components/dropDown';
@@ -31,6 +30,8 @@
 @use 'globals/padding';
 
 @use 'views/loginView';
+@use 'views/createClientView';
+@use 'views/chatView';
 
 body {
     font-family: f.$font-main;
