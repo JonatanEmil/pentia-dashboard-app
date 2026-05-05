@@ -1,0 +1,5 @@
+@use '@/assets/scss/abstracts/colors' as c;
+
+.addImageButton {
+    background-color: c.$primary;
+}
