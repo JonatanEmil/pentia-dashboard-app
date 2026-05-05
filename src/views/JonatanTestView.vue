@@ -32,7 +32,6 @@ const searchResults = computed(() => {
     return userStore.userList.filter((u: User) =>
         u.firstName?.toLowerCase().includes(query) ||
         u.lastName?.toLowerCase().includes(query) ||
-        u.email?.toLowerCase().includes(query) ||
         u.phoneNumber?.toLowerCase().includes(query) ||
         u.caseId?.some(ref => ref?.path?.split('/')[1]?.toLowerCase().includes(query)),
     );
