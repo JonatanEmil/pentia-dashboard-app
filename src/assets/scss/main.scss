@@ -32,6 +32,8 @@
 
 @use 'views/loginView';
 @use 'views/manangerHomeView';
+@use 'views/createClientView';
+@use 'views/chatView';
 
 body {
     font-family: f.$font-main;
