@@ -1,8 +1,9 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
     picturePath: string,
     pictureName: string
 }>();
+console.log(props.picturePath);
 </script>
 
 <template>

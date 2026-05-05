@@ -1,5 +1,5 @@
 <template>
-    <svg width="90" height="90" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"
+    <svg width="44" height="44" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect width="90" height="90" fill="url(#pattern0_244_499)" />
         <defs>
