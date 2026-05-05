@@ -4,7 +4,7 @@ import { db } from '@/config/firebase';
 import { collection, getDocs, doc, getDoc, query, where, type DocumentReference } from 'firebase/firestore';
 import { useAuthStore } from './authStore.ts';
 
-interface Case {
+export interface Case {
     caseId: string
     roadName: string
     roadNumber: string
@@ -18,6 +18,12 @@ export const useCaseStore = defineStore('case', () => {
     const currentCase = ref<Case>();
 
     // Actions
+    async function getCase(caseRef: DocumentReference): Promise<Case> {
+        const snapshot = await getDoc(caseRef);
+
+        return { caseId: snapshot.id, ...snapshot.data() } as Case;
+    }
+
     async function getCaseList(): Promise<void> {
         const authStore = useAuthStore();
 
@@ -40,14 +46,14 @@ export const useCaseStore = defineStore('case', () => {
             }
         }
     }
-    
+
     async function setCurrentCase(caseId: string | DocumentReference): Promise<void> {
         caseId = typeof caseId === 'string' ? doc(db, 'cases', caseId) : caseId;
-        
+
         const snapshot = await getDoc(caseId);
-        
+
         currentCase.value = { caseId: snapshot.id, ...snapshot.data() } as Case;
-        
+
     }
 
     async function getManagerForCase(caseId: string): Promise<string> {
@@ -58,13 +64,14 @@ export const useCaseStore = defineStore('case', () => {
         );
 
         const snapshot = await getDocs(q);
-        
+
         return snapshot.docs[0]?.id ?? '';
     }
 
     return {
         caseList,
         currentCase,
+        getCase,
         setCurrentCase,
         getCaseList,
         getManagerForCase,
