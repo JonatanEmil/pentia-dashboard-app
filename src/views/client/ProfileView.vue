@@ -1,41 +1,9 @@
 <script setup lang="ts">
 import GeneralCard from '@/components/GeneralCard.vue';
 import TitleWithText from '@/components/TitleWithText.vue';
-import { type AuthUser, useAuthStore } from '@/stores/authStore';
-import { type User, useUserStore } from '@/stores/userStore';
-import { useImageStore } from '@/stores/imagesStore';
-import { useCaseStore } from '@/stores/caseStore';
-import { ref, onMounted } from 'vue';
+import { useProfileView } from '@/composables/useProfileView';
 
-const authStore = useAuthStore();
-const userStore = useUserStore();
-const imageStore = useImageStore();
-const caseStore = useCaseStore();
-
-const user = ref<User>();
-const authUser = ref<AuthUser | null>(null);
-const currentUser = ref();
-const profileImage = ref();
-const caseImage = ref<string>('');
-const manager = ref();
-
-onMounted(async () => {
-    user.value = await userStore.getUser(authStore.currentUser?.id ?? '');
-    authUser.value = authStore.currentUser;
-    currentUser.value = await userStore.getUser(authStore.currentUser?.id ?? '');
-    profileImage.value = await imageStore.getUserImage(currentUser.value.imageId);
-    const managerId = await userStore.getManagerForCase(caseStore.currentCase?.caseId ?? '');
-    
-    manager.value = await userStore.getUser(managerId);
-
-    await imageStore.getImageList();
-    const caseId = caseStore.currentCase?.caseId;
-
-    caseImage.value = imageStore.imageList.find(
-        img => img.type === 'house' && img.caseId === caseId,
-    )?.path ?? '';
-});
-
+const { user, authUser, profileImage, caseImage, manager, caseStore } = useProfileView();
 </script>
 
 <template>
