@@ -1,6 +1,8 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
 
+@use 'components/contactBanner';
+@use 'components/chatContainer';
 @use 'components/chatForm';
 @use 'components/chatMessage'; 
 @use 'components/createClientForm';
@@ -63,7 +65,19 @@ body {
         'header'
         'mainContent';
     }
+
+    &:not(:has(> header > nav)) {
+    grid-template-rows: 100vh ;
+    grid-template-areas:
+        'mainContent';
+    overflow: hidden;
+
+    header{
+        display: none;
+    }
+    }
 }
+    
 
 
 .globalpaddings {

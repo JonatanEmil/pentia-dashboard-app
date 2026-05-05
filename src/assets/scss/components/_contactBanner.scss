@@ -1,0 +1,19 @@
+@use '../abstracts/colors' as c;
+
+.contactBanner {
+    background: c.$primary;
+    text-align: center;
+
+    span {
+        color: c.$white;
+        font-size: x-large;
+        font-weight: 400;
+    }
+
+}
+
+.stickyTop {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}

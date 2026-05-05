@@ -1,7 +1,7 @@
 import {defineStore} from 'pinia';
 import {ref, computed, type ComputedRef} from 'vue';
 import {db} from '@/config/firebase';
-import {collection, getDocs, DocumentReference} from 'firebase/firestore';
+import {collection, getDocs, DocumentReference, getDoc} from 'firebase/firestore';
 
 interface Image {
     id: string
@@ -18,11 +18,12 @@ export const useImageStore = defineStore('image', () => {
 
 
     // Getters
-    const getUserImage: ComputedRef<(imageRef: DocumentReference) => string> = computed(() => (imageRef: DocumentReference): string => {
-        const image = imageList.value.find(img => img.id === imageRef?.id);
+    async function getUserImage(imageRef: DocumentReference): Promise<string> {
+        const snapshot = await getDoc(imageRef);
+        const data = snapshot.data() as Image;
 
-        return image?.path ?? '';
-    });
+        return data.path;
+    };
 
     // Actions
     async function getImageList(): Promise<void> {
