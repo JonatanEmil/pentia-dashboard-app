@@ -12,7 +12,7 @@ import TitleWithText from '@/components/TitleWithText.vue';
 
 const caseStore = useCaseStore();
 const route = useRoute();
-const { currentBuildingStep, setCurrentBuildingStep } = useBuildingStep();
+const { currentBuildingStep, updateCurrentBuildingStep } = useBuildingStep();
 
 const buildingStepDescriptions: string[] = [
     'Her ser du et overblik over projektets byggetilladelse, herunder godkendte tegninger, vilkår og dokumenter fra myndighederne.',
@@ -23,7 +23,8 @@ const buildingStepDescriptions: string[] = [
     'Afsluttende gennemgang af byggeriet foretaget og eventuelle bemærkninger noteret.',
 ];
 
-setCurrentBuildingStep(caseStore.currentCase?.caseId as string, route.params.priority as string);
+updateCurrentBuildingStep(caseStore.currentCase?.caseId as string, Number(route.params.priority));
+
 </script>
 
 <template>
@@ -32,8 +33,7 @@ setCurrentBuildingStep(caseStore.currentCase?.caseId as string, route.params.pri
         :title="currentBuildingStep?.title as string" 
         :text="currentBuildingStep ? 
             buildingStepDescriptions[currentBuildingStep.priority - 1] ?? 
-            '' : 
-            ''">
+            '' : ''">
     </TitleWithText>
 
     <CarouselContainer :gap="2" :startIndex="1">
@@ -41,8 +41,15 @@ setCurrentBuildingStep(caseStore.currentCase?.caseId as string, route.params.pri
         <img src="/src/assets/img/fundament.png" alt="">
         <img src="/src/assets/img/fundamentLeft.png" alt="">
     </CarouselContainer>
-    <ItemList :items="currentBuildingStep?.Files as File[]" v-slot="{ item }">
-        <LinkButton :title="item.title" :routePath="item.path" variant="download"></LinkButton>
+    <ItemList 
+        v-if="currentBuildingStep"
+        :items="currentBuildingStep.Files as File[]" 
+        v-slot="{ item }">
+        <LinkButton 
+            :title="item.title ?? ''" 
+            :routePath="item.path" 
+            variant="download">
+        </LinkButton>
     </ItemList>
     <BuildingStepContent/>
 </main>
