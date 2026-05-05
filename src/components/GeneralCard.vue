@@ -24,7 +24,7 @@ withDefaults(defineProps<{
             <CalenderIcon class="h--75 w-auto my--auto" />
         </div>
         <div class="card-content flex flex--column flex--gaprow-1">
-            <p v-if="profile && cardType === 'case'" class="font--h3">Adresse</p>
+            <p v-if="profile && cardType === 'case'" class="font--h3 font--bold">Adresse</p>
                <slot></slot>
         </div>
     </div>

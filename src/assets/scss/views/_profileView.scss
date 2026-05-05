@@ -1,6 +1,10 @@
 @use '../abstracts/colors' as c;
 @use '../abstracts/fonts' as f;
 
+.profileView{
+    background-color: rgba(c.$secondary, 0.6);
+}
+
 .profileHero {
     position: relative;
     background-image: url('@/assets/img/houses/house4.png');
@@ -28,4 +32,30 @@
         margin: 0.5rem 0;
     }
     
+}
+
+.caseHouse {
+    .card-case {
+        width: 100%;
+        height: auto;
+        justify-content: flex-start; 
+        gap: 2.5rem; 
+        padding: 15px;
+        
+
+        .card-img {
+            img {
+                width: 165px;
+                height: 100px;
+                object-fit: fill;
+                align-self: start;
+            }
+        }
+
+        .card-content {
+            text-align: left;
+            align-items: flex-start;
+
+        }
+    }
 }

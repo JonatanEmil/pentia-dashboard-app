@@ -16,18 +16,26 @@ const user = ref<User>();
 const authUser = ref<AuthUser | null>(null);
 const currentUser = ref();
 const profileImage = ref();
+const caseImage = ref<string>('');
 
 onMounted(async () => {
     user.value = await userStore.getUser(authStore.currentUser?.id  ?? '');
     authUser.value = authStore.currentUser;
     currentUser.value = await userStore.getUser(authStore.currentUser?.id ?? '');
     profileImage.value = await imageStore.getUserImage(currentUser.value.imageId);
+
+    await imageStore.getImageList();
+    const caseId = caseStore.currentCase?.caseId;
+
+    caseImage.value = imageStore.imageList.find(
+        img => img.type === 'house' && img.caseId === caseId,
+    )?.path ?? '';
 });
 
 </script>
 
 <template>
-    <main>
+    <main class="profileView">
         <div class="profileHero">
         <GeneralCard cardType="client" :profile="true" :card-background="false" 
         :name="'Billede af ' + user?.firstName + ' ' + user?.lastName"
@@ -40,7 +48,19 @@ onMounted(async () => {
         </GeneralCard>
         </div>
 
-        <GeneralCard cardType="case" :profile="true" :card-background="false" 
+        <div class="caseHouse">
+    <GeneralCard cardType="case" :profile="true" :filename="caseImage"
+        :name="'Billede af ' + caseStore.currentCase?.roadName" :card-background="true" 
+        class="py--2 px--0">
+        <div>
+            <p class="font--light">{{ caseStore.currentCase?.roadName }} 
+                {{ caseStore.currentCase?.roadNumber }},</p>
+            <p class="font--light">{{ caseStore.currentCase?.zipcode }} 
+                {{ caseStore.currentCase?.city }}</p>
+        </div>
+    </GeneralCard>
+</div>
+
     </main>
 </template>
 
