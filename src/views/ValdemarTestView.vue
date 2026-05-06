@@ -11,7 +11,6 @@ import LinkButton from '@/components/LinkButton.vue';
 import BuildingStepForm from '@/components/BuildingStepForm.vue';
 import { useBuildingStep } from '@/composables/useBuildingStep';
 import { useCaseStore } from '@/stores/caseStore';
-import { useRoute } from 'vue-router';
 
 const testList = [
     
