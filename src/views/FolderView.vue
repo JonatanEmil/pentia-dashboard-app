@@ -10,7 +10,6 @@ const imageStore = useImageStore();
 const route = useRoute();
 
 const caseId = route.params.caseId as string;
-
 const caseImages = ref<Image[]>([]);
 const rooms = ref<string[]>([]);
 
