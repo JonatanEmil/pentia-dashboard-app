@@ -3,7 +3,7 @@ import NavbarButton from './NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
 import Logo from '@/assets/icons/LogoIcon.vue';
 import { useAuthStore } from '@/stores/authStore';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const links = {
     manager:[
@@ -58,6 +58,14 @@ const links = {
 
 const authStore = useAuthStore();
 const route = useRoute();
+const router = useRouter();
+
+
+//Routes the current user to the login page incase their not authenticated anymore
+if(!authStore.currentUser){
+    router.push({ name: 'login' });
+};
+
 
 </script>
 <template>    

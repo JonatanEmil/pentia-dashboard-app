@@ -4,8 +4,9 @@ $font-main: 'Work Sans', sans-serif;
 $font-weight-regular: 400;
 
 .font {
+    &--light { font-weight: 300; }
     &--medium { font-weight: 500; }
-    &--bold { font-weight: 700 }
+    &--bold { font-weight: 600 }
 
     &--underline { text-decoration: underline; }
 

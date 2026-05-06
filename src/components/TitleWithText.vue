@@ -2,14 +2,14 @@
 
 defineProps<{
   title: string,
-  text: string,
+  
 }>();
 
 
 </script>
 <template>
-    <div>
+    <div class="titleWithText">
         <h1 class="font--h1" v-if="title" >{{ title }}</h1>
-        <p class="font--p" v-if="text" >{{ text }}</p>
+        <slot />
     </div>
 </template>

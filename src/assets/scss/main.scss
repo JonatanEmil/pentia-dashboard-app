@@ -1,12 +1,15 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
 
+@use 'components/addImageButton';
+@use 'components/buildingStepContent';
 @use 'components/contactBanner';
 @use 'components/chatContainer';
 @use 'components/chatForm';
 @use 'components/chatMessage';
 @use 'components/checkboxWithText';
 @use 'components/carouselContainer';
+@use 'components/carouselHandler';
 @use 'components/dropDown';
 @use 'components/formButtonSubmit';
 @use 'components/generalCard';
@@ -33,12 +36,19 @@
 @use 'views/manangerHomeView';
 @use 'views/createClientView';
 @use 'views/chatView';
+@use 'views/profileView';
+
 
 body {
     font-family: f.$font-main;
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
     background-color: c.$background;
+}
+pre{
+    font-family: f.$font-main;
+    font-weight: f.$font-weight-regular;
+    line-height: 1.4;
 }
 
 #app{
@@ -52,7 +62,8 @@ body {
 
     .mainContent{
         grid-area: mainContent;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         box-sizing: border-box;
         border: 0;
     }
