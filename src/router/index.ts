@@ -13,6 +13,11 @@ const router = createRouter({
             name: 'chat',
             component: () => import('@/views/ChatView.vue'),
         },
+        {
+            path: '/folder',
+            name: 'folder',
+            component: () => import('@/views/FolderView.vue')
+        },
         // Manager routes
         {
             path: '/manager',
@@ -43,11 +48,6 @@ const router = createRouter({
                     path: '/buildingSteps',
                     name: 'managerBuildingSteps',
                     component: () => import('@/views/manager/BuildingStepView.vue')
-                },
-                {
-                    path: '/folder',
-                    name: 'managerFolder',
-                    component: () => import('@/views/manager/FolderView.vue')
                 },
             ],
 
