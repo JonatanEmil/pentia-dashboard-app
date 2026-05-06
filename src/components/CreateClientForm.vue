@@ -6,8 +6,8 @@ import FormButtonSubmit from './FormButtonSubmit.vue';
 
 <template>
 
-    <form class="createClientForm flex flex--col flex--just-start flex--flex-wrap
-    flex--align-start flex--gap-4">
+    <form class="createClientForm flex flex--column flex--just-start flex--flex-wrap
+    flex--align-start flex--gap-4 ">
 
         <InputText placeholderText="Sagsnummer" class="p--3 w--66"/>
 

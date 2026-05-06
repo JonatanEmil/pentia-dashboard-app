@@ -1,11 +1,18 @@
 <script setup lang="ts">
+import CreateClient from '@/components/CreateClient.vue';
 
 </script>
 
 <template>
-    <div>
+    <main class="createClientView">
+        <img 
+        src="@/assets/img/opretKunder.png" 
+        alt="Opret klient illustration" 
+        class="" />
+        
+        <CreateClient class="px--4" />
 
-    </div>
+    </main>
 </template>
 
 <style scoped>

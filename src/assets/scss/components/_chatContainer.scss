@@ -1,0 +1,55 @@
+@use '../abstracts/colors' as c;
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-left: 1rem; 
+}
+
+.stickyBottom {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+.toggle-btn {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.client-modal {
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+    background: c.$secondary;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    overflow: hidden;
+    min-width: 200px;
+}
+
+.client-item {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+        background: #f0f0f0;
+    }
+
+    &.active {
+        background: #004552;
+        color: white;
+    }
+}

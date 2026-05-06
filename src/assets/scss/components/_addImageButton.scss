@@ -1,0 +1,8 @@
+@use '@/assets/scss/abstracts/colors' as c;
+
+.addImageButton {
+    aspect-ratio: 1/1;
+    background-color: c.$primary;
+    border: none;
+    color: c.$highlight;
+}

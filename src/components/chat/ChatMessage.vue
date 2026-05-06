@@ -10,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-<div class="chat-message" :class="sender">
+<div class="chat-message mx--4" :class="sender">
     <p class="message-content">{{ message }}</p>
     
 </div>

@@ -3,6 +3,7 @@ import { ref, computed } from 'vue';
 import { useUserStore, type User } from '@/stores/userStore.ts';
 
 import '@/assets/scss/main.scss';
+import CarouselHandler from '@/components/CarouselHandler.vue';
 import DropDown from '@/components/DropDown.vue';
 import GeneralCard from '@/components/GeneralCard.vue';
 import List from '@/components/ItemList.vue';
@@ -26,15 +27,12 @@ function getCaseId(caseRef: DocumentReference): string {
 const searchQuery = ref('');
 
 const searchResults = computed(() => {
-    if (!searchQuery.value) return userStore.userList;
+    if (!searchQuery.value) return testList.value;
     const query = searchQuery.value.toLowerCase();
 
-    return userStore.userList.filter((u: User) =>
+    return testList.value.filter((u) =>
         u.firstName?.toLowerCase().includes(query) ||
-        u.lastName?.toLowerCase().includes(query) ||
-        u.email?.toLowerCase().includes(query) ||
-        u.phoneNumber?.toLowerCase().includes(query) ||
-        u.caseId?.some(ref => ref?.path?.split('/')[1]?.toLowerCase().includes(query)),
+        u.lastName?.toLowerCase().includes(query),
     );
 });
 
@@ -46,18 +44,16 @@ async function onSearchFetch(query: string): Promise<void> {
 
 <template>
     <main>
+        <CarouselHandler title="Stue" room="stue" />
+        <CarouselHandler title="Fundament" room="fundament" />
         <Search @searchFetch="onSearchFetch"></Search>
-        <List :items="searchResults" v-slot="{ item }" :columns="1" :titel="'searchTest'">
-            <GeneralCard card-type="client"
-                         :profile="false"
-                         :filename="item.imageId(ref => ref?.path?.split('/')[1]"
-            >
-                <p>{{ getCaseId(item.caseId[0]) }}</p>
+        <List :items="searchResults" v-slot="{ item }" :columns="1" :title="'searchTest'">
+            <GeneralCard
+                card-type="client"
+                :profile="false"
+                :filename="'src/assets/img/users/jakob.png'">
                 <p>{{ item.firstName }} {{ item.lastName }}</p>
-                <p>adresse</p>
-                <p>{{ item.phoneNumber }}</p>
             </GeneralCard>
-
         </List>
         <GeneralCard
             card-type="client"
