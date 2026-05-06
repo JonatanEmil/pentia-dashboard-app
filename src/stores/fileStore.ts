@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { db } from '@/config/firebase';
 import { collection, getDocs, query, where, doc, writeBatch, type DocumentReference } from 'firebase/firestore';
-import { getStorage, uploadBytes, ref as storageRef } from 'firebase/storage';
+import { getStorage, uploadBytes, ref as storageRef, getDownloadURL } from 'firebase/storage';
 
 export interface File {
     caseId: DocumentReference
@@ -10,6 +10,8 @@ export interface File {
     title: string
     path: string
 }
+
+const storage = getStorage();
 
 
 export const useFileStore = defineStore('file', () => {
@@ -33,7 +35,10 @@ export const useFileStore = defineStore('file', () => {
             path: doc.data().path,
         } as File));
     };
-
+    async function getDownloadPath(path: string): Promise<string> {
+        
+        return await getDownloadURL(storageRef(storage, path));
+    }
 
     // Actions
     async function getFileList(): Promise<void> {
@@ -56,7 +61,6 @@ export const useFileStore = defineStore('file', () => {
         priority: number): 
         Promise<void> {
         caseId = typeof caseId === 'string' ? doc(db, 'cases', caseId) : caseId;
-        const storage = getStorage();
         const batch = writeBatch(db);
 
         for (const file of Array.from(files)) {
@@ -66,7 +70,7 @@ export const useFileStore = defineStore('file', () => {
                 caseId: caseId,
                 priority: priority,
                 title: file.name,
-                path: `files/${caseId.id}/${file.name}`,
+                path: `${caseId.id}files//${file.name}`,
             });
         }
 
@@ -78,6 +82,7 @@ export const useFileStore = defineStore('file', () => {
     return {
         fileList,
         uploadFiles,
+        getDownloadPath,
         getBuildingStepFiles,
         getFileList,
     };
