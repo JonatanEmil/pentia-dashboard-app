@@ -3,28 +3,34 @@ import ItemList from '@/components/ItemList.vue';
 import ProfilePictureWithName from '@/components/ProfilePictureWithName.vue';
 import { useProfileView } from '@/composables/useProfileView';
 
-const { user, authUser, profileImage, caseStore, imageStore, isManager } = useProfileView();
+const { user, profileImage, caseStore, imageStore } = useProfileView();
 </script>
 
 <template>
-    <main>
-        <ProfilePictureWithName 
-        :picturePath="profileImage" :pictureName="user?.firstName + ' ' + user?.lastName">
-            <div class="ps--3">
-                <p>{{ user?.firstName }} {{ user?.lastName }}</p>
-                
-            </div>
-        </ProfilePictureWithName>
-        <ItemList v-if="isManager" :items="caseStore.caseList" title="Dine sager" :columns="2" :gap="2">
+    <main class="profileView">
+        <div class="manager-profile__hero">
+            <ProfilePictureWithName
+                :picturePath="profileImage"
+                :pictureName="user?.firstName + ' ' + user?.lastName" 
+            />
+        </div>
+
+        <ItemList class="manager-cases"
+            :items="caseStore.caseList" title="Igangværende sager" :columns="1" :gap="2">
             <template #default="{ item }">
-                <div class="case-card flex flex--column flex--gaprow-1">
-                    <p class="font--h3 font--bold">{{ item.roadName }} {{ item.roadNumber }}</p>
-                    <p class="font--light">{{ item.zipcode }} {{ item.city }}</p>
+                <div class="case-card">
+                    <img
+                        :src="imageStore.imageList.find(
+                            img => img.type === 'house' && img.caseId === item.caseId)?.path"
+                        :alt="item.roadName"
+                    />
+                    <div>
+                        <p>{{ item.roadName }} {{ item.roadNumber }},</p>
+                        <p>{{ item.zipcode }} {{ item.city }}</p>
+                    </div>
                 </div>
             </template>
         </ItemList>
-
-
     </main>
 </template>
 

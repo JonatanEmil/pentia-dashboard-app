@@ -29,12 +29,12 @@
 @use 'globals/margin';
 @use 'globals/padding';
 
-@use 'views/loginView';
-@use 'views/manangerHomeView';
 @use 'views/createClientView';
 @use 'views/chatView';
+@use 'views/loginView';
+@use 'views/managerProfileView';
+@use 'views/manangerHomeView';
 @use 'views/profileView';
-
 
 body {
     font-family: f.$font-main;
