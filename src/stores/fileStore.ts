@@ -70,7 +70,7 @@ export const useFileStore = defineStore('file', () => {
                 caseId: caseId,
                 priority: priority,
                 title: file.name,
-                path: `${caseId.id}files//${file.name}`,
+                path: `files/${caseId.id}/${file.name}`,
             });
         }
 
