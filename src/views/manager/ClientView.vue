@@ -38,22 +38,27 @@ onMounted(async () => {
 
 <template>
     <div>
-        <ReturnButton class="mt--4 mx--4 returnButton" :routeName="'managerHome'"/>
-        <GeneralCard class="flex flex--align-center flex--gapcol-2 mt--3" 
-        card-type="client" :profile="false" 
-        :name="'Billede af ' + client?.firstName + ' ' + client?.lastName"
-        :filename="'/' + clientImage"
-        :card-background="false">
-            <p>{{ client?.firstName }} {{ client?.lastName }}
-                {{ client?.phoneNumber }} 
-                {{ caseStore.currentCase?.roadName }} {{ caseStore.currentCase?.roadNumber }}
-                
-            </p></GeneralCard>
+        <ReturnButton class="mt--4 mx--4 returnButton" :routeName="'managerHome'" />
+        <GeneralCard class="flex--gapcol-1 mt--3 client-card ps--5"
+        card-type="client" :profile="false"
+            :name="'Billede af ' + client?.firstName + ' ' + client?.lastName"
+             :filename="'/' + clientImage"
+            :card-background="false">
+            <p> {{ client?.caseId[0]?.id }} </p>
+            <p> {{ client?.firstName }} {{ client?.lastName }}</p>
+            <p>{{ client?.phoneNumber }} </p>
+            <p>{{ caseStore.currentCase?.roadName }} {{ caseStore.currentCase?.roadNumber }}</p>
+        </GeneralCard>
+
+        <LinkButton class="mt--3" :routeName="'clientBuildingSteps'" 
+        :routeParams="{ prio}"
+        title="Mappen" color="dark"> 
+        </LinkButton>
+
+
 
 
     </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
