@@ -9,9 +9,12 @@ import { useBuildingStep } from '@/composables/useBuildingStep';
 const { currentBuildingStep, selectedFiles, uploadFiles } = useBuildingStep();
 const buildingStepStore = useBuildingStepStore();
 
-async function sendBuildingStepForm(): Promise<void> {
+async function sendBuildingStepForm(event: Event): Promise<void> {
     if (!currentBuildingStep.value) return;
 
+    const form = event.target as HTMLFormElement;
+    
+    currentBuildingStep.value.status = (form.elements.namedItem('status') as HTMLInputElement).checked;
     await buildingStepStore.updateBuildingStep(currentBuildingStep.value);
 
     if (selectedFiles.value.length > 0) {
@@ -27,13 +30,14 @@ async function sendBuildingStepForm(): Promise<void> {
 
 <template>
 
-    <form @submit.prevent="sendBuildingStepForm">
+    <form @submit.prevent="sendBuildingStepForm($event)">
         <BuildingStepContent/>
         <!-- Connect with the status field from current step -->
         <CheckboxWithText 
             text="Bekræft at dette trin i byggeprosessen er færdig" 
             name="status" 
-            id="status"/>
+            id="status"
+            :checked="currentBuildingStep.status" v-if="currentBuildingStep"/>
         <FormButtonSubmit>Send</FormButtonSubmit>
     </form>
 

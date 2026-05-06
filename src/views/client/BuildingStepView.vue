@@ -2,16 +2,18 @@
 import { useRoute } from 'vue-router';
 import { useCaseStore } from '@/stores/caseStore';
 import { useBuildingStep } from '@/composables/useBuildingStep';
-import { type File } from '@/stores/fileStore';
+import { useFileStore, type File } from '@/stores/fileStore';
 import CarouselContainer from '@/components/CarouselContainer.vue';
 import BuildingStepContent from '@/components/BuildingStepContent.vue';
 import ItemList from '@/components/ItemList.vue';
 import LinkButton from '@/components/LinkButton.vue';
 import TitleWithText from '@/components/TitleWithText.vue';
+import ReturnButton from '@/components/common/ReturnButton.vue';
 
 
 const caseStore = useCaseStore();
 const route = useRoute();
+const fileStore = useFileStore();
 const { currentBuildingStep, updateCurrentBuildingStep } = useBuildingStep();
 
 const buildingStepDescriptions: string[] = [
@@ -28,13 +30,18 @@ updateCurrentBuildingStep(caseStore.currentCase?.caseId as string, Number(route.
 </script>
 
 <template>
-<main>
-    <TitleWithText 
+<main class="clientBuildingStepView">
+    <ReturnButton 
+        returnOverwrite="clientHome" 
+        class="mt--4 mx--4"
+    />
+    <TitleWithText
         :title="currentBuildingStep?.title as string" 
         :text="currentBuildingStep ? 
             buildingStepDescriptions[currentBuildingStep.priority - 1] ?? 
-            '' : ''">
-    </TitleWithText>
+            '' : ''"
+        class="mx--4"
+    />
 
     <CarouselContainer :gap="2" :startIndex="1">
         <img src="/src/assets/img/fundamentRight.png" alt="">
@@ -44,13 +51,17 @@ updateCurrentBuildingStep(caseStore.currentCase?.caseId as string, Number(route.
     <ItemList 
         v-if="currentBuildingStep"
         :items="currentBuildingStep.Files as File[]" 
-        v-slot="{ item }">
+        v-slot="{ item }"
+        class="mx--4 mb--4"
+    >
         <LinkButton 
             :title="item.title ?? ''" 
-            :routePath="item.path" 
+            :routePath="fileStore.getDownloadPath(item.path)"
             variant="download">
         </LinkButton>
     </ItemList>
-    <BuildingStepContent/>
+    <BuildingStepContent
+        class="mx--4"
+    />
 </main>
 </template>

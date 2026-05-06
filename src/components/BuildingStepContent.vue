@@ -17,10 +17,16 @@ function handleFileUpload(event: Event): void {
 </script>
 
 <template>
-    <div v-if="authStore.currentUser?.role != 'client'">
-        <pre>{{ currentBuildingStep?.richText }}</pre>
+    <div 
+        v-if="authStore.currentUser && authStore.currentUser.role == 'client'"
+        class="buildingStepContent"
+    >
+        <pre class="font--p">{{ currentBuildingStep?.richText }}</pre>
     </div>
-    <div v-else-if="authStore.currentUser?.role == 'client'">
+    <div 
+        v-else-if="authStore.currentUser && authStore.currentUser.role == 'manager'"
+        class="buildingStepContent"
+    >
         <textarea v-model="currentBuildingStep.richText" v-if="currentBuildingStep" />
         <input 
         ref="fileInput" type="file" multiple style="display: none" @change="handleFileUpload" />
