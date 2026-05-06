@@ -1,6 +1,7 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
 
+@use 'components/buildingStepContent';
 @use 'components/chatForm';
 @use 'components/chatMessage'; 
 @use 'components/createClientForm';
