@@ -1,7 +1,7 @@
-import {defineStore} from 'pinia';
-import {ref, computed, type ComputedRef} from 'vue';
-import {db} from '@/config/firebase';
-import {collection, getDocs, DocumentReference, getDoc} from 'firebase/firestore';
+import { defineStore } from 'pinia';
+import { ref, computed, type ComputedRef } from 'vue';
+import { db } from '@/config/firebase';
+import { collection, getDocs, DocumentReference, getDoc } from 'firebase/firestore';
 
 interface Image {
     id: string
