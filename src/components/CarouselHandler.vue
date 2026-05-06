@@ -15,9 +15,7 @@ const authStore = useAuthStore();
 const imageStore = useImageStore();
 const route = useRoute();
 
-//const caseId = route.params.caseId as string;
-
-const caseId = '2025-0078234';
+const caseId = route.params.caseId as string;
 const userRole = authStore.currentUser?.role;
 const filteredImages = ref();
 
