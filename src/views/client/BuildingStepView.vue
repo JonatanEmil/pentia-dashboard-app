@@ -35,13 +35,11 @@ updateCurrentBuildingStep(caseStore.currentCase?.caseId as string, Number(route.
         returnOverwrite="clientHome" 
         class="mt--4 mx--4"
     />
-    <TitleWithText
-        :title="currentBuildingStep?.title as string" 
-        :text="currentBuildingStep ? 
+    <TitleWithText :title="currentBuildingStep?.title as string" class="mx--4 mb--4">
+        {{ currentBuildingStep ? 
             buildingStepDescriptions[currentBuildingStep.priority - 1] ?? 
-            '' : ''"
-        class="mx--4"
-    />
+            '' : '' }}
+    </TitleWithText>
 
     <CarouselContainer :gap="2" :startIndex="1">
         <img src="/src/assets/img/fundamentRight.png" alt="">

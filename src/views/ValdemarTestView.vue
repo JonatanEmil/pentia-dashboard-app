@@ -118,10 +118,9 @@ updateCurrentBuildingStep(caseStore.currentCase?.caseId as string, 1);
 
   
 
-    <TitleWithText
-        title="stevo" 
-        text="hello world this is the start of a long text"
-    />
+    <TitleWithText title="stevo">
+        hello world this is the start of a long text
+    </TitleWithText>
     <ItemList :items="testList" v-slot="{ item }" :columns="5" :title="'fancy title'">
         <NavbarButton 
         :name="item.name" 
