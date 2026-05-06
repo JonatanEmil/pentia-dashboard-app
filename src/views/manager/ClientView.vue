@@ -42,7 +42,8 @@ onMounted(async () => {
         <GeneralCard class="flex flex--align-center flex--gapcol-2 mt--3" 
         card-type="client" :profile="false" 
         :name="'Billede af ' + client?.firstName + ' ' + client?.lastName"
-        :filename="clientImage ?? undefined">
+        :filename="'/' + clientImage"
+        :card-background="false">
             <p>{{ client?.firstName }} {{ client?.lastName }}
                 {{ client?.phoneNumber }} 
                 {{ caseStore.currentCase?.roadName }} {{ caseStore.currentCase?.roadNumber }}
