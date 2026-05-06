@@ -6,9 +6,10 @@ import { useRouter } from 'vue-router';
 import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useCaseStore } from './caseStore';
 
-interface AuthUser {
+export interface AuthUser {
     id: string
     role: string
+    email?: string
     caseIds: DocumentReference[]
 }
 
@@ -31,6 +32,7 @@ export const useAuthStore = defineStore('auth', () => {
         currentUser.value = {
             id: firebaseUser.uid,
             role: userData?.role,
+            email: firebaseUser.email ?? undefined,
             caseIds: userData?.caseId,
         } as AuthUser;
 
