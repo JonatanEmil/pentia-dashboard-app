@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, computed, type ComputedRef } from 'vue';
 import { db } from '@/config/firebase';
-import { collection, getDocs, DocumentReference, getDoc } from 'firebase/firestore';
+import { collection, getDocs, DocumentReference, getDoc, query, where, doc } from 'firebase/firestore';
 
 interface Image {
     id: string
@@ -42,11 +42,31 @@ export const useImageStore = defineStore('image', () => {
         });
     }
 
+    async function getImagesByCase(caseId: string): Promise<Image[]> {
+        const caseRef = doc(db, 'cases', caseId);
+
+        const q = query(
+            collection(db, 'images'),
+            where('caseId', '==', caseRef),
+        );
+
+        const snapshot = await getDocs(q);
+
+        return snapshot.docs.map((doc) => ({
+            id: doc.id,
+            path: doc.data().path,
+            type: doc.data().type,
+            caseId: caseId,
+            expirationDate: doc.data().expirationDate ? doc.data().expirationDate.toDate() : null,
+        }));
+    }
+
     // Returns the state, getters and actions
     return {
         imageList,
         getUserImage,
         getImageList,
+        getImagesByCase,
     };
 });
 
