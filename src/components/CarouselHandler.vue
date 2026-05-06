@@ -35,7 +35,7 @@ onMounted( async ()=> {
         <AddImageButton
             class="h--100"
             v-if="userRole === 'manager'"/>
-        <CarouselContainer style="height: 100%">
+        <CarouselContainer class="h--100">
             <div v-for="(image, index) in filteredImages " :key="index">
                 <img :src="image.path" :alt="'Billede af typen' + image.type">
             </div>
