@@ -38,7 +38,7 @@ onMounted(async () => {
 
 <template>
     <div>
-        <ReturnButton class="mt--4 mx--4" :routeName="'managerHome'"/>
+        <ReturnButton class="mt--4 mx--4 returnButton" :routeName="'managerHome'"/>
         <GeneralCard class="flex flex--align-center flex--gapcol-2 mt--3" 
         card-type="client" :profile="false" 
         :name="'Billede af ' + client?.firstName + ' ' + client?.lastName"
