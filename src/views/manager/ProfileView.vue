@@ -14,6 +14,7 @@ const { user, profileImage, caseStore, imageStore } = useProfileView();
                 :pictureName="user?.firstName + ' ' + user?.lastName" 
             />
         </div>
+        
 
         <ItemList class="manager-cases"
             :items="caseStore.caseList" title="Igangværende sager" :columns="1" :gap="2">
