@@ -15,7 +15,9 @@ const authStore = useAuthStore();
 const imageStore = useImageStore();
 const route = useRoute();
 
-const caseId = route.params.caseId as string;
+//const caseId = route.params.caseId as string;
+
+const caseId = '2025-0078234';
 const userRole = authStore.currentUser?.role;
 const filteredImages = ref();
 
@@ -36,7 +38,7 @@ onMounted( async ()=> {
             class="h--100"
             v-if="userRole === 'manager'"/>
         <CarouselContainer style="height: 100%">
-            <div v-for="(image, index) in filteredImages " :key="index" style="height: 100%">
+            <div v-for="(image, index) in filteredImages " :key="index">
                 <img :src="image.path" :alt="'Billede af typen' + image.type">
             </div>
         </CarouselContainer>

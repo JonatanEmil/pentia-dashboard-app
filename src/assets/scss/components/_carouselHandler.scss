@@ -1,9 +1,13 @@
 .carousel-handler {
     height: 115px;
 
+    div {
+        overflow-y: hidden;
+    }
+
     img {
         height: 100%;
-        object-fit: contain;
-        width: auto
+        object-fit: fill;
+        width: 100%;
     }
 }
