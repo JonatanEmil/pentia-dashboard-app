@@ -3,7 +3,7 @@ import PlusIcon from '@/assets/icons/PlusIcon.vue';
 </script>
 
 <template>
-    <div class="addImageButton">
-        <PlusIcon></PlusIcon>
-    </div>
+    <button class="addImageButton">
+        <PlusIcon class="m--4"></PlusIcon>
+    </button>
 </template>
