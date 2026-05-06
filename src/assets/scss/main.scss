@@ -33,6 +33,8 @@
 @use 'views/manangerHomeView';
 @use 'views/createClientView';
 @use 'views/chatView';
+@use 'views/profileView';
+
 
 body {
     font-family: f.$font-main;
@@ -52,7 +54,8 @@ body {
 
     .mainContent{
         grid-area: mainContent;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         box-sizing: border-box;
         border: 0;
     }

@@ -1,0 +1,116 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/fonts' as f;
+
+.profileView{
+    background-color: rgba(c.$secondary, 0.6);
+}
+
+.profileHero {
+    position: relative;
+    background-image: url('@/assets/img/houses/house4.png');
+    background-size: 150%;
+    background-position: center;
+    padding: 2rem 0.5rem;
+    color: c.$white;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(c.$secondary, 0.6);
+        z-index: 0;
+    }
+
+    & > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    p {
+        color: c.$white;
+        font-size: 1rem;
+        margin: 0.5rem 0;
+    }
+    
+}
+
+.caseHouse {
+    .card-case {
+        width: 100%;
+        height: auto;
+        justify-content: flex-start; 
+        gap: 2.5rem; 
+        padding: 15px;
+        box-shadow: 5px 5px 5px rgba(c.$black, 0.2);
+        
+
+        .card-img {
+            img {
+                width: 165px;
+                height: 100px;
+                object-fit: fill;
+                align-self: start;
+            }
+        }
+
+        .card-content {
+            text-align: left;
+            align-items: flex-start;
+
+        }
+    }
+}
+
+.profileCaseInfo {
+    justify-content: center;
+    fill: none;
+    box-sizing: content-box;
+    background-color: c.$white;
+    border-radius: 12px;
+    margin: 1rem;
+    padding: 1rem;
+    color: c.$primary;
+
+    ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin: 1rem 0;
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: c.$primary;
+    }  
+}
+
+.profileManagerInfo {
+    justify-content: center;
+    fill: none;
+    box-sizing: content-box;
+    background-color: c.$primary;
+    border-radius: 12px;
+    margin: 1rem;
+    padding: 1rem;
+    color: c.$white;
+
+    ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin: 1rem 0;
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: c.$white;
+    } 
+}
