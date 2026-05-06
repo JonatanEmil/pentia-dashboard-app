@@ -11,13 +11,19 @@ defineProps<{
 <template>
     <div>
         <h2 class="font--h2">{{ title }}</h2>
-        <div :class="[
+        <div
+        :class="[
             'itemList',
             'grid',
             columns ? `grid--cols-${columns}` : '',
             gap ? `grid--gap-${gap}` : ''
         ]">
-            <slot v-for="(item, index) in items" :key="index" :item="item" :index="index" />
+            <slot
+                v-for="(item, index) in items"
+                :key="index"
+                :item="item"
+                :index="index"
+            />
         </div>
     </div>
 </template>

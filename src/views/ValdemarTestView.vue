@@ -3,12 +3,14 @@ import ItemList from '@/components/ItemList.vue';
 import NavbarButton from '@/components/NavbarButton.vue';
 import { defineAsyncComponent } from 'vue';
 import TitleWithText from '@/components/TitleWithText.vue';
-import ProgressCard from '@/components/ProgressCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import CarouselContainer from '@/components/CarouselContainer.vue';
 import ReturnButton from '@/components/common/ReturnButton.vue';
 import { useUserStore } from '@/stores/userStore';
 import LinkButton from '@/components/LinkButton.vue';
+import BuildingStepForm from '@/components/BuildingStepForm.vue';
+import { useBuildingStep } from '@/composables/useBuildingStep';
+import { useCaseStore } from '@/stores/caseStore';
 
 const testList = [
     
@@ -70,17 +72,26 @@ const testList = [
 ];
 
 
+const { updateCurrentBuildingStep } = useBuildingStep();
+const caseStore = useCaseStore();
+
 const userStore = useUserStore();
 
 function getUsers(): void {
     userStore.getUserList();
 }
+updateCurrentBuildingStep(caseStore.currentCase?.caseId as string, 1);
 
 
 </script>
 
 <template>
     <main>
+        <BuildingStepForm/>
+
+
+
+
         <LinkButton  routeName="login" title="Byggetilladelse" variant="" color="dark"/>
 
         <button @click="getUsers">Update User</button>
@@ -100,10 +111,7 @@ function getUsers(): void {
         title="a very fancy title with lots of text"/>
     </CarouselContainer>
 
-    <ProgressCard text="a fancy link" routeName="login" status="done"/>
-    <br>
-    <ProgressCard text="a fancy link" routeName="login" status="planned"/>
-
+  
 
     <TitleWithText
         title="stevo" 
