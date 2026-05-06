@@ -40,7 +40,7 @@ const router = createRouter({
                     component: () => import('@/views/manager/ClientView.vue')
                 },
                 {
-                    path: 'buildingSteps:priority',
+                    path: 'buildingSteps/:priority',
                     name: 'managerBuildingSteps',
                     component: () => import('@/views/manager/BuildingStepView.vue')
                 },

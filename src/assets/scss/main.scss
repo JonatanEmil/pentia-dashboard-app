@@ -45,6 +45,11 @@ body {
     line-height: 1.4;
     background-color: c.$background;
 }
+pre{
+    font-family: f.$font-main;
+    font-weight: f.$font-weight-regular;
+    line-height: 1.4;
+}
 
 #app{
 
