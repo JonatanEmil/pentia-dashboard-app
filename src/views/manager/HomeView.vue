@@ -45,7 +45,7 @@ onMounted(async () => {
 <template>
     <main>
         <SearchBar class="flex--just-self-end mt--2 p--4" @searchFetch="onSearchFetch"></SearchBar>
-        <div class="flex flex--align-center flex--column">
+        <div class="flex flex--align-center flex--column homeViewContent">
             <ProfilePictureWithName
                 class="flex flex--align-center flex--gapcol-2 mt--3 homeImg"
                 :picture-path="managerImage"
