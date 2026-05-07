@@ -5,4 +5,8 @@
     background-color: c.$primary;
     border: none;
     color: c.$highlight;
+
+    input {
+        display: none;
+    }
 }

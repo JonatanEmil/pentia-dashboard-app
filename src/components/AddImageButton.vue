@@ -28,7 +28,6 @@ async function handleUpload(event: Event): Promise<void> {
             ref="fileInput"
             type="file"
             accept="image/*"
-            style="display: none"
             @change="handleUpload" />
     </button>
 </template>
