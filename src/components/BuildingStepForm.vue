@@ -29,16 +29,18 @@ async function sendBuildingStepForm(event: Event): Promise<void> {
 </script>
 
 <template>
-
-    <form @submit.prevent="sendBuildingStepForm($event)">
+    <form @submit.prevent="sendBuildingStepForm($event)" class="buildingStepForm flex mb--4">
         <BuildingStepContent/>
         <!-- Connect with the status field from current step -->
         <CheckboxWithText 
             text="Bekræft at dette trin i byggeprosessen er færdig" 
             name="status" 
             id="status"
-            :checked="currentBuildingStep.status" v-if="currentBuildingStep"/>
-        <FormButtonSubmit>Send</FormButtonSubmit>
+            :checked="currentBuildingStep.status" 
+            v-if="currentBuildingStep"
+            class="my--3"
+        />
+        <FormButtonSubmit >Gem</FormButtonSubmit>
     </form>
 
 </template>
