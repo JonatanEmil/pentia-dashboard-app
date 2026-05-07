@@ -8,14 +8,11 @@ defineProps<{
     title: string
     room: string
     images: Image[]
-}>()
+}>();
 
 
 const authStore = useAuthStore();
 const userRole = authStore.currentUser.role;
-
-
-
 </script>
 
 <template>
@@ -23,7 +20,9 @@ const userRole = authStore.currentUser.role;
     <div class="carousel-handler flex">
         <AddImageButton
             class="h--100"
-            v-if="userRole === 'manager'"/>
+            v-if="userRole === 'manager'"
+            :type="room"
+        />
         <CarouselContainer class="h--100">
             <div v-for="(image, index) in images " :key="index">
                 <img :src="image.path" :alt="'Billede af typen' + image.type">
