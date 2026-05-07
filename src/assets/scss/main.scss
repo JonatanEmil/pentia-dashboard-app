@@ -2,9 +2,9 @@
 @use 'abstracts/fonts' as f;
 
 @use 'components/addImageButton';
+@use 'components/buildingStepContent';
 @use 'components/contactBanner';
 @use 'components/chatContainer';
-@use 'components/buildingStepContent';
 @use 'components/chatForm';
 @use 'components/chatMessage';
 @use 'components/checkboxWithText';
@@ -45,6 +45,11 @@ body {
     font-weight: f.$font-weight-regular;
     line-height: 1.4;
     background-color: c.$background;
+}
+pre{
+    font-family: f.$font-main;
+    font-weight: f.$font-weight-regular;
+    line-height: 1.4;
 }
 
 #app{

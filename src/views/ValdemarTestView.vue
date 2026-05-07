@@ -87,6 +87,11 @@ updateCurrentBuildingStep(caseStore.currentCase?.caseId as string, 1);
 
 <template>
     <main>
+        <LinkButton 
+        routeName="managerBuildingSteps" 
+        :routeParams="{ priority: 1 }"
+        title="Mappen"> 
+        </LinkButton>
         <BuildingStepForm/>
 
 

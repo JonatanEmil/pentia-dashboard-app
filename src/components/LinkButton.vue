@@ -5,6 +5,7 @@ import DownloadIcon from '@/assets/icons/DownloadIcon.vue';
 const props = withDefaults(defineProps<{
     routeName?: string,
     routePath?: string | Promise<string>,
+    routeParams?: { [key: string]: string | number },
     title: string,
     variant?: 'download' | 'dense' | '',
     color?: 'dark' | 'light',
@@ -37,7 +38,7 @@ onMounted(async () => {
         {{title}}
     </a>
     <RouterLink v-else
-        :to="routeName ? { name: routeName} : {path: resolvedPath}"
+        :to="routeName ? { name: routeName, params: routeParams } : { path: resolvedPath }"
         class="linkButton font--p"
         :class="[variant,color]"
     >{{title}}
