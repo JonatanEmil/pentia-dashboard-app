@@ -2,7 +2,7 @@ import { collection, writeBatch, doc } from 'firebase/firestore';
 import { db } from '@/config/firebase';
 
 
-const path = 'src/assets/files/';
+const path = '/src/assets/files/';
 
 const files = [
     {
