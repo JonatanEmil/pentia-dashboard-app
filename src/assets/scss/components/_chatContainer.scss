@@ -26,6 +26,7 @@
     border: none;
     cursor: pointer;
     z-index: 20;
+    margin-left: 0%;
 }
 
 .client-modal {
@@ -42,6 +43,8 @@
 
 .client-item {
     padding: 1rem 1.5rem;
+    border: 2px solid c.$primary;
+    border-radius: 2px;
     cursor: pointer;
 
     &:hover {

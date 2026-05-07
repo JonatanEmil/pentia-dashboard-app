@@ -32,7 +32,7 @@ const {
             <div 
             v-for="client in userStore.clientList" 
             :key="client.id.id"
-            class="client-item"
+            class="client-item ms--4"
             :class="{ active: selectedCaseId === (client.caseId[0]?.id) }"
             @click="selectClient(client.caseId[0]?.id ?? '', client.id.id)">
 
