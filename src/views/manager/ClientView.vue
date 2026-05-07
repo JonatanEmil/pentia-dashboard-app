@@ -42,7 +42,7 @@ onMounted(async () => {
         <GeneralCard class="flex--gapcol-1 mt--3 client-card ps--5"
         card-type="client" :profile="false"
             :name="'Billede af ' + client?.firstName + ' ' + client?.lastName"
-             :filename="'/' + clientImage"
+            :filename="clientImage ?? ''"
             :card-background="false">
             <p> {{ client?.caseId[0]?.id }} </p>
             <p> {{ client?.firstName }} {{ client?.lastName }}</p>
@@ -50,12 +50,12 @@ onMounted(async () => {
             <p>{{ caseStore.currentCase?.roadName }} {{ caseStore.currentCase?.roadNumber }}</p>
         </GeneralCard>
 
-        <LinkButton 
-        class="mt--3" 
-        :routeName="'clientBuildingSteps'" 
-        :routeParams="{ priority: data.priority}"
-        title="Mappen" color="dark"> 
-        </LinkButton>
+        <LinkButton
+            class="mt--3"
+            routeName="managerFolder"
+            title="Mappen"
+            color="dark"
+        />
 
 
 
