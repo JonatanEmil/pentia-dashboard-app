@@ -1,25 +1,16 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import { computed, onMounted, ref } from 'vue';
-import { useImageStore, type Image } from '@/stores/imagesStore.ts';
+import { onMounted } from 'vue';
+import { useFolderImages } from '@/composables/useFolderImages.ts';
 import CarouselHandler from '@/components/CarouselHandler.vue';
 import ItemList from '@/components/ItemList.vue';
 import ReturnButton from '@/components/common/ReturnButton.vue';
 
-const imageStore = useImageStore();
-const route = useRoute();
-
-const caseId = route.params.caseId as string;
-const caseImages = ref<Image[]>([]);
-const rooms = ref<string[]>([]);
+const { caseImages, rooms, fetchImages } = useFolderImages();
 
 onMounted(async () => {
-    caseImages.value = await imageStore.getImagesByCase(caseId);
-    rooms.value = [...new Set(caseImages.value.map(image => image.type))];
+    await fetchImages();
 });
-
 </script>
-
 
 <template>
     <ReturnButton class="mt--4 mx--4"/>

@@ -1,7 +1,18 @@
 import { defineStore } from 'pinia';
 import { ref, computed, type ComputedRef } from 'vue';
 import { db } from '@/config/firebase';
-import { collection, getDocs, DocumentReference, getDoc, query, where, doc } from 'firebase/firestore';
+import {
+    collection,
+    getDocs,
+    DocumentReference,
+    getDoc,
+    query,
+    where,
+    doc,
+    addDoc,
+    Timestamp,
+} from 'firebase/firestore';
+import { getStorage, uploadBytes, ref as storageRef, getDownloadURL } from 'firebase/storage';
 
 export interface Image {
     id: string
@@ -43,6 +54,7 @@ export const useImageStore = defineStore('image', () => {
     }
 
     async function getImagesByCase(caseId: string): Promise<Image[]> {
+        const storage = getStorage();
         const caseRef = doc(db, 'cases', caseId);
 
         const q = query(
@@ -52,13 +64,36 @@ export const useImageStore = defineStore('image', () => {
 
         const snapshot = await getDocs(q);
 
-        return snapshot.docs.map((doc) => ({
+        return await Promise.all(snapshot.docs.map(async(doc) => ({
             id: doc.id,
-            path: doc.data().path,
+            path: await getDownloadURL(storageRef(storage, doc.data().path)), // henter download URL
             type: doc.data().type,
             caseId: caseId,
             expirationDate: doc.data().expirationDate ? doc.data().expirationDate.toDate() : null,
-        }));
+        })));
+    }
+
+    async function uploadImage(
+        file: globalThis.File,
+        caseId: string,
+        type: string,
+    ): Promise<void> {
+        const storage = getStorage();
+        const caseRef = doc(db, 'cases', caseId);
+        const path = `images/${caseId}/${file.name}`;
+
+        await uploadBytes(storageRef(storage, path), file);
+
+        const expirationDate = new Date();
+
+        expirationDate.setFullYear(expirationDate.getFullYear() + 2);
+
+        await addDoc(collection(db, 'images'), {
+            caseId: caseRef,
+            type: type,
+            path: path,
+            expirationDate: Timestamp.fromDate(expirationDate),
+        });
     }
 
     // Returns the state, getters and actions
@@ -67,6 +102,7 @@ export const useImageStore = defineStore('image', () => {
         getUserImage,
         getImageList,
         getImagesByCase,
+        uploadImage,
     };
 });
 
