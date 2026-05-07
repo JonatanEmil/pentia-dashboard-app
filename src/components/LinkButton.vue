@@ -6,12 +6,14 @@ const props = withDefaults(defineProps<{
     routeName?: string,
     routePath?: string | Promise<string>,
     routeParams?: { [key: string]: string | number },
+    icon?: boolean,
     title: string,
     variant?: 'download' | 'dense' | '',
     color?: 'dark' | 'light',
 }>(), {
     variant: '',
     color: 'light',
+    icon: true,
 });
 
 const resolvedPath = ref<string>('');
@@ -32,9 +34,9 @@ onMounted(async () => {
         :href="resolvedPath"
         target="_blank"
         class="linkButton font--p"
-        :class="[variant,color]"
+        :class="[variant,color, !icon ? 'underline': '']"
     >
-        <DownloadIcon class="pe--1" />
+        <DownloadIcon v-if="icon" class="pe--1" />
         {{title}}
     </a>
     <RouterLink v-else

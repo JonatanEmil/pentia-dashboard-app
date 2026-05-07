@@ -32,5 +32,8 @@
             color: c.$highlight;
             background-color: c.$primary;
         }
+        &.underline{
+            text-decoration: underline;
+        }
     }
 }

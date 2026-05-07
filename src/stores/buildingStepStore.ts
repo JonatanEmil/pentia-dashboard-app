@@ -49,6 +49,7 @@ export const useBuildingStepStore = defineStore('buildingStep', () => {
             const data = doc.data();
             
             buildingStepList.value.push({
+                id: doc.data().id,
                 caseId: data.caseId,
                 priority: data.priority,
                 richText: data.richText,
@@ -68,6 +69,7 @@ export const useBuildingStepStore = defineStore('buildingStep', () => {
             const data = doc.data();
             
             currentBuildingSteps.value.push({
+                id: doc.data().id,
                 caseId: data.caseId.id,
                 priority: data.priority,
                 richText: data.richText,
