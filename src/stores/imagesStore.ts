@@ -60,17 +60,28 @@ export const useImageStore = defineStore('image', () => {
         const q = query(
             collection(db, 'images'),
             where('caseId', '==', caseRef),
+            where('type', '!=', 'house'),
         );
 
         const snapshot = await getDocs(q);
 
-        return await Promise.all(snapshot.docs.map(async(doc) => ({
-            id: doc.id,
-            path: await getDownloadURL(storageRef(storage, doc.data().path)), // henter download URL
-            type: doc.data().type,
-            caseId: caseId,
-            expirationDate: doc.data().expirationDate ? doc.data().expirationDate.toDate() : null,
-        })));
+        return await Promise.all(snapshot.docs.map(async (doc) => {
+            let path = '';
+
+            try {
+                path = await getDownloadURL(storageRef(storage, doc.data().path));
+            } catch {
+                console.warn('Billede ikke fundet:', doc.data().path);
+            }
+
+            return {
+                id: doc.id,
+                path: path,
+                type: doc.data().type,
+                caseId: caseId,
+                expirationDate: doc.data().expirationDate ? doc.data().expirationDate.toDate() : null,
+            };
+        }));
     }
 
     async function uploadImage(

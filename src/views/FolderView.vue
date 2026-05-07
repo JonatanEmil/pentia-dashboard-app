@@ -13,6 +13,7 @@ onMounted(async () => {
 </script>
 
 <template>
+    <div>
     <ReturnButton class="mt--4 mx--4"/>
     <ItemList title="Mappen" :items="rooms" v-slot="{ item }">
         <CarouselHandler
@@ -21,4 +22,5 @@ onMounted(async () => {
             :images="caseImages.filter(image => image.type === item)"
         />
     </ItemList>
+    </div>
 </template>

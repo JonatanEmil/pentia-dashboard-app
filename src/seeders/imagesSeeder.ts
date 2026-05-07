@@ -3,7 +3,7 @@ import { db } from '@/config/firebase';
 
 
 const profileImg = '/src/assets/img/users/';
-const folderImg = '/src/assets/img/';
+const folderImg = 'images/2025-0078234/';
 const houseImg = '/src/assets/img/houses/';
 const expirationDate = new Date();
 
@@ -25,7 +25,7 @@ const images = [
     { path: folderImg + 'fundament.png', type: 'fundament', caseId: doc(db, 'cases', '2025-0078234'), expirationDate: expirationDate },
     { path: folderImg + 'fundamentLeft.png', type: 'fundament', caseId: doc(db, 'cases', '2025-0078234'), expirationDate: expirationDate },
     { path: folderImg + 'fundamentRight.png', type: 'fundament', caseId: doc(db, 'cases', '2025-0078234'), expirationDate: expirationDate },
-    { path: folderImg + 'kokkenHandvask', type: 'kokken', caseId: doc(db, 'cases', '2025-0078234'), expirationDate: expirationDate },
+    { path: folderImg + 'kokkenHandvask.png', type: 'kokken', caseId: doc(db, 'cases', '2025-0078234'), expirationDate: expirationDate },
     { path: folderImg + 'koleskab.png', type: 'kokken', caseId: doc(db, 'cases', '2025-0078234'), expirationDate: expirationDate },
     { path: folderImg + 'toilet.png', type: 'badeværelse', caseId: doc(db, 'cases', '2025-0078234'), expirationDate: expirationDate },
     { path: folderImg + 'handvaskBadeværelse.png', type: 'badeværelse', caseId: doc(db, 'cases', '2025-0078234'), expirationDate: expirationDate },
@@ -53,7 +53,7 @@ const addImages = async (): Promise<void> => {
 
         await batch.commit();
     } catch (e) {
-        
+
     }
 };
 
