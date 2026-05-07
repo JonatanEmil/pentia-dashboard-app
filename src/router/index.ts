@@ -24,28 +24,28 @@ const router = createRouter({
             redirect: { name: 'managerHome' },
             children: [
                 {
-                    path: '/home',
+                    path: 'home',
                     name: 'managerHome',
                     component: () => import('@/views/manager/HomeView.vue')
 
                 },
                 {
-                    path: '/profile',
+                    path: 'profile',
                     name: 'managerProfile',
                     component: () => import('@/views/manager/ProfileView.vue')
                 },
                 {
-                    path: '/createClient',
+                    path: 'createClient',
                     name: 'createClient',
                     component: () => import('@/views/manager/CreateClientView.vue')
                 },
                 {
-                    path: '/clientView/:userId',
+                    path: 'clientView/:userId',
                     name: 'clientView',
                     component: () => import('@/views/manager/ClientView.vue')
                 },
                 {
-                    path: '/buildingSteps',
+                    path: 'buildingSteps',
                     name: 'managerBuildingSteps',
                     component: () => import('@/views/manager/BuildingStepView.vue')
                 },
@@ -60,32 +60,32 @@ const router = createRouter({
             redirect: { name: 'clientHome' },
             children: [
                 {
-                    path: '/home',
+                    path: 'home',
                     name: 'clientHome',
                     component: () => import('@/views/client/HomeView.vue')
                 },
                 {
-                    path: '/profile',
+                    path: 'profile',
                     name: 'clientProfile',
                     component: () => import('@/views/client/ProfileView.vue')
                 },
                 {
-                    path: '/buildingSteps/:priority',
+                    path: 'buildingSteps/:priority',
                     name: 'clientBuildingSteps',
                     component: () => import('@/views/client/BuildingStepView.vue')
                 },
                 {
-                    path: '/calender',
+                    path: 'calender',
                     name: 'clientCalender',
                     component: () => import('@/views/client/CalenderView.vue')
                 },
                 {
-                    path: '/bookingConfirmation',
+                    path: 'bookingConfirmation',
                     name: 'clientBookingConfirmation',
                     component: () => import('@/views/client/BookingConfirmationView.vue')
                 },
                 {
-                    path: '/contract',
+                    path: 'contract',
                     name: 'clientContract',
                     component: () => import('@/views/client/ContractView.vue')
                 },
