@@ -50,8 +50,10 @@ onMounted(async () => {
             <p>{{ caseStore.currentCase?.roadName }} {{ caseStore.currentCase?.roadNumber }}</p>
         </GeneralCard>
 
-        <LinkButton class="mt--3" :routeName="'clientBuildingSteps'" 
-        :routeParams="{ prio}"
+        <LinkButton 
+        class="mt--3" 
+        :routeName="'clientBuildingSteps'" 
+        :routeParams="{ priority: data.priority}"
         title="Mappen" color="dark"> 
         </LinkButton>
 
