@@ -31,7 +31,7 @@ const { searchResults, onSearchFetch } = useSearch(
 );
 
 onMounted(async () => {
-    currentUser.value = await userStore.getUser(authStore.currentUser.id);
+    currentUser.value = await userStore.getUser(authStore.currentUser?.id ?? '');
     managerImage.value = await imageStore.getUserImage(currentUser.value.imageId);
 
     await userStore.getClientsForManager();
