@@ -3,7 +3,7 @@ import { ref, computed, type ComputedRef } from 'vue';
 import { db } from '@/config/firebase';
 import { collection, getDocs, DocumentReference, getDoc, query, where, doc } from 'firebase/firestore';
 
-interface Image {
+export interface Image {
     id: string
     path: string
     type: string
