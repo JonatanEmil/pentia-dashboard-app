@@ -2,9 +2,9 @@ import { collection, writeBatch, doc } from 'firebase/firestore';
 import { db } from '@/config/firebase';
 
 
-const profileImg = 'src/assets/img/users/';
-const folderImg = 'src/assets/img/';
-const houseImg = 'src/assets/img/houses/';
+const profileImg = '/src/assets/img/users/';
+const folderImg = '/src/assets/img/';
+const houseImg = '/src/assets/img/houses/';
 const expirationDate = new Date();
 
 expirationDate.setFullYear(expirationDate.getFullYear() + 2);
