@@ -5,7 +5,7 @@ import CarouselHandler from '@/components/CarouselHandler.vue';
 import ItemList from '@/components/ItemList.vue';
 import ReturnButton from '@/components/common/ReturnButton.vue';
 
-const { caseImages, rooms, fetchImages } = useFolderImages();
+const { caseImages, allRooms, fetchImages } = useFolderImages();
 
 onMounted(async () => {
     await fetchImages();
@@ -14,13 +14,13 @@ onMounted(async () => {
 
 <template>
     <div>
-    <ReturnButton class="mt--4 mx--4"/>
-    <ItemList title="Mappen" :items="rooms" v-slot="{ item }" class="mb--4 ms--4">
-        <CarouselHandler
-            :title="item.charAt(0).toUpperCase() + item.slice(1)"
-            :room="item"
-            :images="caseImages.filter(image => image.type === item)"
-        />
-    </ItemList>
+        <ReturnButton class="mt--4 mx--4"/>
+        <ItemList title="Mappen" :items="allRooms" v-slot="{ item }" class="mb--4 ms--4">
+            <CarouselHandler
+                :title="item.charAt(0).toUpperCase() + item.slice(1)"
+                :room="item"
+                :images="caseImages.filter(image => image.type === item)"
+            />
+        </ItemList>
     </div>
 </template>
