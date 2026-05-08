@@ -5,12 +5,6 @@ import ProgressCard from '@/components/ProgressCard.vue';
 import { useBuildingStepStore } from '@/stores/buildingStepStore';
 import { useCaseStore } from '@/stores/caseStore';
 
-
-interface InfoCardData {
-    title: string;
-    text: string;
-};
-
 const buildingStepStore = useBuildingStepStore();
 const casesStore = useCaseStore();
 
@@ -23,20 +17,6 @@ if(casesStore.currentCase && casesStore.currentCase.caseId){
     alert('something went wrong, no case have been selected');
 }
 
-const infoCardInformation: InfoCardData[] = [
-    { 
-        title:'Tip & Råd',
-        text:'Mangler du også gode råd til din byggeproces? Så klik her og følg med!',
-    },
-    { 
-        title:'Tip & Råd',
-        text:'Mangler du også gode råd til din byggeproces? Så klik her og følg med!',
-    },
-    { 
-        title:'Lær Din Byggeproces',
-        text:'Byggeprocessen læres bedst når vi arbejder sammen om det.',
-    },
-];
 
 </script>
 <template>
@@ -44,10 +24,18 @@ const infoCardInformation: InfoCardData[] = [
         <h1 class="font--h1 font--center">Velkommen!</h1>
         <CarouselContainer :gap="4" :startIndex="1" class="mb--4">
             <InfoCard 
-                v-for="(data, index) in infoCardInformation" 
-                :key="index"
-                :text="data.text"
-                :title="data.title"
+                title="Tip & Råd"
+                text="Mangler du også gode råd til din byggeproces? Så klik her og følg med!"
+            />
+            <InfoCard 
+                title="Mappen"
+                text="Her kan du se billederne af dit hus"
+                routeName="folder"
+                :routeParams="{ caseId: casesStore.currentCase?.caseId ?? ''}"
+            />
+            <InfoCard 
+                title="Lær Din Byggeproces"
+                text="Byggeprocessen læres bedst når vi arbejder sammen om det."
             />
         </CarouselContainer>
         

@@ -1,6 +1,6 @@
 @use '@/assets/scss/abstracts/colors' as c;
 
-.infoCard {
+.infoCard{
     &:nth-child(3n + 2) { 
         background-color: c.$secondary; 
         color: c.$black;
@@ -12,5 +12,8 @@
     &:nth-child(3n + 1) { 
         background-color: c.$primary; 
         color: c.$white;
+    }
+    &:is(a) {
+        cursor: pointer;
     }
 }
