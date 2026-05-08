@@ -15,7 +15,7 @@ onMounted(async () => {
 <template>
     <div>
     <ReturnButton class="mt--4 mx--4"/>
-    <ItemList title="Mappen" :items="rooms" v-slot="{ item }" class="mb--4">
+    <ItemList title="Mappen" :items="rooms" v-slot="{ item }" class="mb--4 ms--4">
         <CarouselHandler
             :title="item.charAt(0).toUpperCase() + item.slice(1)"
             :room="item"
