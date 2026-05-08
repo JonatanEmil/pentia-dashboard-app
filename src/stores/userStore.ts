@@ -4,13 +4,23 @@ import { db } from '@/config/firebase';
 import { collection, DocumentReference, getDocs, query, where, doc, getDoc, documentId } from 'firebase/firestore';
 import { useAuthStore } from './authStore';
 
+/**
+ * Represents a user document stored in Firestore.
+ */
 export interface User {
+    /** Firestore document reference for this user. */
     id: DocumentReference
+    /** First name of the user. */
     firstName: string
+    /** Last name of the user. */
     lastName: string
+    /** Phone number of the user. */
     phoneNumber: string
+    /** Role of the user — either `'manager'` or `'client'`. */
     role: string
+    /** Firestore references to the cases associated with this user. */
     caseId: DocumentReference[]
+    /** Firestore reference to the user's profile image document. */
     imageId: DocumentReference
 }
 

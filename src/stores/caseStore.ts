@@ -4,11 +4,19 @@ import { db } from '@/config/firebase';
 import { collection, getDocs, doc, getDoc, query, where, type DocumentReference } from 'firebase/firestore';
 import { useAuthStore } from './authStore.ts';
 
+/**
+ * Represents a renovation case (property) stored in Firestore.
+ */
 export interface Case {
+    /** Firestore document ID for the case. */
     caseId: string
+    /** Street name of the property. */
     roadName: string
+    /** House number of the property. */
     roadNumber: string
+    /** City of the property. */
     city: string
+    /** Zip code of the property. */
     zipcode: number
 }
 

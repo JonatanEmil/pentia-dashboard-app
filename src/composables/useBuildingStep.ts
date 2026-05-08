@@ -6,12 +6,20 @@ import { type DocumentReference } from 'firebase/firestore';
 const buildingStepStore = useBuildingStepStore();
 const fileStore = useFileStore();
 
+/**
+ * Extends {@link BuildingStep} with the list of files attached to the step.
+ */
 export interface BuildingStepWithFiles extends BuildingStep {
+    /** Files attached to this building step. */
     Files: File[]
 }
 
 const currentBuildingStep = ref<BuildingStepWithFiles>();
 const selectedFiles = ref<globalThis.File[]>([]);
+/**
+ * 
+ * @returns - testy
+ */
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function useBuildingStep() {

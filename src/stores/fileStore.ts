@@ -4,10 +4,17 @@ import { db } from '@/config/firebase';
 import { collection, getDocs, query, where, doc, writeBatch, type DocumentReference } from 'firebase/firestore';
 import { getStorage, uploadBytes, ref as storageRef, getDownloadURL } from 'firebase/storage';
 
+/**
+ * Represents a file document linked to a building step in Firestore.
+ */
 export interface File {
+    /** Firestore reference to the parent case. */
     caseId: DocumentReference
+    /** Priority of the building step this file belongs to. */
     priority: number
+    /** Display name / original filename. */
     title: string
+    /** Storage path in Firebase Storage. */
     path: string
 }
 

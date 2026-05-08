@@ -1,8 +1,14 @@
 {
   "plugin": ["typedoc-plugin-vue"],
   "excludeVueProperties": true,
-  "entryPoints": ["./src/scripts","./src/components","./src/views"],
+  "entryPoints": [
+    "./src/stores",
+    "./src/composables",
+    "./src/utils"
+  ],
   "entryPointStrategy": "expand",
+  "excludeExternals": true,
+  "excludeNotDocumented": false,
   "tsconfig": "./tsconfig.json",
   "out": "docs"
 }

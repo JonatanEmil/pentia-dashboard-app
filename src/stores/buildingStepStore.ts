@@ -3,12 +3,21 @@ import { ref, computed } from 'vue';
 import { db } from '@/config/firebase';
 import { collection, getDocs, query, where, doc, type DocumentReference, limit, updateDoc } from 'firebase/firestore';
 
+/**
+ * Represents a single step in a renovation building plan.
+ */
 export interface BuildingStep {
+    /** Firestore document ID. */
     id: string
+    /** Firestore reference to the parent case. */
     caseId: DocumentReference
+    /** Ordering priority — lower numbers appear earlier in the plan. */
     priority: number
+    /** Rich-text description of the building step. */
     richText: string
+    /** Whether the step has been completed. */
     status: boolean
+    /** Display title for the building step. */
     title: string
 }
 

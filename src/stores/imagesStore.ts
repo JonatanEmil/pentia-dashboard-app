@@ -14,11 +14,19 @@ import {
 } from 'firebase/firestore';
 import { getStorage, uploadBytes, ref as storageRef, getDownloadURL } from 'firebase/storage';
 
+/**
+ * Represents an image document stored in Firestore.
+ */
 export interface Image {
+    /** Firestore document ID. */
     id: string
+    /** Firebase Storage path or signed download URL. */
     path: string
+    /** Category of the image — e.g. `'house'` or a room name. */
     type: string
+    /** Expiration date of the image, or `null` if not set. */
     expirationDate: Date | null
+    /** Firestore document ID of the related case, or `null` for user profile images. */
     caseId: string | null
 }
 
