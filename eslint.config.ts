@@ -41,7 +41,7 @@ export default defineConfigWithVueTs(
             '@stylistic/max-len': [
                 'error',
                 {
-                    code: 100,
+                    code: 120,
                     tabWidth: 4,
                     ignoreUrls: true,
                     ignoreStrings: true,
