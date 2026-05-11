@@ -1,6 +1,6 @@
 # Pentia Dashboard App
 
-En mobilvenlig dashboard-applikation til håndtering af byggesager, udviklet som UCL-projekt i samarbejde med digital konceptudviklingere fra UCL.
+En mobilvenlig dashboard-applikation til håndtering af byggesager, udviklet som UCL-projekt i samarbejde med Pentia.
 
 ## Teknologi
 
@@ -75,6 +75,14 @@ Projektet bruger følgende Firestore-samlinger:
 - `messages` — chatbeskeder
 - `images` — billeder til brugere og sager
 - `buildingSteps` — byggetrin tilknyttet en sag
+
+### Seed database
+
+For at få samme data som projektet er udviklet med, kør den relevante seeder:
+
+```bash
+npx vite-node src/seeders/<seeder-fil>.ts
+```
 
 ## Miljøvariabler
 
