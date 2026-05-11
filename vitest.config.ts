@@ -8,7 +8,7 @@ export default mergeConfig(
     defineConfig({
         plugins: [vue()],
         test: {
-            environment: 'jsdom',
+            environment: 'node',
             exclude: [...configDefaults.exclude, 'e2e/**'],
             root: fileURLToPath(new URL('./', import.meta.url)),
         },
