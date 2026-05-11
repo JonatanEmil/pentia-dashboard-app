@@ -1,5 +1,6 @@
 {
   "plugin": ["typedoc-plugin-vue"],
+  "projectDocuments": ["./docs-src/markdown/**/*.md"],
   "excludeVueProperties": true,
   "entryPoints": [
     "./src/stores",
