@@ -23,7 +23,7 @@ const {
 <template>
     <div class="chat-container">
         <!-- Manager modal -->
-        <button v-if="isManager" class="toggle-btn m--0" @click="showModal = !showModal">
+        <button v-if="isManager" class="toggle-btn m--0 p--0" @click="showModal = !showModal">
             <ChatIn v-if="showModal" />
             <ChatOut v-else />
         </button>
