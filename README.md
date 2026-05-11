@@ -1,6 +1,6 @@
 # Pentia Dashboard App
 
-En mobilvenlig dashboard-applikation til håndtering af byggesager, udviklet som UCL-projekt i samarbejde med Pentia.
+En mobilvenlig dashboard-applikation til håndtering af byggesager, udviklet som UCL-projekt i samarbejde med digital konceptudviklingere fra UCL.
 
 ## Teknologi
 
