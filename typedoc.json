@@ -8,7 +8,7 @@
   ],
   "entryPointStrategy": "expand",
   "excludeExternals": true,
-  "excludeNotDocumented": false,
+  "excludeNotDocumented": true,
   "tsconfig": "./tsconfig.json",
   "out": "docs"
 }
