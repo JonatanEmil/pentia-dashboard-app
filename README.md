@@ -15,7 +15,7 @@ En mobilvenlig dashboard-applikation til håndtering af byggesager, udviklet som
 
 ### Forudsætninger
 
-- Node.js (v18+)
+- Node.js (v20.19.0 eller v22.12.0+)
 - npm
 
 ### Installation
@@ -24,17 +24,20 @@ En mobilvenlig dashboard-applikation til håndtering af byggesager, udviklet som
 npm install
 ```
 
-### Start udviklingsserver
+### Scripts
 
-```bash
-npm run dev
-```
-
-### Byg til produktion
-
-```bash
-npm run build
-```
+| Script | Beskrivelse |
+|--------|-------------|
+| `npm run dev` | Start udviklingsserver |
+| `npm run build` | Byg til produktion (inkl. type-check) |
+| `npm run preview` | Forhåndsvis produktionsbuild |
+| `npm run type-check` | Kør TypeScript type-check |
+| `npm run test:unit` | Kør unit tests med Vitest |
+| `npm run doc` | Generer TypeDoc dokumentation |
+| `npm run lint` | Kør ESLint på src/ |
+| `npm run lint:fix` | Fix ESLint fejl automatisk |
+| `npm run lint:oxlint` | Kør OxLint med auto-fix |
+| `npm run lint:watch` | Watch-tilstand for lint |
 
 ## Projektstruktur
 
@@ -85,3 +88,46 @@ VITE_FIREBASE_STORAGE_BUCKET=...
 VITE_FIREBASE_MESSAGING_SENDER_ID=...
 VITE_FIREBASE_APP_ID=...
 ```
+
+## Linting
+
+Projektet bruger ESLint med Vue, TypeScript og Stylistic plugins.
+
+```bash
+npm run lint
+```
+
+### Regler
+
+#### Generelt
+| Regel | Niveau | Beskrivelse |
+|-------|--------|-------------|
+| `indent` | error | 4 mellemrum |
+| `no-console` | warn | Advar om console.log |
+| `no-debugger` | error | Forbyd debugger |
+| `no-unused-vars` | error | Ingen ubrugte variabler |
+| `no-var` | error | Brug `let`/`const` i stedet for `var` |
+| `prefer-const` | error | Brug `const` hvor muligt |
+| `no-duplicate-imports` | error | Ingen duplicate imports |
+| `no-unreachable` | error | Ingen kode efter `return`/`throw` |
+
+#### TypeScript
+| Regel | Beskrivelse |
+|-------|-------------|
+| `array-type` | Brug `Type[]` array syntax |
+| `explicit-function-return-type` | Alle funktioner skal have return type |
+| `consistent-type-definitions` | Brug `interface` frem for `type` |
+
+#### Stylistic
+| Regel | Beskrivelse |
+|-------|-------------|
+| `quotes` | Single quotes |
+| `semi` | Semikolon påkrævet |
+| `max-len` | Maks 120 tegn per linje |
+| `object-curly-spacing` | Mellemrum i `{ }` |
+| `comma-dangle` | Trailing comma i multiline |
+
+### Ignorerede stier
+- `src/router/**`
+- `src/assets/icons/**`
+- `dist/`, `dist-ssr/`, `coverage/`
