@@ -12,6 +12,7 @@ vi.mock('vue-router', () => ({
 
 describe('useAuthStore', () => {
     beforeEach(() => {
+        //creates a pinia instance
         setActivePinia(createPinia());
     });
 
@@ -20,6 +21,13 @@ describe('useAuthStore', () => {
         
         await authStore.login('kenny.jordstrom@gmail.com','client1');
         expect(authStore.currentUser?.id).toBeDefined();
+    });
+
+    it('login with unknown email does not login', async () => {
+        const authStore = useAuthStore();
+        
+        await authStore.login('kennwasdsad@gmdail.com','client1');
+        expect(authStore.currentUser?.id).not.toBeDefined();
     });
 
 });
