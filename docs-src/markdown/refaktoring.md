@@ -1,6 +1,6 @@
 # Refaktoring
 
-God refaktorering handler om at forbedre koden uden at ændre dens adfærd. I dette projekt er der arbejdet ud fra følgende principper:
+Refaktorering handler om at forbedre kodens struktur uden at ændre dens adfærd. I dette projekt er der arbejdet ud fra følgende principper:
 
 - **DRY** (Don't Repeat Yourself) – undgå duplikering af kode
 - **SRP** (Single Responsibility Principle) – én funktion/klasse, ét ansvar
@@ -86,14 +86,11 @@ Dette sikrer at:
 
 ### Merge konflikter
 
-Merge konflikter opstår når to branches har ændret den samme del af en fil. Git markerer konflikten direkte i filen:
+Merge konflikter opstår når to branches har ændret den samme del af en fil.
+GitHub markerer konflikten og blokerer mergen indtil den er løst.
 
-```ts
-<<<<<<< HEAD
-const greeting = 'Hej verden';
-=======
-const greeting = 'Hello world';
->>>>>>> feature/my-branch
-```
+![Merge konflikt i GitHub](../images/merge_conflict.png)
 
-Konflikten løses ved manuelt at vælge hvilken version der skal beholdes, fjerne Git's markører og committe resultatet.
+De røde linjer viser den eksisterende kode i `developer`, og de grønne linjer viser
+de indkommende ændringer fra feature-branchen. Konflikten løses ved manuelt at vælge
+hvilken version der skal beholdes, og derefter committe resultatet.
