@@ -12,9 +12,8 @@ import Search from '@/components/SearchBar.vue';
 import { DocumentReference } from 'firebase/firestore';
 
 
-const selected = ref(null);
-const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
-const testList = ref([{userId: 1, firstName: 'Jens', lastName: 'Jensen',}, {userId: 2, firstName: 'Jane', lastName: 'Jensen',}, {userId: 3, firstName: 'Jens', lastName: 'Hansen',}, {userId: 4, firstName: 'Hans', lastName: 'Pedersen' } ]);
+const conflikt = 'this string makes a conflict';
+console.log(conflikt);
 
 const userStore = useUserStore();
 
