@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "doc": "typedoc && cp -r ./docs-src/images ./docs/images",
+    "doc": "typedoc && node -e \"require('fs').cpSync('./docs-src/images', './docs/images', {recursive: true})\"",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
