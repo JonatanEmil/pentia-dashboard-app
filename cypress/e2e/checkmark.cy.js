@@ -30,9 +30,13 @@ describe('Checkmark', () => {
         cy.get('#status').click();
         cy.get('button[type="submit"]').click();
 
-        // Hvis UI opdateres = databasen er opdateret
-        cy.get('[data-cy="step-status-btn"]').should('have.class', 'completed');
-       
+        // Trykker på tilbage-knappen
+        cy.get('.returnButton').click();
+        cy.url().should('include', '/clientView/');
+
+        // Tjekker at den tidligere lyse building step nu er mørk
+        cy.get('.linkButton.dark').first().should('exist');
+      
 
     });
 
