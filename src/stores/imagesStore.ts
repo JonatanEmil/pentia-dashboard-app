@@ -30,13 +30,28 @@ export interface Image {
     caseId: string | null
 }
 
-
+/**
+ * @function
+ * Handles fetching, uploading and managing images stored in Firestore and Firebase Storage.
+ */
 export const useImageStore = defineStore('image', () => {
     // State
+    /**
+     * List of all images fetched from Firestore.
+     * @type {Image[]}
+     */
     const imageList = ref<Image[]>([]);
 
-
     // Getters
+
+    /**
+     * @function
+     * Fetches the download URL for a user's profile image.
+     *
+     * @param imageRef - Firestore document reference for the image
+     * @returns The Firebase Storage path or download URL of the image
+     * @throws {FirebaseError} If the Firestore query fails
+     */
     async function getUserImage(imageRef: DocumentReference): Promise<string> {
         const snapshot = await getDoc(imageRef);
         const data = snapshot.data() as Image;
@@ -45,6 +60,14 @@ export const useImageStore = defineStore('image', () => {
     };
 
     // Actions
+
+    /**
+     * @function
+     * Fetches all images from Firestore and populates {@link imageList}.
+     *
+     * @returns Resolves when the image list has been populated
+     * @throws {FirebaseError} If the Firestore query fails
+     */
     async function getImageList(): Promise<void> {
         const snapshot = await getDocs(collection(db, 'images'));
 
@@ -61,6 +84,14 @@ export const useImageStore = defineStore('image', () => {
         });
     }
 
+    /**
+     * @function
+     * Fetches all non-house images associated with a given case, with resolved download URLs.
+     *
+     * @param caseId - The Firestore document ID of the case
+     * @returns A list of {@link Image} objects with resolved Firebase Storage download URLs
+     * @throws {FirebaseError} If the Firestore query fails
+     */
     async function getImagesByCase(caseId: string): Promise<Image[]> {
         const storage = getStorage();
         const caseRef = doc(db, 'cases', caseId);
@@ -92,6 +123,17 @@ export const useImageStore = defineStore('image', () => {
         }));
     }
 
+    /**
+     * @function
+     * Uploads an image file to Firebase Storage and creates a corresponding Firestore document.
+     * The image is automatically assigned an expiration date two years from the upload date.
+     *
+     * @param file - The image file to upload
+     * @param caseId - The Firestore document ID of the associated case
+     * @param type - The category of the image, e.g. `'house'` or a room name
+     * @returns Resolves when the image has been uploaded and the Firestore document created
+     * @throws {FirebaseError} If the upload or Firestore write fails
+     */
     async function uploadImage(
         file: globalThis.File,
         caseId: string,
@@ -115,7 +157,6 @@ export const useImageStore = defineStore('image', () => {
         });
     }
 
-    // Returns the state, getters and actions
     return {
         imageList,
         getUserImage,
@@ -124,4 +165,3 @@ export const useImageStore = defineStore('image', () => {
         uploadImage,
     };
 });
-
