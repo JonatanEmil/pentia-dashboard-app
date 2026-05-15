@@ -77,6 +77,8 @@ npm run dev
 | `npm run lint:watch` | Watch-tilstand for lint |
 
 ## Projektstruktur
+
+```
 src/
 ├── assets/
 │   ├── icons/          # SVG-ikoner som Vue-komponenter
@@ -90,8 +92,9 @@ src/
 ├── seeders/            # Firestore seed-scripts
 ├── stores/             # Pinia stores (auth, user, case, image, message m.fl.)
 └── views/
-├── client/         # Klient-sider (hjem, profil, kalender, kontrakt m.fl.)
-└── manager/        # Manager-sider (hjem, profil, klientvisning m.fl.)
+    ├── client/         # Klient-sider (hjem, profil, kalender, kontrakt m.fl.)
+    └── manager/        # Manager-sider (hjem, profil, klientvisning m.fl.)
+```
 
 ## Firebase
 
