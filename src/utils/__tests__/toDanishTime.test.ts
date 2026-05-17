@@ -17,7 +17,8 @@ describe('toDanishTime', () => {
     it('zero-pads day and month', () => {
         const date = new Date('2024-01-01T10:00:00Z');
         const result = toDanishTime(date);
-        
+
         expect(result).toContain('01.01.2024');
     });
+
 });

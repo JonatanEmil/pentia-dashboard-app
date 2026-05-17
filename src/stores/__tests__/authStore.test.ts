@@ -25,9 +25,19 @@ describe('useAuthStore', () => {
 
     it('login with unknown email does not login', async () => {
         const authStore = useAuthStore();
-        
-        await authStore.login('kennwasdsad@gmdail.com','client1');
+
+        try {
+            await authStore.login('kennwasdsad@gmdail.com', 'client1');
+        } catch {
+            // Firebase kaster auth/invalid-credential ved ukendt email
+        }
         expect(authStore.currentUser?.id).not.toBeDefined();
+    });
+
+    it('currentUser is null when not logged in', () => {
+        const authStore = useAuthStore();
+
+        expect(authStore.currentUser).toBeNull();
     });
 
 });
