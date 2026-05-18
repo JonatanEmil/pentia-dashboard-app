@@ -30,7 +30,7 @@ og merges ind i `master` når koden er stabil for en produktionsversion.
 master ← developer ← feature/komponent-navn
 
 ### Model
-![Feature branching diagram](../images/feature_branching_diagram.svg)
+![Feature branching diagram](../images/feature_branching_diagram.png)
 *Modificeret fra [Git Branching Strategies: A Comprehensive Guide](https://dev.to/karmpatel/git-branching-strategies-a-comprehensive-guide-24kh)*
 
 ## Commit Messages
