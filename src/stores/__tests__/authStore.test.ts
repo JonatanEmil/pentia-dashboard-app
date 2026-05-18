@@ -19,7 +19,7 @@ describe('useAuthStore', () => {
     it('login sets auth currentUser', async () => {
         const authStore = useAuthStore();
         
-        await authStore.login('kenny.jordstrom@gmail.com','client1');
+        await authStore.login('rikke.sandberg@byggmester.dk','manager2');
         expect(authStore.currentUser?.id).toBeDefined();
     });
 

@@ -1,11 +1,16 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { useBuildingStepStore } from '@/stores/buildingStepStore';
 import { setActivePinia, createPinia } from 'pinia';
+import { useAuthStore } from '@/stores/authStore';
+
+const authStore = useAuthStore();
 
 
 describe('useBuildingStep', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         setActivePinia(createPinia());
+
+        await authStore.login('rikke.sandberg@byggmester.dk','manager2');
     });
 
     it('henter buildingStep korrekt', async () => {
