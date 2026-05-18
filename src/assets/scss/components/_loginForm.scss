@@ -1,0 +1,8 @@
+@use '@/assets/scss/abstracts/colors' as c;
+@use '@/assets/scss/abstracts/fonts' as f;
+
+.loginForm {
+    color: c.$white;
+    box-sizing: border-box;
+}
+

@@ -2,6 +2,8 @@
   <div class="about">
     <h1>This is an about page</h1>
   </div>
+
+      <img href="/src/assets/icons/ikon_besked.svg">
 </template>
 
 <style>
@@ -12,4 +14,5 @@
     align-items: center;
   }
 }
+
 </style>

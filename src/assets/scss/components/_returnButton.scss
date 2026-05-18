@@ -1,0 +1,17 @@
+@use '../abstracts/colors' as c;
+
+.returnButton{
+    display: block;
+    color: c.$primary;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+
+    svg{
+        aspect-ratio: 1/1;
+        height: 100%;
+        width: auto;
+        
+    }
+}

@@ -1,0 +1,17 @@
+
+
+.carouselContainer{
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar { display: none; }
+    scrollbar-width: none;
+
+    & > * {
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        width: 50%;
+    }
+}

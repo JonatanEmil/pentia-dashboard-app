@@ -1,8 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   msg: string
-}>()
-console.log("hej")
+}>();
 </script>
 
 <template>

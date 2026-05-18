@@ -1,8 +1,117 @@
+@use 'abstracts/colors' as c;
+@use 'abstracts/fonts' as f;
+
+@use 'components/addImageButton';
+@use 'components/buildingStepContent';
+@use 'components/buildingStepForm';
+@use 'components/contactBanner';
+@use 'components/chatContainer';
+@use 'components/chatForm';
+@use 'components/chatMessage';
+@use 'components/checkboxWithText';
+@use 'components/carouselContainer';
+@use 'components/carouselHandler';
+@use 'components/dropDown';
+@use 'components/formButtonSubmit';
+@use 'components/generalCard';
+@use 'components/infoCard';
+@use 'components/inputText';
+@use 'components/itemList';
+@use 'components/linkButton';
+@use 'components/loginForm';
+@use 'components/navbarButton';
+@use 'components/navbarContainer';
+@use 'components/profilePictureWithName';
+@use 'components/radioButton';
+@use 'components/returnButton';
+@use 'components/progressCard';
+@use 'components/search';
+
+@use 'globals/dimensions';
 @use 'globals/flex';
+@use 'globals/grid';
 @use 'globals/margin';
 @use 'globals/padding';
-@use 'abstracts/colors' as c;
 
-.wrapper {
-  background-color: c.$primary;
+@use 'views/createClientView';
+@use 'views/clientView';
+@use 'views/chatView';
+@use 'views/loginView';
+@use 'views/managerProfileView';
+@use 'views/manangerHomeView';
+@use 'views/profileView';
+
+body {
+    font-family: f.$font-main;
+    font-weight: f.$font-weight-regular;
+    line-height: 1.4;
+    background-color: c.$background;
+}
+pre{
+    font-family: f.$font-main;
+    font-weight: f.$font-weight-regular;
+    line-height: 1.4;
+}
+
+#app{
+
+    display: grid;
+    grid-template-rows: 1fr 12vh;
+    grid-template-areas:
+        'mainContent'
+        'header';
+    box-sizing: border-box;
+
+    .mainContent{
+        grid-area: mainContent;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        border: 0;
+    }
+    header{
+        grid-area: header;
+        overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+    grid-template-rows: 12vh 1fr;
+    grid-template-areas:
+        'header'
+        'mainContent';
+    }
+
+    &:not(:has(> header > nav)) {
+    grid-template-rows: 100vh ;
+    grid-template-areas:
+        'mainContent';
+    overflow: hidden;
+
+    header{
+        display: none;
+    }
+    }
+}
+
+
+
+.globalpaddings {
+    padding: 50px;
+    box-sizing: border-box;
+
+
+    @media (min-width: 768px) {
+        padding: 80px;
+        box-sizing: border-box;
+
+    }
+
+    @media (min-width: 1024px) {
+        padding: 90px;
+        box-sizing: border-box;
+
+    }
+}
+.hidden{
+    display: none;
 }

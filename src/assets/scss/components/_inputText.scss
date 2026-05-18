@@ -1,0 +1,16 @@
+@use '@/assets/scss/abstracts/colors' as c;
+@use '@/assets/scss/abstracts/fonts' as f;
+
+.inputText{
+  font-family: f.$font-main;
+  background-color: c.$white;
+  color: c.$black;
+  border: none;
+  border-radius: 0;
+
+     &.chat {
+        border-radius: 30px;
+        flex: 1;
+        min-width: 0;
+    }
+}

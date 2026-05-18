@@ -1,0 +1,20 @@
+{
+  "plugin": ["typedoc-plugin-vue"],
+  "projectDocuments": ["./docs-src/markdown/**/*.md"],
+  "excludeVueProperties": true,
+  "entryPoints": [
+    "./src/stores/authStore.ts",
+    "./src/stores/caseStore.ts",
+    "./src/stores/imagesStore.ts",
+    "./src/stores/userStore.ts"
+  ],
+  "entryPointStrategy": "expand",
+  "excludeExternals": true,
+  "tsconfig": "./tsconfig.json",
+  "out": "docs",
+  "externalSymbolLinkMappings": {
+    "@firebase/firestore": {
+      "DocumentReference": "https://firebase.google.com/docs/reference/js/firestore_.documentreference"
+    }
+  }
+}
