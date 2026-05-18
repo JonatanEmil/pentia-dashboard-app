@@ -13,7 +13,6 @@ describe('useBuildingStep', () => {
 
         const step = await store.getBuildingStep('2026-0078357', 3);
 
-        expect(step).toBeDefined();
         expect(step.id).toBeDefined();
     });
 
