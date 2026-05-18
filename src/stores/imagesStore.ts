@@ -15,29 +15,29 @@ import {
 import { getStorage, uploadBytes, ref as storageRef, getDownloadURL } from 'firebase/storage';
 
 /**
- * Represents an image document stored in Firestore.
+ * Repræsenterer et billeddokument gemt i Firestore.
  */
 export interface Image {
-    /** Firestore document ID. */
+    /** Firestore dokument-ID. */
     id: string
-    /** Firebase Storage path or signed download URL. */
+    /** Firebase Storage-sti eller signeret download-URL. */
     path: string
-    /** Category of the image — e.g. `'house'` or a room name. */
+    /** Kategori for billedet — f.eks. `'house'` eller et rumnavn. */
     type: string
-    /** Expiration date of the image, or `null` if not set. */
+    /** Udløbsdato for billedet, eller `null` hvis ikke angivet. */
     expirationDate: Date | null
-    /** Firestore document ID of the related case, or `null` for user profile images. */
+    /** Firestore dokument-ID for den tilknyttede sag, eller `null` for profilbilleder. */
     caseId: string | null
 }
 
 /**
  * @function
- * Handles fetching, uploading and managing images stored in Firestore and Firebase Storage.
+ * Håndterer hentning, upload og styring af billeder gemt i Firestore og Firebase Storage.
  */
 export const useImageStore = defineStore('image', () => {
-    // State
+    // Tilstand
     /**
-     * List of all images fetched from Firestore.
+     * Liste over alle billeder hentet fra Firestore.
      * @type {Image[]}
      */
     const imageList = ref<Image[]>([]);
@@ -46,11 +46,11 @@ export const useImageStore = defineStore('image', () => {
 
     /**
      * @function
-     * Fetches the download URL for a user's profile image.
+     * Henter download-URL'en for en brugers profilbillede.
      *
-     * @param imageRef - Firestore document reference for the image
-     * @returns The Firebase Storage path or download URL of the image
-     * @throws {FirebaseError} If the Firestore query fails
+     * @param imageRef - Firestore dokument-reference for billedet
+     * @returns Firebase Storage-stien eller download-URL'en for billedet
+     * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
     async function getUserImage(imageRef: DocumentReference): Promise<string> {
         const snapshot = await getDoc(imageRef);
@@ -63,10 +63,10 @@ export const useImageStore = defineStore('image', () => {
 
     /**
      * @function
-     * Fetches all images from Firestore and populates {@link imageList}.
+     * Henter alle billeder fra Firestore og udfylder {@link imageList}.
      *
-     * @returns Resolves when the image list has been populated
-     * @throws {FirebaseError} If the Firestore query fails
+     * @returns Løses når billedlisten er udfyldt
+     * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
     async function getImageList(): Promise<void> {
         const snapshot = await getDocs(collection(db, 'images'));
@@ -86,11 +86,11 @@ export const useImageStore = defineStore('image', () => {
 
     /**
      * @function
-     * Fetches all non-house images associated with a given case, with resolved download URLs.
+     * Henter alle ikke-hus-billeder tilknyttet en given sag, med opløste download-URL'er.
      *
-     * @param caseId - The Firestore document ID of the case
-     * @returns A list of {@link Image} objects with resolved Firebase Storage download URLs
-     * @throws {FirebaseError} If the Firestore query fails
+     * @param caseId - Sagens Firestore dokument-ID
+     * @returns En liste af {@link Image} objekter med opløste Firebase Storage download-URL'er
+     * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
     async function getImagesByCase(caseId: string): Promise<Image[]> {
         const storage = getStorage();
@@ -110,7 +110,6 @@ export const useImageStore = defineStore('image', () => {
             try {
                 path = await getDownloadURL(storageRef(storage, doc.data().path));
             } catch {
-                //console.warn('Billede ikke fundet:', doc.data().path);
             }
 
             return {
@@ -125,14 +124,14 @@ export const useImageStore = defineStore('image', () => {
 
     /**
      * @function
-     * Uploads an image file to Firebase Storage and creates a corresponding Firestore document.
-     * The image is automatically assigned an expiration date two years from the upload date.
+     * Uploader en billedfil til Firebase Storage og opretter et tilsvarende Firestore-dokument.
+     * Billedet tildeles automatisk en udløbsdato to år fra upload-datoen.
      *
-     * @param file - The image file to upload
-     * @param caseId - The Firestore document ID of the associated case
-     * @param type - The category of the image, e.g. `'house'` or a room name
-     * @returns Resolves when the image has been uploaded and the Firestore document created
-     * @throws {FirebaseError} If the upload or Firestore write fails
+     * @param file - Billedfilen der skal uploades
+     * @param caseId - Firestore dokument-ID'et for den tilknyttede sag
+     * @param type - Kategorien for billedet, f.eks. `'house'` eller et rumnavn
+     * @returns Løses når billedet er uploadet og Firestore-dokumentet oprettet
+     * @throws {FirebaseError} Hvis upload eller Firestore-skrivning fejler
      */
     async function uploadImage(
         file: globalThis.File,

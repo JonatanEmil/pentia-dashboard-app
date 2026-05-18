@@ -87,10 +87,9 @@ Dette sikrer at:
 ### Merge konflikter
 
 Merge konflikter opstår når to branches har ændret den samme del af en fil.
-GitHub markerer konflikten og blokerer mergen indtil den er løst.
+VS Code markerer konflikterne direkte i editoren og viser antallet øverst til højre.
 
-![Merge konflikt i GitHub](../images/merge_conflict.png)
+![Merge konflikt i VS Code](../images/merge_conflict.png)
 
-De røde linjer viser den eksisterende kode i `developer`, og de grønne linjer viser
-de indkommende ændringer fra feature-branchen. Konflikten løses ved manuelt at vælge
-hvilken version der skal beholdes, og derefter committe resultatet.
+Den øverste blok (markeret med `<<<<<<< ci/cy_pipeline`) viser koden fra den aktuelle branch, og den nederste blok (markeret med `>>>>>>> developer`) viser de indkommende ændringer. Skillelinjen `=======` adskiller de to versioner.
+Konflikten løses ved at klikke **Accept current change**, **Accept incoming change** eller **Accept both changes** øverst i konfliktzonen, og derefter committe resultatet.

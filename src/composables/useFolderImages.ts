@@ -20,7 +20,6 @@ export function useFolderImages(): {
         try {
             caseImages.value = await imageStore.getImagesByCase(caseId);
         } catch (error) {
-            //console.warn('Ingen billeder fundet for case:', caseId);
             caseImages.value = [];
         }
     }

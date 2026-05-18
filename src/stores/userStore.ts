@@ -5,57 +5,57 @@ import { collection, DocumentReference, getDocs, query, where, doc, getDoc, docu
 import { useAuthStore } from './authStore';
 
 /**
- * Represents a user document stored in Firestore.
+ * Repræsenterer et brugerdokument gemt i Firestore.
  */
 export interface User {
-    /** Firestore document reference for this user. */
+    /** Firestore dokument-reference for denne bruger. */
     id: DocumentReference
-    /** First name of the user. */
+    /** Brugerens fornavn. */
     firstName: string
-    /** Last name of the user. */
+    /** Brugerens efternavn. */
     lastName: string
-    /** Phone number of the user. */
+    /** Brugerens telefonnummer. */
     phoneNumber: string
-    /** Role of the user — either `'manager'` or `'client'`. */
+    /** Brugerens rolle — enten `'manager'` eller `'client'`. */
     role: string
-    /** Firestore references to the cases associated with this user. */
+    /** Firestore-referencer til sager tilknyttet denne bruger. */
     caseId: DocumentReference[]
-    /** Firestore reference to the user's profile image document. */
+    /** Firestore-reference til brugerens profilbilleddokument. */
     imageId: DocumentReference
 }
 
 /**
  * @function
- * Handles fetching and managing user data from Firestore.
+ * Håndterer hentning og styring af brugerdata fra Firestore.
  */
 export const useUserStore = defineStore('user', () => {
-    // State
+    // Tilstand
     /**
-     * List of all users in the system.
+     * Liste over alle brugere i systemet.
      * @type {User[]}
      */
     const userList = ref<User[]>([]);
 
     /**
-     * List of clients associated with the currently logged-in manager.
+     * Liste over klienter tilknyttet den aktuelt indloggede manager.
      * @type {User[]}
      */
     const clientList = ref<User[]>([]);
 
     /**
-     * The currently viewed user, or null if none is selected.
+     * Den aktuelt viste bruger, eller null hvis ingen er valgt.
      * @type {User | null}
      */
     const currentUser = ref<User | null>(null);
 
-    // Actions
+    // Handlinger
 
     /**
      * @function
-     * Fetches all users from Firestore and populates {@link userList}.
+     * Henter alle brugere fra Firestore og udfylder {@link userList}.
      *
-     * @returns Resolves when the user list has been populated
-     * @throws {FirebaseError} If the Firestore query fails
+     * @returns Løses når brugerlisten er udfyldt
+     * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
     async function getUserList(): Promise<void> {
         const snapshot = await getDocs(collection(db, 'users'));
@@ -67,11 +67,11 @@ export const useUserStore = defineStore('user', () => {
 
     /**
      * @function
-     * Finds the manager assigned to a given case.
+     * Finder den manager der er tildelt en given sag.
      *
-     * @param caseId - The Firestore document ID of the case
-     * @returns The Firestore document ID of the assigned manager, or an empty string if none found
-     * @throws {FirebaseError} If the Firestore query fails
+     * @param caseId - Sagens Firestore dokument-ID
+     * @returns Firestore dokument-ID'et for den tildelte manager, eller en tom streng hvis ingen findes
+     * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
     async function getManagerForCase(caseId: string): Promise<string> {
         const q = query(
@@ -87,10 +87,10 @@ export const useUserStore = defineStore('user', () => {
 
     /**
      * @function
-     * Fetches all clients associated with the currently logged-in manager and populates {@link clientList}.
+     * Henter alle klienter tilknyttet den aktuelt indloggede manager og udfylder {@link clientList}.
      *
-     * @returns Resolves when the client list has been populated
-     * @throws {FirebaseError} If any Firestore query fails
+     * @returns Løses når klientlisten er udfyldt
+     * @throws {FirebaseError} Hvis en Firestore-forespørgsel fejler
      */
     async function getClientsForManager(): Promise<void> {
         const authStore = useAuthStore();
@@ -123,11 +123,11 @@ export const useUserStore = defineStore('user', () => {
 
     /**
      * @function
-     * Fetches a single user by their Firestore document ID or reference.
+     * Henter en enkelt bruger via deres Firestore dokument-ID eller reference.
      *
-     * @param uid - The user's Firestore document ID or a {@link DocumentReference}
-     * @returns The fetched {@link User} object
-     * @throws {FirebaseError} If the Firestore query fails
+     * @param uid - Brugerens Firestore dokument-ID eller en {@link DocumentReference}
+     * @returns Det hentede {@link User} objekt
+     * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
     async function getUser(uid: string | DocumentReference): Promise<User> {
         uid = typeof uid === 'string' ? doc(db, 'users', uid) : uid;

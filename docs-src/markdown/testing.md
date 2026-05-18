@@ -44,10 +44,10 @@ describe('toDanishTime', () => {
     });
 });
 ```
-Se filer for alle unittests: !!**Tjek alle links**!! <br>
-https://github.com/JonatanEmil/pentia-dashboard-app/blob/vitest/src/composables/__tests__/useBuildingStep.test.ts <br>
-https://github.com/JonatanEmil/pentia-dashboard-app/blob/vitest/src/stores/__tests__/authStore.test.ts <br>
-https://github.com/JonatanEmil/pentia-dashboard-app/blob/vitest/src/utils/__tests__/toDanishTime.test.ts
+Se filer for alle unittests: <br>
+https://github.com/JonatanEmil/pentia-dashboard-app/blob/master/src/composables/__tests__/useBuildingStep.test.ts <br>
+https://github.com/JonatanEmil/pentia-dashboard-app/blob/master/src/stores/__tests__/authStore.test.ts <br>
+https://github.com/JonatanEmil/pentia-dashboard-app/blob/master/src/utils/__tests__/toDanishTime.test.ts
 
 
 ## End-to-End Tests
@@ -106,6 +106,6 @@ describe('Checkmark', () => {
 
 });
 ```
-Se filer for alle E2E tests: !!**Tjek alle links**!! <br>
-https://github.com/JonatanEmil/pentia-dashboard-app/blob/endtoendtest/cypress/e2e/checkmark.cy.js <br>
-https://github.com/JonatanEmil/pentia-dashboard-app/blob/endtoendtest/cypress/e2e/clientChat.cy.js
+Se filer for alle E2E tests: <br>
+https://github.com/JonatanEmil/pentia-dashboard-app/blob/master/cypress/e2e/checkmark.cy.js <br>
+https://github.com/JonatanEmil/pentia-dashboard-app/blob/master/cypress/e2e/clientChat.cy.js

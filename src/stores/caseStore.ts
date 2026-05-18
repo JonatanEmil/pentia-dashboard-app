@@ -5,48 +5,48 @@ import { collection, getDocs, doc, getDoc, query, where, type DocumentReference 
 import { useAuthStore } from './authStore.ts';
 
 /**
- * Represents a renovation case (property) stored in Firestore.
+ * Repræsenterer en renoveringssag (ejendom) gemt i Firestore.
  */
 export interface Case {
-    /** Firestore document ID for the case. */
+    /** Firestore dokument-ID for sagen. */
     caseId: string
-    /** Street name of the property. */
+    /** Vejnavn for ejendommen. */
     roadName: string
-    /** House number of the property. */
+    /** Husnummer for ejendommen. */
     roadNumber: string
-    /** City of the property. */
+    /** By for ejendommen. */
     city: string
-    /** Zip code of the property. */
+    /** Postnummer for ejendommen. */
     zipcode: number
 }
 
 /**
  * @function
- * Handles fetching and managing renovation cases from Firestore.
+ * Håndterer hentning og styring af renoveringssager fra Firestore.
  */
 export const useCaseStore = defineStore('case', () => {
-    // State
+    // Tilstand
     /**
-     * List of all cases associated with the current user.
+     * Liste over alle sager tilknyttet den aktuelle bruger.
      * @type {Case[]}
      */
     const caseList = ref<Case[]>([]);
 
     /**
-     * The currently active case, or undefined if none is selected.
+     * Den aktuelt aktive sag, eller undefined hvis ingen er valgt.
      * @type {Case | undefined}
      */
     const currentCase = ref<Case>();
 
-    // Actions
+    // Handlinger
 
     /**
      * @function
-     * Fetches a single case by its Firestore document reference.
+     * Henter en enkelt sag via dens Firestore dokument-reference.
      *
-     * @param caseRef - Firestore document reference for the case
-     * @returns The fetched {@link Case} object
-     * @throws {FirebaseError} If the Firestore query fails
+     * @param caseRef - Firestore dokument-reference for sagen
+     * @returns Det hentede {@link Case} objekt
+     * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
     async function getCase(caseRef: DocumentReference): Promise<Case> {
         const snapshot = await getDoc(caseRef);
@@ -56,10 +56,10 @@ export const useCaseStore = defineStore('case', () => {
 
     /**
      * @function
-     * Fetches all cases associated with the currently logged-in user and populates {@link caseList}.
+     * Henter alle sager tilknyttet den aktuelt indloggede bruger og udfylder {@link caseList}.
      *
-     * @returns Resolves when the case list has been populated
-     * @throws {FirebaseError} If any Firestore query fails
+     * @returns Løses når saglisten er udfyldt
+     * @throws {FirebaseError} Hvis en Firestore-forespørgsel fejler
      */
     async function getCaseList(): Promise<void> {
         const authStore = useAuthStore();
@@ -86,11 +86,11 @@ export const useCaseStore = defineStore('case', () => {
 
     /**
      * @function
-     * Sets the currently active case by its Firestore document ID or reference.
+     * Sætter den aktuelt aktive sag via dens Firestore dokument-ID eller reference.
      *
-     * @param caseId - The case's Firestore document ID or a {@link DocumentReference}
-     * @returns Resolves when {@link currentCase} has been updated
-     * @throws {FirebaseError} If the Firestore query fails
+     * @param caseId - Sagens Firestore dokument-ID eller en {@link DocumentReference}
+     * @returns Løses når {@link currentCase} er opdateret
+     * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
     async function setCurrentCase(caseId: string | DocumentReference): Promise<void> {
         caseId = typeof caseId === 'string' ? doc(db, 'cases', caseId) : caseId;
@@ -102,11 +102,11 @@ export const useCaseStore = defineStore('case', () => {
 
     /**
      * @function
-     * Finds the manager assigned to a given case.
+     * Finder den manager der er tildelt en given sag.
      *
-     * @param caseId - The Firestore document ID of the case
-     * @returns The Firestore document ID of the assigned manager, or an empty string if none found
-     * @throws {FirebaseError} If the Firestore query fails
+     * @param caseId - Sagens Firestore dokument-ID
+     * @returns Firestore dokument-ID'et for den tildelte manager, eller en tom streng hvis ingen findes
+     * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
     async function getManagerForCase(caseId: string): Promise<string> {
         const q = query(

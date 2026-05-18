@@ -26,8 +26,8 @@ Github udbyder gode muligheder for forberedt samarbejde, som issues der har tilk
 Projektet har tilstræbt Feature Branching som branching-strategi. 
 Det betyder at der oprettes en ny branch for hver feature eller Vue-komponent der udvikles. 
 Når en feature er færdig, merges den tilbage til `developer` branchen via et pull request eller git merge. `developer` bruges som integrationsgren 
-og merges ind i `main` når koden er stabil for en produktionsversion.  
-main ← developer ← feature/komponent-navn
+og merges ind i `master` når koden er stabil for en produktionsversion.  
+master ← developer ← feature/komponent-navn
 
 ### Model
 ![Feature branching diagram](../images/feature_branching_diagram.svg)

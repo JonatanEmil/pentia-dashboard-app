@@ -7,28 +7,28 @@ import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useCaseStore } from './caseStore';
 
 /**
- * Represents an authenticated user in the application.
+ * Repræsenterer en autentificeret bruger i applikationen.
  */
 export interface AuthUser {
-    /** Unique user ID from Firebase Authentication */
+    /** Unikt bruger-ID fra Firebase Authentication */
     id: string
-    /** User role, e.g. `'manager'` or `'client'` */
+    /** Brugerrolle, f.eks. `'manager'` eller `'client'` */
     role: string
-    /** User's email address */
+    /** Brugerens e-mailadresse */
     email?: string
-    /** Firestore references to the user's associated cases */
+    /** Firestore-referencer til brugerens tilknyttede sager */
     caseIds: DocumentReference[]
 }
 
 /**
- * Handles authentication state, login, and logout for the application.
+ * Håndterer autentificeringstilstand, login og logout for applikationen.
  * @function
- * @returns {object} - returns object of all things inside
+ * @returns {object} - returnerer et objekt med alt indholdet
  */
 export const useAuthStore = defineStore('auth', () => {
-    // State
+    // Tilstand
     /**
-     * The currently authenticated user, or null if not logged in.
+     * Den aktuelt autentificerede bruger, eller null hvis ikke logget ind.
      * @type {AuthUser}
      */
     const currentUser = ref<AuthUser | null>(null);
@@ -36,14 +36,14 @@ export const useAuthStore = defineStore('auth', () => {
 
     // Getters
 
-    // Actions
+    // Handlinger
 
     /**
      * @function
-     * Authenticates a user with email and password and redirects based on role.
-     * @param email - takes users input in email field
-     * @param password - takes users input in password field
-     * @returns void - returns void
+     * Autentificerer en bruger med e-mail og adgangskode og videresender baseret på rolle.
+     * @param email - tager brugerens input i e-mailfeltet
+     * @param password - tager brugerens input i adgangskodefeltet
+     * @returns void - returnerer void
      */
     async function login( email: string, password: string ): Promise<void> {
         const auth = getAuth();
@@ -75,10 +75,10 @@ export const useAuthStore = defineStore('auth', () => {
 
     /**
      * @function
-     * Signs out the current user, clears local auth state, and redirects to login.
+     * Logger den aktuelle bruger ud, rydder lokal autentificeringstilstand og videresender til login.
      *
-     * @returns Resolves when sign-out and navigation are complete
-     * @throws {FirebaseError} If the Firebase sign-out call fails
+     * @returns Løses når logout og navigation er fuldført
+     * @throws {FirebaseError} Hvis Firebase logout-kaldet fejler
      */
     async function logout(): Promise<void> {
         const auth = getAuth();
