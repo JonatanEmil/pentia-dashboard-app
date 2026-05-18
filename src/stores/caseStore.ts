@@ -20,18 +20,47 @@ export interface Case {
     zipcode: number
 }
 
+/**
+ * @function
+ * Handles fetching and managing renovation cases from Firestore.
+ */
 export const useCaseStore = defineStore('case', () => {
     // State
+    /**
+     * List of all cases associated with the current user.
+     * @type {Case[]}
+     */
     const caseList = ref<Case[]>([]);
+
+    /**
+     * The currently active case, or undefined if none is selected.
+     * @type {Case | undefined}
+     */
     const currentCase = ref<Case>();
 
     // Actions
+
+    /**
+     * @function
+     * Fetches a single case by its Firestore document reference.
+     *
+     * @param caseRef - Firestore document reference for the case
+     * @returns The fetched {@link Case} object
+     * @throws {FirebaseError} If the Firestore query fails
+     */
     async function getCase(caseRef: DocumentReference): Promise<Case> {
         const snapshot = await getDoc(caseRef);
 
         return { caseId: snapshot.id, ...snapshot.data() } as Case;
     }
 
+    /**
+     * @function
+     * Fetches all cases associated with the currently logged-in user and populates {@link caseList}.
+     *
+     * @returns Resolves when the case list has been populated
+     * @throws {FirebaseError} If any Firestore query fails
+     */
     async function getCaseList(): Promise<void> {
         const authStore = useAuthStore();
 
@@ -55,15 +84,30 @@ export const useCaseStore = defineStore('case', () => {
         }
     }
 
+    /**
+     * @function
+     * Sets the currently active case by its Firestore document ID or reference.
+     *
+     * @param caseId - The case's Firestore document ID or a {@link DocumentReference}
+     * @returns Resolves when {@link currentCase} has been updated
+     * @throws {FirebaseError} If the Firestore query fails
+     */
     async function setCurrentCase(caseId: string | DocumentReference): Promise<void> {
         caseId = typeof caseId === 'string' ? doc(db, 'cases', caseId) : caseId;
 
         const snapshot = await getDoc(caseId);
 
         currentCase.value = { caseId: snapshot.id, ...snapshot.data() } as Case;
-
     }
 
+    /**
+     * @function
+     * Finds the manager assigned to a given case.
+     *
+     * @param caseId - The Firestore document ID of the case
+     * @returns The Firestore document ID of the assigned manager, or an empty string if none found
+     * @throws {FirebaseError} If the Firestore query fails
+     */
     async function getManagerForCase(caseId: string): Promise<string> {
         const q = query(
             collection(db, 'users'),
