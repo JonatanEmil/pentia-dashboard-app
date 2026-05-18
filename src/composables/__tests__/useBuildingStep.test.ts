@@ -3,12 +3,10 @@ import { useBuildingStepStore } from '@/stores/buildingStepStore';
 import { setActivePinia, createPinia } from 'pinia';
 import { useAuthStore } from '@/stores/authStore';
 
-const authStore = useAuthStore();
-
-
 describe('useBuildingStep', () => {
     beforeEach(async() => {
         setActivePinia(createPinia());
+        const authStore = useAuthStore();
 
         await authStore.login('rikke.sandberg@byggmester.dk','manager2');
     });
