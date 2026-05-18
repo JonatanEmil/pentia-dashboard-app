@@ -14,7 +14,7 @@
     "type-check": "vue-tsc --build",
     "lint": "eslint ./src --ext .vue",
     "lint:oxlint": "oxlint . --fix",
-    "lint:eslint": "eslint . --fix --cache",
+    "lint:eslint": "eslint ./src --fix --cache",
     "lint:fix": "npx eslint --fix ./src",
     "lint:watch": "nodemon --watch ./src --ext ts,vue,js --exec \"npm run lint\""
   },

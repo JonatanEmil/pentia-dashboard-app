@@ -12,7 +12,7 @@ defineProps<{
 
 
 const authStore = useAuthStore();
-const userRole = authStore.currentUser.role;
+const userRole = authStore.currentUser?.role;
 </script>
 
 <template>

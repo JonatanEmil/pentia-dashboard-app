@@ -1,8 +1,13 @@
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import { useImageStore } from '@/stores/imagesStore.ts';
 import { type User } from '@/stores/userStore.ts';
 
-export function useClientImages() {
+interface UseClientImages {
+    clientImages: Ref<{ [key: string]: string }>;
+    fetchClientImages: (clients: User[]) => Promise<void>;
+}
+
+export function useClientImages(): UseClientImages {
     const imageStore = useImageStore();
     const clientImages = ref<{ [key: string]: string }>({});
 

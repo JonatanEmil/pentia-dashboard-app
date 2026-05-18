@@ -79,7 +79,7 @@ export const useImageStore = defineStore('image', () => {
             try {
                 path = await getDownloadURL(storageRef(storage, doc.data().path));
             } catch {
-                console.warn('Billede ikke fundet:', doc.data().path);
+                //console.warn('Billede ikke fundet:', doc.data().path);
             }
 
             return {

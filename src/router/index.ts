@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -90,21 +90,6 @@ const router = createRouter({
                     component: () => import('@/views/client/ContractView.vue')
                 },
             ],
-        },
-        {
-            path: '/Nannatestarea',
-            name: 'Nannatestarea',
-            component: () => import('../views/NannaTestView.vue'),
-        },
-        {
-            path: '/Jonatantestarea',
-            name: 'Jonatantestarea',
-            component: () => import('../views/JonatanTestView.vue')
-        },
-        {
-            path: '/valdemartestarea',
-            name: 'ValdemarTestArea',
-            component: () => import('../views/ValdemarTestView.vue'),
         },
 
     ],
