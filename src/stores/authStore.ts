@@ -7,7 +7,7 @@ import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useCaseStore } from './caseStore';
 
 /**
- * Represents a single step in a renovation building plan.
+ * Represents an authenticated user in the application.
  */
 export interface AuthUser {
     /** Unique user ID from Firebase Authentication */
@@ -21,12 +21,16 @@ export interface AuthUser {
 }
 
 /**
- * main function for the authStore.
+ * Handles authentication state, login, and logout for the application.
  * @function
  * @returns {object} - returns object of all things inside
  */
 export const useAuthStore = defineStore('auth', () => {
     // State
+    /**
+     * The currently authenticated user, or null if not logged in.
+     * @type {AuthUser}
+     */
     const currentUser = ref<AuthUser | null>(null);
     const router = useRouter();
 
@@ -35,7 +39,8 @@ export const useAuthStore = defineStore('auth', () => {
     // Actions
 
     /**
-     * main function for the authStore.
+     * @function
+     * Authenticates a user with email and password and redirects based on role.
      * @param email - takes users input in email field
      * @param password - takes users input in password field
      * @returns void - returns void
@@ -55,9 +60,9 @@ export const useAuthStore = defineStore('auth', () => {
             caseIds: userData?.caseId,
         } as AuthUser;
 
-        
+
         const caseStore = useCaseStore();
-        
+
         await caseStore.setCurrentCase(currentUser.value?.caseIds[0] as DocumentReference | string);
 
 
@@ -69,6 +74,7 @@ export const useAuthStore = defineStore('auth', () => {
     }
 
     /**
+     * @function
      * Signs out the current user, clears local auth state, and redirects to login.
      *
      * @returns Resolves when sign-out and navigation are complete

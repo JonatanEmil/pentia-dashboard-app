@@ -8,7 +8,7 @@ export function useFolderImages(): {
     allRooms: Ref<string[]>;
     fetchImages: () => Promise<void>;
     uploadImage: (file: globalThis.File, type: string) => Promise<void>;
-} {
+    } {
     const imageStore = useImageStore();
     const route = useRoute();
 
@@ -20,7 +20,7 @@ export function useFolderImages(): {
         try {
             caseImages.value = await imageStore.getImagesByCase(caseId);
         } catch (error) {
-            console.warn('Ingen billeder fundet for case:', caseId);
+            //console.warn('Ingen billeder fundet for case:', caseId);
             caseImages.value = [];
         }
     }

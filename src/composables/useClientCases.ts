@@ -1,9 +1,14 @@
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import { useCaseStore, type Case } from '@/stores/caseStore.ts';
 import { type User } from '@/stores/userStore.ts';
 import { type DocumentReference } from 'firebase/firestore';
 
-export function useClientCases() {
+interface UseClientCases {
+    clientCases: Ref<{ [key: string]: Case }>;
+    fetchClientCases: (clients: User[]) => Promise<void>;
+}
+
+export function useClientCases(): UseClientCases {
     const caseStore = useCaseStore();
     const clientCases = ref<{ [key: string]: Case }>({});
 

@@ -3,13 +3,18 @@
   "projectDocuments": ["./docs-src/markdown/**/*.md"],
   "excludeVueProperties": true,
   "entryPoints": [
-    "./src/stores",
-    "./src/composables",
-    "./src/utils"
+    "./src/stores/authStore.ts",
+    "./src/stores/caseStore.ts",
+    "./src/stores/imagesStore.ts",
+    "./src/stores/userStore.ts"
   ],
   "entryPointStrategy": "expand",
   "excludeExternals": true,
-  "excludeNotDocumented": true,
   "tsconfig": "./tsconfig.json",
-  "out": "docs"
+  "out": "docs",
+  "externalSymbolLinkMappings": {
+    "@firebase/firestore": {
+      "DocumentReference": "https://firebase.google.com/docs/reference/js/firestore_.documentreference"
+    }
+  }
 }
