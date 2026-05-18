@@ -91,21 +91,7 @@ const router = createRouter({
                 },
             ],
         },
-        {
-            path: '/Nannatestarea',
-            name: 'Nannatestarea',
-            component: () => import('../views/NannaTestView.vue'),
-        },
-        {
-            path: '/Jonatantestarea',
-            name: 'Jonatantestarea',
-            component: () => import('../views/JonatanTestView.vue')
-        },
-        {
-            path: '/valdemartestarea',
-            name: 'ValdemarTestArea',
-            component: () => import('../views/ValdemarTestView.vue'),
-        },
+        
 
     ],
 

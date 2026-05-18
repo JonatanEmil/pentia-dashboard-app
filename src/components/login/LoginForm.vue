@@ -26,3 +26,4 @@ async function handleLogin(): Promise<void> {
     <FormButtonSubmit @click.prevent="handleLogin" class="formButtonSubmit">Login</FormButtonSubmit>
     </form>
 </template>
+
