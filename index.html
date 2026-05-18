@@ -1,0 +1,151 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>pentia-dashboard-app</title><meta name="description" content="Documentation for pentia-dashboard-app"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">pentia-dashboard-app</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>pentia-dashboard-app</h1></div><div class="tsd-panel tsd-typography"><h1 id="pentia-dashboard-app" class="tsd-anchor-link">Pentia Dashboard App<a href="#pentia-dashboard-app" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<p>En mobilvenlig dashboard-applikation til håndtering af byggesager, udviklet som UCL-projekt i samarbejde med Pentia.</p>
+<h2 id="teknologi" class="tsd-anchor-link">Teknologi<a href="#teknologi" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li><strong>Vue 3</strong> med Composition API og <code>&lt;script setup&gt;</code></li>
+<li><strong>TypeScript</strong></li>
+<li><strong>Pinia</strong> til state management</li>
+<li><strong>Vue Router</strong> til navigation</li>
+<li><strong>Firebase / Firestore</strong> til database og autentificering</li>
+<li><strong>SCSS</strong> til styling</li>
+</ul>
+<h2 id="kom-i-gang" class="tsd-anchor-link">Kom i gang<a href="#kom-i-gang" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="forudsætninger" class="tsd-anchor-link">Forudsætninger<a href="#forudsætninger" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Før du kan køre projektet, skal du have følgende installeret på din computer:</p>
+<ol>
+<li><strong>Node.js</strong> – download og installer fra <a href="https://nodejs.org">nodejs.org</a>. Vælg version 20.19.0 eller 22.12.0+</li>
+<li><strong>npm</strong> – følger automatisk med når du installerer Node.js</li>
+<li><strong>Git</strong> – download og installer fra <a href="https://git-scm.com">git-scm.com</a> hvis du ikke allerede har det</li>
+</ol>
+<p>Du kan tjekke om du har dem installeret ved at åbne en terminal og skrive:</p>
+<pre><code class="bash"><span class="hl-0">node</span><span class="hl-1"> </span><span class="hl-2">-v</span><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">-v</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="installation" class="tsd-anchor-link">Installation<a href="#installation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ol>
+<li>Klon projektet ned på din computer:</li>
+</ol>
+<pre><code class="bash"><span class="hl-0">git</span><span class="hl-1"> </span><span class="hl-3">clone</span><span class="hl-1"> &lt;</span><span class="hl-3">repository-ur</span><span class="hl-1">l&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<ol start="2">
+<li>Gå ind i projektmappen:</li>
+</ol>
+<pre><code class="bash"><span class="hl-0">cd</span><span class="hl-1"> </span><span class="hl-3">pentia-dashboard-app</span>
+</code><button type="button">Copy</button></pre>
+
+<ol start="3">
+<li>Opret en <code>.env</code> fil i roden af projektet med Firebase-konfigurationen (få værdierne fra en i gruppen):</li>
+</ol>
+<pre><code class="env">VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
+</code><button type="button">Copy</button></pre>
+
+<ol start="4">
+<li>Installer projektets afhængigheder:</li>
+</ol>
+<pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-3">install</span>
+</code><button type="button">Copy</button></pre>
+
+<ol start="5">
+<li>Start udviklingsserveren:</li>
+</ol>
+<pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-3">run</span><span class="hl-1"> </span><span class="hl-3">dev</span>
+</code><button type="button">Copy</button></pre>
+
+<ol start="6">
+<li>Åbn din browser og gå til adressen der vises i terminalen — typisk <code>http://localhost:5173</code></li>
+</ol>
+<h3 id="scripts" class="tsd-anchor-link">Scripts<a href="#scripts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Beskrivelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm run dev</code></td>
+<td>Start udviklingsserver</td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>Byg til produktion (inkl. type-check)</td>
+</tr>
+<tr>
+<td><code>npm run preview</code></td>
+<td>Forhåndsvis produktionsbuild</td>
+</tr>
+<tr>
+<td><code>npm run type-check</code></td>
+<td>Kør TypeScript type-check</td>
+</tr>
+<tr>
+<td><code>npm run test:unit</code></td>
+<td>Kør unit tests med Vitest</td>
+</tr>
+<tr>
+<td><code>npm run doc</code></td>
+<td>Generer TypeDoc dokumentation</td>
+</tr>
+<tr>
+<td><code>npm run lint</code></td>
+<td>Kør ESLint på src/</td>
+</tr>
+<tr>
+<td><code>npm run lint:fix</code></td>
+<td>Fix ESLint fejl automatisk</td>
+</tr>
+<tr>
+<td><code>npm run lint:oxlint</code></td>
+<td>Kør OxLint med auto-fix</td>
+</tr>
+<tr>
+<td><code>npm run lint:watch</code></td>
+<td>Watch-tilstand for lint</td>
+</tr>
+</tbody>
+</table>
+<h2 id="projektstruktur" class="tsd-anchor-link">Projektstruktur<a href="#projektstruktur" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code><span class="hl-4">src</span><span class="hl-1">/</span><br/><span class="hl-1">├── </span><span class="hl-4">assets</span><span class="hl-1">/</span><br/><span class="hl-1">│   ├── </span><span class="hl-4">icons</span><span class="hl-1">/          # </span><span class="hl-5">SVG</span><span class="hl-1">-</span><span class="hl-4">ikoner</span><span class="hl-1"> </span><span class="hl-4">som</span><span class="hl-1"> </span><span class="hl-4">Vue</span><span class="hl-1">-</span><span class="hl-4">komponenter</span><br/><span class="hl-1">│   ├── </span><span class="hl-4">img</span><span class="hl-1">/            # </span><span class="hl-0">Billeder</span><span class="hl-1"> (</span><span class="hl-4">brugere</span><span class="hl-1">, </span><span class="hl-4">huse</span><span class="hl-1">)</span><br/><span class="hl-1">│   └── </span><span class="hl-4">scss</span><span class="hl-1">/           # </span><span class="hl-4">Global</span><span class="hl-1"> </span><span class="hl-0">SCSS</span><span class="hl-1"> (</span><span class="hl-4">abstracts</span><span class="hl-1">, </span><span class="hl-4">components</span><span class="hl-1">, </span><span class="hl-4">globals</span><span class="hl-1">, </span><span class="hl-4">views</span><span class="hl-1">)</span><br/><span class="hl-1">├── </span><span class="hl-4">components</span><span class="hl-1">/         # </span><span class="hl-4">Genbrugelige</span><span class="hl-1"> </span><span class="hl-4">komponenter</span><br/><span class="hl-1">│   └── </span><span class="hl-4">chat</span><span class="hl-1">/           # </span><span class="hl-4">Chat</span><span class="hl-1">-</span><span class="hl-4">specifikke</span><span class="hl-1"> </span><span class="hl-4">komponenter</span><br/><span class="hl-1">├── </span><span class="hl-4">composables</span><span class="hl-1">/        # </span><span class="hl-4">Genanvendelig</span><span class="hl-1"> </span><span class="hl-0">logik</span><span class="hl-1"> (</span><span class="hl-4">useProfileView</span><span class="hl-1">, </span><span class="hl-4">useChatView</span><span class="hl-1"> </span><span class="hl-4">m</span><span class="hl-1">.</span><span class="hl-4">fl</span><span class="hl-1">.)</span><br/><span class="hl-1">├── </span><span class="hl-4">config</span><span class="hl-1">/             # </span><span class="hl-4">Firebase</span><span class="hl-1"> </span><span class="hl-4">konfiguration</span><br/><span class="hl-1">├── </span><span class="hl-4">router</span><span class="hl-1">/             # </span><span class="hl-4">Vue</span><span class="hl-1"> </span><span class="hl-4">Router</span><span class="hl-1"> </span><span class="hl-4">opsætning</span><br/><span class="hl-1">├── </span><span class="hl-4">seeders</span><span class="hl-1">/            # </span><span class="hl-4">Firestore</span><span class="hl-1"> </span><span class="hl-4">seed</span><span class="hl-1">-</span><span class="hl-4">scripts</span><br/><span class="hl-1">├── </span><span class="hl-4">stores</span><span class="hl-1">/             # </span><span class="hl-4">Pinia</span><span class="hl-1"> </span><span class="hl-0">stores</span><span class="hl-1"> (</span><span class="hl-4">auth</span><span class="hl-1">, </span><span class="hl-4">user</span><span class="hl-1">, </span><span class="hl-4">case</span><span class="hl-1">, </span><span class="hl-4">image</span><span class="hl-1">, </span><span class="hl-4">message</span><span class="hl-1"> </span><span class="hl-4">m</span><span class="hl-1">.</span><span class="hl-4">fl</span><span class="hl-1">.)</span><br/><span class="hl-1">└── </span><span class="hl-4">views</span><span class="hl-1">/</span><br/><span class="hl-1">    ├── </span><span class="hl-4">client</span><span class="hl-1">/         # </span><span class="hl-4">Klient</span><span class="hl-1">-</span><span class="hl-0">sider</span><span class="hl-1"> (</span><span class="hl-4">hjem</span><span class="hl-1">, </span><span class="hl-4">profil</span><span class="hl-1">, </span><span class="hl-4">kalender</span><span class="hl-1">, </span><span class="hl-4">kontrakt</span><span class="hl-1"> </span><span class="hl-4">m</span><span class="hl-1">.</span><span class="hl-4">fl</span><span class="hl-1">.)</span><br/><span class="hl-1">    └── </span><span class="hl-4">manager</span><span class="hl-1">/        # </span><span class="hl-4">Manager</span><span class="hl-1">-</span><span class="hl-0">sider</span><span class="hl-1"> (</span><span class="hl-4">hjem</span><span class="hl-1">, </span><span class="hl-4">profil</span><span class="hl-1">, </span><span class="hl-4">klientvisning</span><span class="hl-1"> </span><span class="hl-4">m</span><span class="hl-1">.</span><span class="hl-4">fl</span><span class="hl-1">.)</span>
+</code><button>Copy</button></pre>
+
+<h2 id="firebase" class="tsd-anchor-link">Firebase<a href="#firebase" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Projektet bruger følgende Firestore-samlinger:</p>
+<ul>
+<li><code>users</code> — brugere med rolle, billede og tilknyttede sager</li>
+<li><code>cases</code> — byggesager med adresseoplysninger</li>
+<li><code>messages</code> — chatbeskeder</li>
+<li><code>images</code> — billeder til brugere og sager</li>
+<li><code>buildingSteps</code> — byggetrin tilknyttet en sag</li>
+</ul>
+<h2 id="brugerroller" class="tsd-anchor-link">Brugerroller<a href="#brugerroller" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Rolle</th>
+<th>Adgang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Manager</strong></td>
+<td>Overblik over alle sager og klienter, chat, mappe</td>
+</tr>
+<tr>
+<td><strong>Klient</strong></td>
+<td>Egen sag, byggetrin, kalender, kontrakt, chat</td>
+</tr>
+</tbody>
+</table>
+<h3 id="seeding-af-database" class="tsd-anchor-link">Seeding af database<a href="#seeding-af-database" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>For at få samme data som projektet er udviklet med, kør den relevante seeder:</p>
+<pre><code class="bash"><span class="hl-0">npx</span><span class="hl-1"> </span><span class="hl-3">vite-node</span><span class="hl-1"> </span><span class="hl-3">src/seeders/</span><span class="hl-1">&lt;</span><span class="hl-3">seeder-fi</span><span class="hl-1">l&gt;</span><span class="hl-3">.ts</span>
+</code><button type="button">Copy</button></pre>
+
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#pentia-dashboard-app"><span>Pentia <wbr/>Dashboard <wbr/>App</span></a><ul><li><a href="#teknologi"><span>Teknologi</span></a></li><li><a href="#kom-i-gang"><span>Kom i gang</span></a></li><li><ul><li><a href="#forudsætninger"><span>Forudsætninger</span></a></li><li><a href="#installation"><span>Installation</span></a></li><li><a href="#scripts"><span>Scripts</span></a></li></ul></li><li><a href="#projektstruktur"><span>Projektstruktur</span></a></li><li><a href="#firebase"><span>Firebase</span></a></li><li><a href="#brugerroller"><span>Brugerroller</span></a></li><li><ul><li><a href="#seeding-af-database"><span>Seeding af database</span></a></li></ul></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">pentia-dashboard-app</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>
