@@ -96,10 +96,6 @@ service cloud.firestore {
         isConnectedUserOnCase(userId)
       );
     }
-    
-        match /{document=**} {
-      allow read, write: if true;
-    }
 
   }
 }
