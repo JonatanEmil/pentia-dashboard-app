@@ -18,7 +18,7 @@ export interface Case {
     city: string
     /** Postnummer for ejendommen. */
     zipcode: number
-}
+} 
 
 /**
  * @function

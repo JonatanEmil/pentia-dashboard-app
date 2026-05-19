@@ -9,23 +9,20 @@ vi.mock('vue-router', () => ({
         push: vi.fn(),
     }),
 }));
-
 describe('useAuthStore', () => {
+    let authStore: ReturnType<typeof useAuthStore>;
+
     beforeEach(() => {
-        //creates a pinia instance
         setActivePinia(createPinia());
+        authStore = useAuthStore();
     });
 
     it('login sets auth currentUser', async () => {
-        const authStore = useAuthStore();
-        
-        await authStore.login('kenny.jordstrom@gmail.com','client1');
+        await authStore.login('rikke.sandberg@byggmester.dk','manager2');
         expect(authStore.currentUser?.id).toBeDefined();
     });
 
     it('login with unknown email does not login', async () => {
-        const authStore = useAuthStore();
-
         try {
             await authStore.login('kennwasdsad@gmdail.com', 'client1');
         } catch {
@@ -35,8 +32,6 @@ describe('useAuthStore', () => {
     });
 
     it('currentUser is null when not logged in', () => {
-        const authStore = useAuthStore();
-
         expect(authStore.currentUser).toBeNull();
     });
 

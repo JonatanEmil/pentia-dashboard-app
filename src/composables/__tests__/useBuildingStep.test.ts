@@ -1,11 +1,20 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { useBuildingStepStore } from '@/stores/buildingStepStore';
 import { setActivePinia, createPinia } from 'pinia';
+import { useAuthStore } from '@/stores/authStore';
 
+vi.mock('vue-router', () => ({
+    useRouter: (): { push: () => void } => ({
+        push: vi.fn(),
+    }),
+}));
 
 describe('useBuildingStep', () => {
-    beforeEach(() => {
+    beforeEach(async() => {
         setActivePinia(createPinia());
+        const authStore = useAuthStore();
+
+        await authStore.login('rikke.sandberg@byggmester.dk','manager2');
     });
 
     it('henter buildingStep korrekt', async () => {
