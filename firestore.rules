@@ -1,18 +1,101 @@
-rules_version='2'
-
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    // Fallback: nægt al adgang medmindre en specifik regel tillader det
     match /{document=**} {
-      // This rule allows anyone with your database reference to view, edit,
-      // and delete all data in your database. It is useful for getting
-      // started, but it is configured to expire after 30 days because it
-      // leaves your app open to attackers. At that time, all client
-      // requests to your database will be denied.
-      //
-      // Make sure to write security rules for your app before that time, or
-      // else all client requests to your database will be denied until you
-      // update your rules.
-      allow read, write: if request.time < timestamp.date(2026, 5, 14);
+      allow read, write: if false;
     }
+
+    // ─── Helper functions ───────────────────────────────────────────
+
+    function isAuth() {
+      return request.auth != null;
+    }
+
+    function getUser(uid) {
+      return get(/databases/$(database)/documents/users/$(uid)).data;
+    }
+
+    function caseRef(caseId) {
+      return /databases/$(database)/documents/cases/$(caseId);
+    }
+
+    function isClient() {
+      return getUser(request.auth.uid).role == 'client';
+    }
+
+    function isManager() {
+      return getUser(request.auth.uid).role == 'manager';
+    }
+
+    function isClientOnCase(caseId) {
+      return isClient() && caseId in getUser(request.auth.uid).caseId;
+    }
+
+    function isManagerOnCase(caseId) {
+      return isManager() && caseId in getUser(request.auth.uid).caseId;
+    }
+
+    function isParticipantOnCase(caseId) {
+      return isClientOnCase(caseId) || isManagerOnCase(caseId);
+    }
+
+    function isConnectedUserOnCase(userId) {
+      let authCases = getUser(request.auth.uid).caseId;
+      let targetCases = getUser(userId).caseId;
+      return authCases.hasAny(targetCases);
+    }
+
+    // ─── Bookings ───────────────────────────────────────────────────
+    match /bookings/{bookingId} {
+      allow read: if isAuth() && isParticipantOnCase(resource.data.caseId);
+      allow create: if isAuth() && isClientOnCase(request.resource.data.caseId);
+    }
+
+    // ─── BuildingSteps ──────────────────────────────────────────────
+    match /buildingSteps/{stepId} {
+      allow read: if isAuth() && isParticipantOnCase(resource.data.caseId);
+      allow update: if isAuth() && isManagerOnCase(resource.data.caseId);
+    }
+
+    // ─── Cases ──────────────────────────────────────────────────────
+    match /cases/{caseId} {
+      allow read: if isAuth() && isParticipantOnCase(caseRef(caseId));
+    }
+
+    // ─── Files ──────────────────────────────────────────────────────
+    match /files/{fileId} {
+      allow read: if isAuth() && isParticipantOnCase(resource.data.caseId);
+      allow create: if isAuth() && isManagerOnCase(request.resource.data.caseId);
+    }
+
+    // ─── Images ─────────────────────────────────────────────────────
+    match /images/{imageId} {
+      allow read: if isAuth() && (
+        resource.data.type == 'users'
+          ? (
+              request.auth.uid == imageId ||
+              isConnectedUserOnCase(imageId)
+            )
+          : isParticipantOnCase(resource.data.caseId)
+      );
+      allow create: if isAuth()
+        && isManagerOnCase(request.resource.data.caseId);
+    }
+
+    // ─── Messages ───────────────────────────────────────────────────
+    match /messages/{messageId} {
+      allow read, write: if true;
+    }
+
+    // ─── Users ──────────────────────────────────────────────────────
+    match /users/{userId} {
+      allow read: if isAuth() && (
+        userId == request.auth.uid ||
+        isConnectedUserOnCase(userId)
+      );
+    }
+
   }
 }
