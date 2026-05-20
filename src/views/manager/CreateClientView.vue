@@ -6,7 +6,7 @@ import CreateClient from '@/components/CreateClient.vue';
 <template>
     <main class="createClientView">
         <img 
-        src="@/assets/img/opretKunder.png" 
+        src="/img/opretKunder.png"
         alt="Opret klient illustration" 
         class="" />
         

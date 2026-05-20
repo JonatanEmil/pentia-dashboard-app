@@ -42,9 +42,9 @@ updateCurrentBuildingStep(caseStore.currentCase?.caseId as string, Number(route.
     </TitleWithText>
 
     <CarouselContainer :gap="2" :startIndex="1">
-        <img src="/src/assets/img/fundamentRight.png" alt="">
-        <img src="/src/assets/img/fundament.png" alt="">
-        <img src="/src/assets/img/fundamentLeft.png" alt="">
+        <img src="/img/fundamentRight.png" alt="">
+        <img src="/img/fundament.png" alt="">
+        <img src="/img/fundamentLeft.png" alt="">
     </CarouselContainer>
     <ItemList 
         v-if="currentBuildingStep"
