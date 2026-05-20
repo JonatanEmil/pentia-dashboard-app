@@ -3,7 +3,7 @@ import { db } from '@/config/firebase';
 
 
 const profileImg = '/img/users/';
-const folderImg = 'images/2025-0078234/';
+const folderImg = '/images/2025-0078234/';
 const houseImg = '/img/houses/';
 const expirationDate = new Date();
 
