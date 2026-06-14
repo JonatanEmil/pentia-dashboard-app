@@ -30,9 +30,7 @@ onMounted(async () => {
         await buildingStepStore.getBuildingStepListForCase(client.value.caseId[0]);
     }
 
-    if (client.value.imageId) {
-        clientImage.value = await imageStore.getUserImage(client.value.imageId);
-    }
+    clientImage.value = await imageStore.getUserImage(userId);
 });
 
 

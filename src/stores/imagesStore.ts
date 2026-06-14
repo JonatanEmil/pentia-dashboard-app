@@ -4,8 +4,6 @@ import { db } from '@/config/firebase';
 import {
     collection,
     getDocs,
-    DocumentReference,
-    getDoc,
     query,
     where,
     doc,
@@ -52,11 +50,10 @@ export const useImageStore = defineStore('image', () => {
      * @returns Firebase Storage-stien eller download-URL'en for billedet
      * @throws {FirebaseError} Hvis Firestore-forespørgslen fejler
      */
-    async function getUserImage(imageRef: DocumentReference): Promise<string> {
-        const snapshot = await getDoc(imageRef);
-        const data = snapshot.data() as Image;
+    async function getUserImage(userId: string): Promise<string> {
+        const storage = getStorage();
 
-        return data.path;
+        return await getDownloadURL(storageRef(storage, `userImages/${userId}.png`));
     };
 
     // Actions

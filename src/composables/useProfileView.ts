@@ -32,7 +32,7 @@ export function useProfileView(): ProfileView {
     onMounted(async () => {
         user.value = await userStore.getUser(authStore.currentUser?.id ?? '');
         authUser.value = authStore.currentUser;
-        profileImage.value = await imageStore.getUserImage(user.value.imageId);
+        profileImage.value = await imageStore.getUserImage(authStore.currentUser?.id ?? '');
 
         await caseStore.getCaseList();
         await imageStore.getImageList();

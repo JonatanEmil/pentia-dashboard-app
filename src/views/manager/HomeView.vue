@@ -34,7 +34,7 @@ onMounted(async () => {
     if (!authStore.currentUser) return;
 
     currentUser.value = await userStore.getUser(authStore.currentUser.id);
-    managerImage.value = await imageStore.getUserImage(currentUser.value.imageId);
+    managerImage.value = await imageStore.getUserImage(authStore.currentUser.id);
 
     await userStore.getClientsForManager();
     await fetchClientImages(userStore.clientList);

@@ -20,8 +20,6 @@ export interface User {
     role: string
     /** Firestore-referencer til sager tilknyttet denne bruger. */
     caseId: DocumentReference[]
-    /** Firestore-reference til brugerens profilbilleddokument. */
-    imageId: DocumentReference
 }
 
 /**
@@ -141,7 +139,6 @@ export const useUserStore = defineStore('user', () => {
             lastName: data.lastName,
             phoneNumber: data.phoneNumber,
             role: data.role,
-            imageId: data.imageId,
             caseId: data.caseId,
         };
     }

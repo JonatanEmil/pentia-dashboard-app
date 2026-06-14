@@ -14,7 +14,7 @@ export function useClientImages(): UseClientImages {
     async function fetchClientImages(clients: User[]): Promise<void> {
         const imageEntries = await Promise.all(
             clients.map(async (client) => {
-                const path = await imageStore.getUserImage(client.imageId);
+                const path = await imageStore.getUserImage(client.id.id);
 
                 return [client.id.id, path];
             }),
