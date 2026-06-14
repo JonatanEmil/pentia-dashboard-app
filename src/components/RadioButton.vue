@@ -15,3 +15,6 @@ defineEmits(['update:modelValue']);
         <slot></slot>
     </button>
 </template>
+<style scoped lang="scss">
+
+</style>

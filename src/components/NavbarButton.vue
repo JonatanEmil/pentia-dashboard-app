@@ -15,3 +15,7 @@ defineProps<{
         <p class="font--p" v-if="name" >{{ name }}</p>
     </RouterLink>
 </template>
+<style scoped lang="scss">
+    @use '@/assets/scss/components/navbarButton';
+
+</style>

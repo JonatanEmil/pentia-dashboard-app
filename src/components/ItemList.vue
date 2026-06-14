@@ -27,4 +27,6 @@ defineProps<{
         </div>
     </div>
 </template>
-<style scoped></style>
+<style scoped lang="scss">
+    @use '@/assets/scss/components/itemList';
+</style>

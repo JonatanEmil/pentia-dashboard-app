@@ -31,3 +31,6 @@ async function handleUpload(event: Event): Promise<void> {
             @change="handleUpload" />
     </button>
 </template>
+<style scoped lang="scss">
+    @use '@/assets/scss/components/addImageButton';
+</style>

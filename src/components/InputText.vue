@@ -21,3 +21,6 @@ const emit = defineEmits<{
     class="inputText"/>
 
 </template>
+<style scoped lang="scss">
+
+</style>

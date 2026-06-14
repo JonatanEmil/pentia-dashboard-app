@@ -55,3 +55,6 @@ const {
         <ChatForm @send="handleSend" class="stickyBottom" />
     </div>
 </template>
+<style scoped lang="scss">
+    @use '@/assets/scss/components/chatContainer';
+</style>

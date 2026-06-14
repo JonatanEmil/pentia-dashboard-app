@@ -1,31 +1,21 @@
 @use 'abstracts/colors' as c;
 @use 'abstracts/fonts' as f;
 
-@use 'components/addImageButton';
-@use 'components/buildingStepContent';
-@use 'components/buildingStepForm';
-@use 'components/contactBanner';
-@use 'components/chatContainer';
-@use 'components/chatForm';
-@use 'components/chatMessage';
-@use 'components/checkboxWithText';
-@use 'components/carouselContainer';
-@use 'components/carouselHandler';
-@use 'components/dropDown';
-@use 'components/formButtonSubmit';
-@use 'components/generalCard';
-@use 'components/infoCard';
-@use 'components/inputText';
-@use 'components/itemList';
-@use 'components/linkButton';
-@use 'components/loginForm';
-@use 'components/navbarButton';
-@use 'components/navbarContainer';
-@use 'components/profilePictureWithName';
-@use 'components/radioButton';
-@use 'components/returnButton';
-@use 'components/progressCard';
-@use 'components/search';
+//Gamle scss loading måde
+@use '@/assets/scss/components/contactBanner';
+@use '@/assets/scss/components/chatForm';
+@use '@/assets/scss/components/checkboxWithText';
+@use '@/assets/scss/components/carouselContainer';
+@use '@/assets/scss/components/carouselHandler';
+@use '@/assets/scss/components/dropDown';
+@use '@/assets/scss/components/formButtonSubmit';
+@use '@/assets/scss/components/generalCard';
+@use '@/assets/scss/components/inputText';
+@use '@/assets/scss/components/profilePictureWithName';
+@use '@/assets/scss/components/radioButton';
+@use '@/assets/scss/components/returnButton';
+@use '@/assets/scss/components/search';
+//
 
 @use 'globals/dimensions';
 @use 'globals/flex';

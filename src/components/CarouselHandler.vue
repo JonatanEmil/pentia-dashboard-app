@@ -30,3 +30,6 @@ const userRole = authStore.currentUser?.role;
         </CarouselContainer>
     </div>
 </template>
+<style scoped lang="scss">
+
+</style>

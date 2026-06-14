@@ -36,3 +36,6 @@ status: boolean,
         </RouterLink>
     </div>
 </template>
+<style scoped lang="scss">
+    @use '@/assets/scss/components/progressCard';
+</style>

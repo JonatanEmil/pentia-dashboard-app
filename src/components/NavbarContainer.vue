@@ -103,3 +103,7 @@ if(!authStore.currentUser){
         />
     </nav>
 </template>
+<style scoped lang="scss">
+@use '@/assets/scss/components/navbarContainer';
+
+</style>

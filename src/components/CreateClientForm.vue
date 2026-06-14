@@ -16,3 +16,6 @@ import FormButtonSubmit from './FormButtonSubmit.vue';
     </form>
     
 </template>
+<style scoped lang="scss">
+
+</style>

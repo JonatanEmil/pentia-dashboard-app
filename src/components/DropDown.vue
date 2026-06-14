@@ -25,3 +25,6 @@ const visible = ref(false);
         </div>
     </div>
 </template>
+<style scoped lang="scss">
+
+</style>

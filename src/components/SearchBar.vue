@@ -17,3 +17,6 @@ async function handleSearch(): Promise<void> {
         <input type="text" v-model="fetchContent" @keyup.enter="handleSearch" placeholder="Søg">
     </div>
 </template>
+<style scoped lang="scss">
+
+</style>

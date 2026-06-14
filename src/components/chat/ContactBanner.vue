@@ -14,4 +14,6 @@ defineProps<{
 </div>
 
 </template>
-
+<style scoped lang="scss">
+    @use '@/assets/scss/components/contactBanner';
+</style>

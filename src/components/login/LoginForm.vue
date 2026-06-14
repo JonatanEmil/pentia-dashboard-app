@@ -27,3 +27,7 @@ async function handleLogin(): Promise<void> {
     </form>
 </template>
 
+
+<style  lang="scss">
+    @use '@/assets/scss/components/loginForm';
+</style>

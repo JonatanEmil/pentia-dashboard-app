@@ -38,3 +38,5 @@ function handleSend(): void {
         </FormButtonSubmit>
     </div>
 </template>
+<style lang="scss">
+</style>

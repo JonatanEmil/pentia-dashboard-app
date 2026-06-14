@@ -13,3 +13,6 @@ defineProps<{
     </button>
 
 </template>
+<style scoped lang="scss">
+
+</style>

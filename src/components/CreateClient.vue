@@ -14,3 +14,6 @@ import CreateClientForm from './CreateClientForm.vue';
     </div>
 
 </template>
+<style scoped lang="scss">
+
+</style>

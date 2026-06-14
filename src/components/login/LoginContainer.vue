@@ -14,4 +14,6 @@ import ProfileSvg from '@/assets/icons/ProfileIcon.vue';
         <LoginForm />
     </div>
 </template>
+<style scoped lang="scss">
 
+</style>

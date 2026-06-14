@@ -44,3 +44,6 @@ async function sendBuildingStepForm(event: Event): Promise<void> {
     </form>
 
 </template>
+<style scoped lang="scss">
+    @use '@/assets/scss/components/buildingStepForm';
+</style>

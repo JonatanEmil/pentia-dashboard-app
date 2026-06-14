@@ -82,3 +82,6 @@ onMounted(() => {
         </ul>
     </div>
 </template>
+<style scoped lang="scss">
+    @use '@/assets/scss/components/buildingStepContent';
+</style>

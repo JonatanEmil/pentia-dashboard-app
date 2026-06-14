@@ -46,3 +46,6 @@ onMounted(async () => {
     >{{title}}
     </RouterLink>
 </template>
+<style scoped lang="scss">
+    @use '@/assets/scss/components/linkButton';
+</style>

@@ -28,3 +28,6 @@ const router = useRouter();
         <ReturnIcon/>
     </button>
 </template>
+<style scoped lang="scss">
+
+</style>
